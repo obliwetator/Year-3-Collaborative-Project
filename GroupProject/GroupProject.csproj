@@ -92,6 +92,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminDashbord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminDashbord.Designer.cs">
+      <DependentUpon>AdminDashbord.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
