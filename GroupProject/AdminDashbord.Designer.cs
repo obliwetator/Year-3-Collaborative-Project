@@ -29,12 +29,32 @@ namespace GroupProject
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnOne = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnOne
+            // 
+            this.btnOne.Location = new System.Drawing.Point(525, 196);
+            this.btnOne.Name = "btnOne";
+            this.btnOne.Size = new System.Drawing.Size(75, 23);
+            this.btnOne.TabIndex = 0;
+            this.btnOne.Text = "button1";
+            this.btnOne.UseVisualStyleBackColor = true;
+            // 
+            // AdminDashbord
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnOne);
+            this.Name = "AdminDashbord";
             this.Text = "AdminDashbord";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnOne;
     }
 }
