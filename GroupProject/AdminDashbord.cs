@@ -16,5 +16,13 @@ namespace GroupProject
         {
             InitializeComponent();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminUpdatingPage f3 = new AdminUpdatingPage();
+            f3.Show();
+
+        }
     }
 }

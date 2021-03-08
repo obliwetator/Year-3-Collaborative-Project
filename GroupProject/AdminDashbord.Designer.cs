@@ -66,6 +66,7 @@ namespace GroupProject
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Click here to update database";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnSetApr
             // 

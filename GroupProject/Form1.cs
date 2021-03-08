@@ -16,5 +16,13 @@ namespace GroupProject
     {
       InitializeComponent();
     }
-  }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminDashbord f2 = new AdminDashbord();
+            f2.Show();
+
+        }
+    }
 }
