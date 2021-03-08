@@ -98,6 +98,12 @@
     <Compile Include="AdminDashbord.Designer.cs">
       <DependentUpon>AdminDashbord.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminUpdatingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUpdatingPage.Designer.cs">
+      <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
