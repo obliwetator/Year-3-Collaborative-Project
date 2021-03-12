@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GroupProject.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +11,19 @@ using System.Windows.Forms;
 
 namespace GroupProject
 {
-  public partial class Form1 : Form
+  public partial class EntryForm : Form
   {
-    public Form1()
+    public EntryForm()
     {
       InitializeComponent();
+    }
+
+
+    private void Form1_Load(object sender, EventArgs e)
+    {
+      clsDatabase clsDB = new clsDatabase();
+
+      clsDB.GetUserCarConfigurations();
     }
   }
 }
