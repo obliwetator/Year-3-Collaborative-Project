@@ -94,6 +94,8 @@
   <ItemGroup>
     <Compile Include="Classes\clsDatabase.cs" />
     <Compile Include="Classes\Save_Load.cs" />
+    <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
+    <Compile Include="Classes\User\clsUserConfiguration.cs" />
     <Compile Include="EntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
