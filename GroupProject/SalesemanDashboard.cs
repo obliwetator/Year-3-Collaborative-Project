@@ -16,5 +16,10 @@ namespace GroupProject
     {
       InitializeComponent();
     }
+
+    private void SalesemanDashboard_Load(object sender, EventArgs e)
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }
