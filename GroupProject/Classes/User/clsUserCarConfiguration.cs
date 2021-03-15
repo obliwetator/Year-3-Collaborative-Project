@@ -12,5 +12,6 @@ namespace GroupProject.Classes.User
     public int user_id { get; set; }
     public int modification { get; set; }
     public int configuration_id { get; set; }
+    public string modification_name { get; set; }
   }
 }
