@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupProject.Classes
 {
-  class Save_Load
+  class SaveLoad
   {
   }
 }
