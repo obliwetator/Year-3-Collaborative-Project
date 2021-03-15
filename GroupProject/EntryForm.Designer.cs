@@ -29,19 +29,64 @@ namespace GroupProject
     /// </summary>
     private void InitializeComponent()
     {
+      this.lblCarId = new System.Windows.Forms.Label();
+      this.lblModel = new System.Windows.Forms.Label();
+      this.lblType = new System.Windows.Forms.Label();
+      this.lblYear = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
-      // Form1
+      // lblCarId
+      // 
+      this.lblCarId.Location = new System.Drawing.Point(60, 54);
+      this.lblCarId.Name = "lblCarId";
+      this.lblCarId.Size = new System.Drawing.Size(100, 23);
+      this.lblCarId.TabIndex = 0;
+      this.lblCarId.Text = "Car ID";
+      // 
+      // lblModel
+      // 
+      this.lblModel.Location = new System.Drawing.Point(60, 77);
+      this.lblModel.Name = "lblModel";
+      this.lblModel.Size = new System.Drawing.Size(100, 23);
+      this.lblModel.TabIndex = 1;
+      this.lblModel.Text = "Model";
+      // 
+      // lblType
+      // 
+      this.lblType.Location = new System.Drawing.Point(60, 100);
+      this.lblType.Name = "lblType";
+      this.lblType.Size = new System.Drawing.Size(100, 23);
+      this.lblType.TabIndex = 2;
+      this.lblType.Text = "Type";
+      // 
+      // lblYear
+      // 
+      this.lblYear.Location = new System.Drawing.Point(60, 123);
+      this.lblYear.Name = "lblYear";
+      this.lblYear.Size = new System.Drawing.Size(100, 23);
+      this.lblYear.TabIndex = 3;
+      this.lblYear.Text = "Year";
+      // 
+      // EntryForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Name = "Form1";
+      this.Controls.Add(this.lblYear);
+      this.Controls.Add(this.lblType);
+      this.Controls.Add(this.lblModel);
+      this.Controls.Add(this.lblCarId);
+      this.Name = "EntryForm";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.ResumeLayout(false);
-
     }
+
+    private System.Windows.Forms.Label lblType;
+    private System.Windows.Forms.Label lblYear;
+
+    private System.Windows.Forms.Label lblModel;
+    private System.Windows.Forms.Label lblCarId;
 
     #endregion
   }
