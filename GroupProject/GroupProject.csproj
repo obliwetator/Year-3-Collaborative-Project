@@ -112,6 +112,12 @@
     <Compile Include="SalesemanDashboard.Designer.cs">
       <DependentUpon>SalesemanDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserConfirmCarChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserConfirmCarChoice.Designer.cs">
+      <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewAndCustomiseCar.cs">
       <SubType>Form</SubType>
     </Compile>
