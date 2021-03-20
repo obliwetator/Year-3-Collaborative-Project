@@ -92,6 +92,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\CarCustomizationAvailable.cs" />
     <Compile Include="Classes\Car\clsCar.cs" />
     <Compile Include="Classes\clsDatabase.cs" />
     <Compile Include="Classes\SaveLoad.cs" />
