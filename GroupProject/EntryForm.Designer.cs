@@ -33,6 +33,7 @@ namespace GroupProject
       this.lblModel = new System.Windows.Forms.Label();
       this.lblType = new System.Windows.Forms.Label();
       this.lblYear = new System.Windows.Forms.Label();
+      this.btnContinue = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // lblCarId
@@ -67,11 +68,22 @@ namespace GroupProject
       this.lblYear.TabIndex = 3;
       this.lblYear.Text = "Year";
       // 
+      // btnContinue
+      // 
+      this.btnContinue.Location = new System.Drawing.Point(576, 358);
+      this.btnContinue.Name = "btnContinue";
+      this.btnContinue.Size = new System.Drawing.Size(94, 46);
+      this.btnContinue.TabIndex = 4;
+      this.btnContinue.Text = "Continue";
+      this.btnContinue.UseVisualStyleBackColor = true;
+      this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
+      // 
       // EntryForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnContinue);
       this.Controls.Add(this.lblYear);
       this.Controls.Add(this.lblType);
       this.Controls.Add(this.lblModel);
@@ -81,6 +93,8 @@ namespace GroupProject
       this.Load += new System.EventHandler(this.Form1_Load);
       this.ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Button btnContinue;
 
     private System.Windows.Forms.Label lblType;
     private System.Windows.Forms.Label lblYear;
