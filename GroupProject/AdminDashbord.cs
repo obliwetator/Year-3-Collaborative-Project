@@ -32,5 +32,12 @@ namespace GroupProject
             f4.Show();
 
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Delete f5 = new Delete();
+            f5.Show();
+        }
     }
 }

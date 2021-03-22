@@ -46,6 +46,7 @@ namespace GroupProject
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Click here to delete a car";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnInsert
             // 
