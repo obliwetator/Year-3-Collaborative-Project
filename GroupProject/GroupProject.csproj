@@ -116,6 +116,7 @@
     <Compile Include="APR.Designer.cs">
       <DependentUpon>APR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Database.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,8 +172,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Classes\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
