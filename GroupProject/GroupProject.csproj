@@ -104,28 +104,31 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SalesmanDashboard.cs">
+    <Compile Include="Forms\Salesman\SalesmanDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SalesmanDashboard.Designer.cs">
+    <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserConfirmCarChoice.cs">
+    <Compile Include="Forms\User\UserConfirmCarChoice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserConfirmCarChoice.Designer.cs">
+    <Compile Include="Forms\User\UserConfirmCarChoice.Designer.cs">
       <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewAndCustomiseCar.cs">
+    <Compile Include="Forms\User\ViewAndCustomiseCar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewAndCustomiseCar.Designer.cs">
+    <Compile Include="Forms\User\ViewAndCustomiseCar.Designer.cs">
       <DependentUpon>ViewAndCustomiseCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
+      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -136,9 +139,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="SalesmanDashboard.resx">
-      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
