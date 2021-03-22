@@ -104,6 +104,12 @@
     <Compile Include="AdminUpdatingPage.Designer.cs">
       <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="APR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="APR.Designer.cs">
+      <DependentUpon>APR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,6 +123,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminUpdatingPage.resx">
       <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="APR.resx">
+      <DependentUpon>APR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
