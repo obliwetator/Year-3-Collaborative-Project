@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GroupProject
 {
-  public partial class SalesemanDashboard : Form
+  public partial class SalesmanDashboard : Form
   {
-    public SalesemanDashboard()
+    public SalesmanDashboard()
     {
       InitializeComponent();
     }
 
-    private void SalesemanDashboard_Load(object sender, EventArgs e)
+    private void SalesmanDashboard_Load(object sender, EventArgs e)
     {
       throw new System.NotImplementedException();
     }

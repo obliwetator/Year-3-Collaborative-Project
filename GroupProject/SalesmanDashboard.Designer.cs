@@ -1,7 +1,7 @@
 ﻿
 namespace GroupProject
 {
-  partial class SalesemanDashboard
+  partial class SalesmanDashboard
   {
     /// <summary>
     /// Required designer variable.
@@ -36,9 +36,9 @@ namespace GroupProject
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Name = "SalesemanDashboard";
+      this.Name = "SalesmanDashboard";
       this.Text = "SalesemanDashboard";
-      this.Load += new System.EventHandler(this.SalesemanDashboard_Load);
+      this.Load += new System.EventHandler(this.SalesmanDashboard_Load);
       this.ResumeLayout(false);
     }
 

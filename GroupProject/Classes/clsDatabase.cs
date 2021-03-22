@@ -43,20 +43,20 @@ namespace GroupProject.Classes
       //  }
       //}
 
-      List<clsUserConfiguration> userConfigurations = new List<clsUserConfiguration>();
-      List<clsUserCarConfiguration> userCarConfigurations = new List<clsUserCarConfiguration>();
+      List<ClsUserConfiguration> userConfigurations = new List<ClsUserConfiguration>();
+      List<ClsUserCarConfiguration> userCarConfigurations = new List<ClsUserCarConfiguration>();
 
       using (MySqlDataReader reader = command.ExecuteReader())
       {
 
         while (reader.Read())
         {
-          userConfigurations.Add(new clsUserConfiguration
+          userConfigurations.Add(new ClsUserConfiguration
           {
-            ID = reader.GetInt32(0),
-            description = reader.GetString(1),
-            user_id = reader.GetInt32(2),
-            car_id = reader.GetInt32(3)
+            Id = reader.GetInt32(0),
+            Description = reader.GetString(1),
+            UserId = reader.GetInt32(2),
+            CarId = reader.GetInt32(3)
           });
         }
 		// Get next data set
@@ -64,13 +64,14 @@ namespace GroupProject.Classes
 
         while (reader.Read())
         {
-          userCarConfigurations.Add(new clsUserCarConfiguration
+          userCarConfigurations.Add(new ClsUserCarConfiguration
           {
-            ID = reader.GetInt32(0),
-            user_id = reader.GetInt32(1),
-            modification = reader.GetInt32(2),
-            configuration_id = reader.GetInt32(3),
-            modification_name = reader.GetString(4)
+            Id = reader.GetInt32(0),
+            UserId = reader.GetInt32(1),
+            Modification = reader.GetInt32(2),
+            ConfigurationId = reader.GetInt32(3),
+            ModificationName = reader.GetString(4),
+            Price = reader.GetFloat(5)
           });
         }
       }

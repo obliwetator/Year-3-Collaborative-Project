@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace GroupProject.Classes.User
 {
-  class clsUserConfiguration
+  class ClsUserConfiguration
   {
-    public int ID { get; set; }
-    public string description { get; set; }
-    public int user_id { get; set; }
-    public int car_id { get; set; }
+    public int Id { get; set; }
+    public string Description { get; set; }
+    public int UserId { get; set; }
+    public int CarId { get; set; }
   }
 }
