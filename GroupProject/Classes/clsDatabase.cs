@@ -103,8 +103,9 @@ namespace GroupProject.Classes
         ModelId = reader.GetInt32(1),
         TypeId = reader.GetInt32(2),
         Year = reader.GetInt32(3),
-        Model = reader.GetString(4),
-        Type = reader.GetString(5)
+        Price = reader.GetFloat(4),
+        Model = reader.GetString(5),
+        Type = reader.GetString(6),
       };
       conn.Close();
 
@@ -139,7 +140,8 @@ namespace GroupProject.Classes
         customizationsAvailable.Add(new CarCustomizationAvailable
         {
           Id = reader.GetInt32(0),
-          Modifications = reader.GetString(1)
+          Modifications = reader.GetString(1),
+          Price = reader.GetFloat(2)
         });
       };
       
