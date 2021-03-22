@@ -92,6 +92,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddingCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddingCar.Designer.cs">
+      <DependentUpon>AddingCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminDashbord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddingCar.resx">
+      <DependentUpon>AddingCar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminDashbord.resx">
       <DependentUpon>AdminDashbord.cs</DependentUpon>
     </EmbeddedResource>

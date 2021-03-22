@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace GroupProject
 {
@@ -38,6 +40,13 @@ namespace GroupProject
             this.Hide();
             Delete f5 = new Delete();
             f5.Show();
+        }
+
+        private void btnInsert_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddingCar f6 = new AddingCar();
+            f6.Show();
         }
     }
 }

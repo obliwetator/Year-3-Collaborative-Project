@@ -57,6 +57,7 @@ namespace GroupProject
             this.btnInsert.TabIndex = 10;
             this.btnInsert.Text = "Click here to add a car to the system";
             this.btnInsert.UseVisualStyleBackColor = true;
+            this.btnInsert.Click += new System.EventHandler(this.btnInsert_Click);
             // 
             // btnUpdate
             // 
