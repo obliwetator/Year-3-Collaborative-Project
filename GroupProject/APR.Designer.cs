@@ -90,6 +90,7 @@ namespace GroupProject
             this.btnAPR.TabIndex = 13;
             this.btnAPR.Text = "APR%";
             this.btnAPR.UseVisualStyleBackColor = true;
+            this.btnAPR.Click += new System.EventHandler(this.btnAPR_Click);
             // 
             // APR
             // 

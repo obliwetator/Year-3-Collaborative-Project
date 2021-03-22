@@ -77,6 +77,7 @@ namespace GroupProject
             this.btnSetApr.TabIndex = 8;
             this.btnSetApr.Text = "Click here to set APR%";
             this.btnSetApr.UseVisualStyleBackColor = true;
+            this.btnSetApr.Click += new System.EventHandler(this.btnSetApr_Click);
             // 
             // lblUsername
             // 

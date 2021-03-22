@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace GroupProject
 {
@@ -15,6 +17,11 @@ namespace GroupProject
         public APR()
         {
             InitializeComponent();
+        }
+
+        private void btnAPR_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,5 +24,13 @@ namespace GroupProject
             f3.Show();
 
         }
+
+        private void btnSetApr_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            APR f4 = new APR();
+            f4.Show();
+
+        }
     }
 }
