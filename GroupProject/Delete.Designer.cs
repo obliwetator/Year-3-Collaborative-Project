@@ -32,7 +32,7 @@ namespace GroupProject
             this.label1 = new System.Windows.Forms.Label();
             this.lblDashbord = new System.Windows.Forms.Label();
             this.cboDelete = new System.Windows.Forms.ComboBox();
-            this.lblCarDelete = new System.Windows.Forms.Label();
+            this.lblCarID = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -64,15 +64,16 @@ namespace GroupProject
             this.cboDelete.Name = "cboDelete";
             this.cboDelete.Size = new System.Drawing.Size(211, 28);
             this.cboDelete.TabIndex = 10;
+            this.cboDelete.SelectedIndexChanged += new System.EventHandler(this.cboDelete_SelectedIndexChanged);
             // 
-            // lblCarDelete
+            // lblCarID
             // 
-            this.lblCarDelete.AutoSize = true;
-            this.lblCarDelete.Location = new System.Drawing.Point(578, 222);
-            this.lblCarDelete.Name = "lblCarDelete";
-            this.lblCarDelete.Size = new System.Drawing.Size(51, 20);
-            this.lblCarDelete.TabIndex = 11;
-            this.lblCarDelete.Text = "label2";
+            this.lblCarID.AutoSize = true;
+            this.lblCarID.Location = new System.Drawing.Point(147, 235);
+            this.lblCarID.Name = "lblCarID";
+            this.lblCarID.Size = new System.Drawing.Size(51, 20);
+            this.lblCarID.TabIndex = 11;
+            this.lblCarID.Text = "label2";
             // 
             // btnDelete
             // 
@@ -89,7 +90,7 @@ namespace GroupProject
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.lblCarDelete);
+            this.Controls.Add(this.lblCarID);
             this.Controls.Add(this.cboDelete);
             this.Controls.Add(this.lblDashbord);
             this.Controls.Add(this.label1);
@@ -105,7 +106,7 @@ namespace GroupProject
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblDashbord;
         private System.Windows.Forms.ComboBox cboDelete;
-        private System.Windows.Forms.Label lblCarDelete;
+        private System.Windows.Forms.Label lblCarID;
         private System.Windows.Forms.Button btnDelete;
     }
 }

@@ -18,5 +18,7 @@ namespace GroupProject.Classes
             MySqlConnection cnn = new MySqlConnection(conString); // create SQL connection 
             return cnn;
         }
+
+        
     }
 }
