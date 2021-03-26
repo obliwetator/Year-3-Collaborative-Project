@@ -1,5 +1,5 @@
 ﻿
-namespace GroupProject
+namespace GroupProject.Forms.User
 {
   partial class ViewAndCustomiseCar
   {

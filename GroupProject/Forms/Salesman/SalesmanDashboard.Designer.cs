@@ -1,5 +1,5 @@
 ﻿
-namespace GroupProject
+namespace GroupProject.Forms.Salesman
 {
   partial class SalesmanDashboard
   {
