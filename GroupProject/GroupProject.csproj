@@ -140,6 +140,12 @@
     <Compile Include="Forms\User\UserConfirmCarChoice.Designer.cs">
       <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\User\UserLoadConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\UserLoadConfiguration.Designer.cs">
+      <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\User\ViewAndCustomiseCar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserConfirmCarChoice.resx">
       <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\UserLoadConfiguration.resx">
+      <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
