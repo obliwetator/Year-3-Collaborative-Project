@@ -1,21 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using GroupProject.Classes.Car;
 using System.Text.Json;
-using System.Text.Json.Serialization;
+using GroupProject.Classes;
 
 namespace GroupProject.Forms.User
 {
 	public partial class UserConfirmCarChoice : Form
 	{
-		private ClsCar _car;
+		private readonly ClsCar _car;
+		private readonly int _userId;
 
-		public UserConfirmCarChoice(ClsCar car)
+		public UserConfirmCarChoice(ClsCar car, int userId)
 		{
 			this._car = car;
+			this._userId = userId;
 			InitializeComponent();
 		}
 
@@ -83,7 +84,12 @@ namespace GroupProject.Forms.User
 
 		private void btnPurchase_Click(object sender, EventArgs e)
 		{
-			throw new System.NotImplementedException();
+			// Store in db
+			ClsDatabase database = new ClsDatabase();
+
+			database.AddUserCarConfiguration(_car, _userId);
+			// Once user click the button a message will show up telling them they've completed their order
+			// TODO: After merging return the user to the car selection menu
 		}
 	}
 }

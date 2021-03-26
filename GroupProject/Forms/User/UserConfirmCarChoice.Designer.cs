@@ -63,8 +63,9 @@ namespace GroupProject.Forms.User
 			this.btnPurchase.Name = "btnPurchase";
 			this.btnPurchase.Size = new System.Drawing.Size(166, 79);
 			this.btnPurchase.TabIndex = 1;
-			this.btnPurchase.Text = "Purchase";
+			this.btnPurchase.Text = "Submit for a review";
 			this.btnPurchase.UseVisualStyleBackColor = true;
+			this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
 			// 
 			// label1
 			// 

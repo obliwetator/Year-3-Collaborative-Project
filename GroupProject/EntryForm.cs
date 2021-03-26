@@ -57,17 +57,18 @@ namespace GroupProject
 
     // Temporary value
     private readonly int _carId;
-
-    public EntryForm(int carId = 1)
+    private readonly int _userId;
+    public EntryForm(int carId = 1, int userId = 1)
     {
       InitializeComponent();
       this._carId = carId;
+      this._userId = userId;
     }
 
     private void btnContinue_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form userConfirmCarChoice = new UserConfirmCarChoice(_car)
+      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId)
       {
         Location = this.Location,
         Size = this.Size,
