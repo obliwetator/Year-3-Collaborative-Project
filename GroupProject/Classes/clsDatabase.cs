@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using GroupProject.Classes.Car;
 using GroupProject.Classes.User;
@@ -19,7 +20,7 @@ namespace GroupProject.Classes
     }
 
     // Temporary hard coded value. We will get the actual ad when user selects a car
-    public void GetUserCarConfigurations(int id = 1)
+    public Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> GetUserCarConfigurations(int id = 1)
     {
       var conn = this.GetConnection();
       // Get all configurations for that user
@@ -59,7 +60,7 @@ namespace GroupProject.Classes
             CarId = reader.GetInt32(3)
           });
         }
-		// Get next data set
+	    	// Get next data set
         reader.NextResult();
 
         while (reader.Read())
@@ -76,6 +77,9 @@ namespace GroupProject.Classes
         }
       }
       conn.Close();
+
+      return new Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>>(userConfigurations,
+        userCarConfigurations);
     }
 
     public ClsCar GetCar(int carId)
@@ -86,7 +90,7 @@ namespace GroupProject.Classes
       string sql = @"SELECT t_Cars.*, t_Car_models.model, t_Cars_type.type FROM t_Cars
       LEFT JOIN t_Car_models ON t_Cars.model = t_Car_models.ID
       LEFT JOIN t_Cars_type ON t_Cars.type = t_Cars_type.ID
-      WHERE t_Cars.ID = 1";
+      WHERE t_Cars.ID = @ID";
       
       MySqlCommand command = new MySqlCommand(sql, conn);
 
@@ -112,10 +116,49 @@ namespace GroupProject.Classes
 
       return car;
     }
-
-    public void GetCarCustomizations(int carId)
+    // Get all cars with given IDs
+    public Dictionary<int, ClsCar> GetCars(int[] carIds)
     {
+      var conn = this.GetConnection();
+      // Get all configurations for that user
+      // Get all the details for each configuration
+      string sql = @"SELECT t_Cars.*, t_Car_models.model, t_Cars_type.type FROM t_Cars
+      LEFT JOIN t_Car_models ON t_Cars.model = t_Car_models.ID
+      LEFT JOIN t_Cars_type ON t_Cars.type = t_Cars_type.ID
+      WHERE t_Cars.ID IN (";
 
+      foreach (var t in carIds)
+      {
+        sql += $"{t},";
+      }
+      // Replace last comma
+      sql = sql.Remove(sql.Length -1, 1) + ");";
+      
+      MySqlCommand command = new MySqlCommand(sql, conn);
+
+      conn.Open();
+
+      var reader = command.ExecuteReader();
+      Dictionary<int, ClsCar> cars = new Dictionary<int, ClsCar>();
+      int i = 0;
+      while (reader.Read())
+      {
+        cars.Add(reader.GetInt32(0), new ClsCar
+        {
+          Id = reader.GetInt32(0),
+          ModelId = reader.GetInt32(1),
+          TypeId = reader.GetInt32(2),
+          Year = reader.GetInt32(3),
+          Price = reader.GetFloat(4),
+          Model = reader.GetString(5),
+          Type = reader.GetString(6),
+          CarConfigurationsChosen = new Dictionary<string, bool>()
+       });
+        i++;
+      }
+      conn.Close();
+
+      return cars;
     }
 
     public List<CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
@@ -149,6 +192,38 @@ namespace GroupProject.Classes
       conn.Close();
 
       return customizationsAvailable;
+    }
+
+    public void AddUserCarConfiguration(ClsCar car, int userId)
+    {
+      var conn = this.GetConnection();
+      // Add user config
+      string addUserConfig = $@"INSERT INTO t_User_configuration (ID, description, user_id, car_id) 
+                VALUES (NULL, 'App made config', '{userId}', '{car.Id}'); SELECT last_insert_id();";
+      MySqlCommand command = new MySqlCommand(addUserConfig, conn);
+      conn.Open();
+      // We get the config id from the SELECT last_insert_id(); statement
+      var configId = (ulong)command.ExecuteScalar();
+      
+      // Add modification to the config
+      string AddUserCarConfig = "INSERT INTO t_User_car_configuration (ID, user_id, modification, configuration_id) VALUES";
+      foreach (var config in car.CarConfigurationsChosen)
+      {
+        // User has selected that config option
+        if (config.Value == true)
+        {
+          AddUserCarConfig += $"(NULL, '{userId}', '{config.Key}', '{configId}'),";
+        }
+      }
+      // Replace last comma with a ';'
+      AddUserCarConfig = AddUserCarConfig.Remove(AddUserCarConfig.Length -1, 1) + ";";
+      
+      // re-use command
+      command.Parameters.Clear();
+      command.CommandText = AddUserCarConfig;
+      command.ExecuteNonQuery();
+      
+      conn.Close();
     }
   }
 }
