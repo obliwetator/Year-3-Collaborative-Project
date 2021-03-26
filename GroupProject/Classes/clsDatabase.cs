@@ -106,6 +106,7 @@ namespace GroupProject.Classes
         Price = reader.GetFloat(4),
         Model = reader.GetString(5),
         Type = reader.GetString(6),
+        CarConfigurationsChosen = new Dictionary<string, bool>()
       };
       conn.Close();
 

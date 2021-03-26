@@ -1,4 +1,6 @@
-﻿namespace GroupProject.Classes.Car
+﻿using System.Collections.Generic;
+
+namespace GroupProject.Classes.Car
 {
 	public class ClsCar
 	{
@@ -9,5 +11,6 @@
 		public string Model { get; set; }
 		public string Type { get; set; }
 		public float Price { get; set; }
+		public Dictionary<string, bool> CarConfigurationsChosen { get; set; }
 	}
 }

@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using GroupProject.Classes.Car;
+using GroupProject.Forms.User;
 
 namespace GroupProject
 {
   public partial class EntryForm : Form
   {
-    private Dictionary<string, bool> _carConfigurationsChosen = new Dictionary<string, bool>();
 
     private ClsCar _car;
     // we will receive the CarId from the previous form
@@ -39,13 +39,12 @@ namespace GroupProject
           AutoSize = true
         });
         // Set the default configuration as NOT chosen
-        _carConfigurationsChosen.Add(carConfigurationsAvailable[i].Id.ToString(), false);
+        _car.CarConfigurationsChosen.Add(carConfigurationsAvailable[i].Id.ToString(), false);
         // Add an event listener
         carConfigurationCheckBoxes[i].CheckedChanged += DynamicCheckBoxCheckedChanged;
         // Add the checkboxes to the form
         this.Controls.Add(carConfigurationCheckBoxes[i]);
       }
-      
     }
 
     private void DynamicCheckBoxCheckedChanged(object sender, EventArgs e)
@@ -53,7 +52,7 @@ namespace GroupProject
       // Cast to correct type
       CheckBox cb = (CheckBox) sender;
       // Flip the bool
-      _carConfigurationsChosen[cb.Name] = !_carConfigurationsChosen[cb.Name];
+      _car.CarConfigurationsChosen[cb.Name] = !_car.CarConfigurationsChosen[cb.Name];
     }
 
     // Temporary value
@@ -68,7 +67,7 @@ namespace GroupProject
     private void btnContinue_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form userConfirmCarChoice = new UserConfirmCarChoice(_carConfigurationsChosen, _car)
+      Form userConfirmCarChoice = new UserConfirmCarChoice(_car)
       {
         Location = this.Location,
         Size = this.Size,
