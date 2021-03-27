@@ -1,5 +1,5 @@
 ﻿
-namespace GroupProject
+namespace GroupProject.Forms.Admin
 {
     partial class AdminDashbord
     {
@@ -35,14 +35,16 @@ namespace GroupProject
             this.btnSetApr = new System.Windows.Forms.Button();
             this.lblUsername = new System.Windows.Forms.Label();
             this.lblDashbord = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(585, 200);
+            this.btnDelete.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnDelete.Location = new System.Drawing.Point(390, 130);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(170, 70);
+            this.btnDelete.Size = new System.Drawing.Size(113, 46);
             this.btnDelete.TabIndex = 11;
             this.btnDelete.Text = "Click here to delete a car";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -50,10 +52,11 @@ namespace GroupProject
             // 
             // btnInsert
             // 
-            this.btnInsert.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInsert.Location = new System.Drawing.Point(405, 200);
+            this.btnInsert.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnInsert.Location = new System.Drawing.Point(270, 130);
+            this.btnInsert.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnInsert.Name = "btnInsert";
-            this.btnInsert.Size = new System.Drawing.Size(170, 70);
+            this.btnInsert.Size = new System.Drawing.Size(113, 46);
             this.btnInsert.TabIndex = 10;
             this.btnInsert.Text = "Click here to add a car to the system";
             this.btnInsert.UseVisualStyleBackColor = true;
@@ -61,10 +64,11 @@ namespace GroupProject
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(225, 200);
+            this.btnUpdate.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnUpdate.Location = new System.Drawing.Point(150, 130);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(170, 70);
+            this.btnUpdate.Size = new System.Drawing.Size(113, 46);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Click here to update database";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -72,54 +76,72 @@ namespace GroupProject
             // 
             // btnSetApr
             // 
-            this.btnSetApr.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSetApr.Location = new System.Drawing.Point(45, 200);
+            this.btnSetApr.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.btnSetApr.Location = new System.Drawing.Point(30, 130);
+            this.btnSetApr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSetApr.Name = "btnSetApr";
-            this.btnSetApr.Size = new System.Drawing.Size(170, 70);
+            this.btnSetApr.Size = new System.Drawing.Size(113, 46);
             this.btnSetApr.TabIndex = 8;
-            this.btnSetApr.Text = "Click here to set APR%";
+            this.btnSetApr.Text = "Click here to create a new APR%";
             this.btnSetApr.UseVisualStyleBackColor = true;
             this.btnSetApr.Click += new System.EventHandler(this.btnSetApr_Click);
             // 
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblUsername.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblUsername.Location = new System.Drawing.Point(40, 80);
+            this.lblUsername.Location = new System.Drawing.Point(27, 52);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(62, 23);
+            this.lblUsername.Size = new System.Drawing.Size(45, 16);
             this.lblUsername.TabIndex = 7;
             this.lblUsername.Text = "label1";
             // 
             // lblDashbord
             // 
             this.lblDashbord.AutoSize = true;
-            this.lblDashbord.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDashbord.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.lblDashbord.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDashbord.Location = new System.Drawing.Point(200, 0);
+            this.lblDashbord.Location = new System.Drawing.Point(133, 0);
+            this.lblDashbord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDashbord.Name = "lblDashbord";
-            this.lblDashbord.Size = new System.Drawing.Size(398, 57);
+            this.lblDashbord.Size = new System.Drawing.Size(264, 39);
             this.lblDashbord.TabIndex = 6;
             this.lblDashbord.Text = "Admin Dashbord";
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.button1.Location = new System.Drawing.Point(30, 199);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(113, 46);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Click here to update an exisiting APR%";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // AdminDashbord
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnSetApr);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblDashbord);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AdminDashbord";
             this.Text = "AdminDashbord";
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button button1;
 
         #endregion
 

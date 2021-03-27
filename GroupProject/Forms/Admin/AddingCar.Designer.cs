@@ -1,5 +1,5 @@
 ﻿
-namespace GroupProject
+namespace GroupProject.Forms.Admin
 {
     partial class AddingCar
     {
