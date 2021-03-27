@@ -119,6 +119,8 @@
     <Compile Include="Classes\CarCustomizationAvailable.cs" />
     <Compile Include="Classes\Car\clsCar.cs" />
     <Compile Include="Classes\clsDatabase.cs" />
+    <Compile Include="Classes\Salesman\CarConfigsForReview.cs" />
+    <Compile Include="Classes\Salesman\ClsSalesmanUserCarConfiguration.cs" />
     <Compile Include="Classes\SaveLoad.cs" />
     <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
     <Compile Include="Classes\User\clsUserConfiguration.cs" />
@@ -133,6 +135,18 @@
     </Compile>
     <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.Designer.cs">
+      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewReview.Designer.cs">
+      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\User\UserConfirmCarChoice.cs">
       <SubType>Form</SubType>
@@ -159,6 +173,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx">
+      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewReview.resx">
+      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\User\UserConfirmCarChoice.resx">
       <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>

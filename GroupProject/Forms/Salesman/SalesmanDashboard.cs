@@ -9,8 +9,13 @@ namespace GroupProject.Forms.Salesman
     {
       InitializeComponent();
     }
+    
+    private void btnInvoice_Click(object sender, EventArgs e)
+    {
+      throw new System.NotImplementedException();
+    }
 
-    private void SalesmanDashboard_Load(object sender, EventArgs e)
+    private void btnReview_Click(object sender, EventArgs e)
     {
       throw new System.NotImplementedException();
     }
