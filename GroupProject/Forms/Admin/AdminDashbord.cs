@@ -36,8 +36,9 @@ namespace GroupProject.Forms.Admin
         private void btnInsert_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AddingCar f6 = new AddingCar();
-            f6.Show();
+            // TODO: Create adding car form
+            //AddingCar f6 = new AddingCar();
+            //f6.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
