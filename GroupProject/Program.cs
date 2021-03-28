@@ -17,7 +17,7 @@ namespace GroupProject
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new SalesmanViewReview());
+      Application.Run(new EntryForm());
     }
   }
 }

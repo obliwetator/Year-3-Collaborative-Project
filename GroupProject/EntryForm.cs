@@ -15,9 +15,8 @@ namespace GroupProject
     // we will receive the CarId from the previous form
     private void Form1_Load(object sender, EventArgs e)
     {
-      ClsDatabase clsDb = new ClsDatabase();
       // Temporary call
-      _car = clsDb.GetCar(_carId);
+      _car = ClsDatabase.GetCar(_carId);
 
       lblCarId.Text = _car.Id.ToString();
       lblModel.Text = _car.Model;
@@ -26,7 +25,7 @@ namespace GroupProject
       lblPrice.Text = _car.Price.ToString() + "£";
 
       // clsDb.GetUserCarConfigurations();
-      var carConfigurationsAvailable = clsDb.CarConfigurationsAvailable(_carId);
+      var carConfigurationsAvailable = ClsDatabase.CarConfigurationsAvailable(_carId);
       var carConfigurationCheckBoxes = new List<CheckBox>();
       for (int i = 0; i < carConfigurationsAvailable.Count; i++)
       {

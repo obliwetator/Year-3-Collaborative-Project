@@ -31,58 +31,95 @@ namespace GroupProject.Forms.Salesman
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.ConfigId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.carId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
+			this.panel1 = new System.Windows.Forms.Panel();
+			this.lblType = new System.Windows.Forms.Label();
+			this.lblModel = new System.Windows.Forms.Label();
+			this.lblDescription = new System.Windows.Forms.Label();
+			this.lblId = new System.Windows.Forms.Label();
+			this.panel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// dataGridView1
+			// panel1
 			// 
-			this.dataGridView1.AllowUserToAddRows = false;
-			this.dataGridView1.AllowUserToDeleteRows = false;
-			this.dataGridView1.AllowUserToOrderColumns = true;
-			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {this.ConfigId, this.Description, this.carId});
-			this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(344, 411);
-			this.dataGridView1.TabIndex = 0;
+			this.panel1.AutoScroll = true;
+			this.panel1.AutoSize = true;
+			this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+			this.panel1.Controls.Add(this.lblType);
+			this.panel1.Controls.Add(this.lblModel);
+			this.panel1.Controls.Add(this.lblDescription);
+			this.panel1.Controls.Add(this.lblId);
+			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.panel1.Location = new System.Drawing.Point(0, 0);
+			this.panel1.Margin = new System.Windows.Forms.Padding(0);
+			this.panel1.MaximumSize = new System.Drawing.Size(400, 0);
+			this.panel1.Name = "panel1";
+			this.panel1.Size = new System.Drawing.Size(400, 681);
+			this.panel1.TabIndex = 0;
 			// 
-			// ConfigId
+			// lblType
 			// 
-			this.ConfigId.HeaderText = "Config ID";
-			this.ConfigId.Name = "ConfigId";
+			this.lblType.AutoSize = true;
+			this.lblType.Location = new System.Drawing.Point(240, 9);
+			this.lblType.Margin = new System.Windows.Forms.Padding(0);
+			this.lblType.Name = "lblType";
+			this.lblType.Size = new System.Drawing.Size(50, 13);
+			this.lblType.TabIndex = 3;
+			this.lblType.Text = "Car Type";
 			// 
-			// Description
+			// lblModel
 			// 
-			this.Description.HeaderText = "Description";
-			this.Description.Name = "Description";
+			this.lblModel.AutoSize = true;
+			this.lblModel.Location = new System.Drawing.Point(157, 9);
+			this.lblModel.Margin = new System.Windows.Forms.Padding(0);
+			this.lblModel.Name = "lblModel";
+			this.lblModel.Size = new System.Drawing.Size(55, 13);
+			this.lblModel.TabIndex = 2;
+			this.lblModel.Text = "Car Model";
 			// 
-			// carId
+			// lblDescription
 			// 
-			this.carId.HeaderText = "Car Id";
-			this.carId.Name = "carId";
+			this.lblDescription.AutoSize = true;
+			this.lblDescription.Location = new System.Drawing.Point(39, 9);
+			this.lblDescription.Margin = new System.Windows.Forms.Padding(0);
+			this.lblDescription.Name = "lblDescription";
+			this.lblDescription.Size = new System.Drawing.Size(60, 13);
+			this.lblDescription.TabIndex = 1;
+			this.lblDescription.Text = "Description";
+			// 
+			// lblId
+			// 
+			this.lblId.AutoSize = true;
+			this.lblId.Location = new System.Drawing.Point(3, 9);
+			this.lblId.Margin = new System.Windows.Forms.Padding(0);
+			this.lblId.Name = "lblId";
+			this.lblId.Size = new System.Drawing.Size(18, 13);
+			this.lblId.TabIndex = 0;
+			this.lblId.Text = "ID";
 			// 
 			// SalesmanViewReview
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.dataGridView1);
+			this.BackColor = System.Drawing.Color.White;
+			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.panel1);
 			this.Name = "SalesmanViewReview";
 			this.Text = "SalesmanViewReview";
 			this.Load += new System.EventHandler(this.SalesmanViewReview_Load);
-			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
+			this.panel1.ResumeLayout(false);
+			this.panel1.PerformLayout();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
 
-		private System.Windows.Forms.DataGridViewTextBoxColumn carId;
-		private System.Windows.Forms.DataGridViewTextBoxColumn ConfigId;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Description;
+		private System.Windows.Forms.Label lblModel;
+		private System.Windows.Forms.Label lblType;
 
-		private System.Windows.Forms.DataGridView dataGridView1;
+		private System.Windows.Forms.Label lblDescription;
+
+		private System.Windows.Forms.Label lblId;
+
+		private System.Windows.Forms.Panel panel1;
 
 		#endregion
 	}

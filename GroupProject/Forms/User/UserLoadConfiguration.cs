@@ -20,12 +20,11 @@ namespace GroupProject.Forms.User
 
 		private void UserLoadConfiguration_Load(object sender, EventArgs e)
 		{
-			ClsDatabase database = new ClsDatabase();
-			var configs = database.GetUserCarConfigurations(_userId);
+			var configs = ClsDatabase.GetUserCarConfigurations(_userId);
 			// Get all unique cars IDs so that we can get the corresponding cars
 			int[] uniqueCars = configs.Item1.Select(x => x.CarId).Distinct().ToArray();
 			// Get car objects
-			var cars = database.GetCars(uniqueCars);
+			var cars = ClsDatabase.GetCars(uniqueCars);
 			// Insert the data into the data view
 			foreach (var t in configs.Item1)
 			{

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using GroupProject.Classes;
 using GroupProject.Classes.Salesman;
@@ -16,21 +17,34 @@ namespace GroupProject.Forms.Salesman
 
 		private void SalesmanViewReview_Load(object sender, EventArgs e)
 		{
-			dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-			dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-			ClsDatabase database = new ClsDatabase();
+			var CarsForReview = ClsDatabase.GetUsersConfigForReview();
 
-			var CarsForReview = database.GetUsersConfigForReview();
-			
-			// TODO: Replace id with something else
-			foreach (var t in CarsForReview)
+			for (int i = 0; i < CarsForReview.Count; i++)
 			{
-				dataGridView1.Rows.Add(
-					t.Id,
-					t.Description,
-					t.UserId,
-					t.CarId
-				);
+				// ID label
+				panel1.Controls.Add(new Label()
+				{
+					Text = CarsForReview[i].Id.ToString(),
+					Location = new Point(lblId.Location.X, 30 + (i * 50)),
+					AutoSize = true
+				});
+				// Description label
+				panel1.Controls.Add(new Label()
+				{
+					Text = CarsForReview[i].Description + "d;glfkjfgdjlk;sdsfgjk;lgsdfjkl;sgdfjl;kgsdfjlk;sgfdjgskfl;dsgfdjd;ljd;jlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd;jlkgfdsk;ljg;lfdjdldjgf;lkjl;kgfdjlk;gfdkjd",
+					Location = new Point(lblDescription.Location.X, 30 + (i * 50)),
+					AutoSize = true,
+					MaximumSize = new Size(110,100),
+				});
+				
+				panel1.Controls.Add(new Label()
+				{
+					Text = CarsForReview[i].Description + "d;glfkjfgdjlk;sdsfgjk;lgsdfjkl;sgdfjl;kgsdfjlk;sgfdjgskfl;dsgfdjd;ljd;jlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd;jlkgfdsk;ljg;lfdjdldjgf;lkjl;kgfdjlk;gfdkjd",
+					Location = new Point(lblModel.Location.X, 30 + (i * 50)),
+					AutoSize = true,
+					MaximumSize = new Size(130,100),
+				});
+				
 			}
 		}
 	}

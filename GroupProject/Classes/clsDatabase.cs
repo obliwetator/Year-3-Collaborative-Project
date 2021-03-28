@@ -8,12 +8,12 @@ using MySql.Data.MySqlClient;
 
 namespace GroupProject.Classes
 {
-	class ClsDatabase
+	static class ClsDatabase
 	{
 		private const string ConnString =
 			"Server=plesk.remote.ac;database=ws330584_dealership;user=ws330584_dealership;password=Password123;CharSet=utf8;";
 
-		public MySqlConnection GetConnection()
+		public static MySqlConnection GetConnection()
 		{
 			MySqlConnection cnn = new MySqlConnection(ConnString);
 
@@ -21,9 +21,9 @@ namespace GroupProject.Classes
 		}
 
 		// Temporary hard coded value. We will get the actual ad when user selects a car
-		public Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> GetUserCarConfigurations(int id = 1)
+		public static Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> GetUserCarConfigurations(int id = 1)
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 			// Get all configurations for that user
 			// Get all the details for each configuration
 			MySqlCommand command = new MySqlCommand("GetUserCarConfigurations1", conn)
@@ -84,9 +84,9 @@ namespace GroupProject.Classes
 				userCarConfigurations);
 		}
 
-		public ClsCar GetCar(int carId)
+		public static ClsCar GetCar(int carId)
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 			// Get all configurations for that user
 			// Get all the details for each configuration
 			string sql = @"SELECT t_Cars.*, t_Car_models.model, t_Cars_type.type FROM t_Cars
@@ -120,9 +120,9 @@ namespace GroupProject.Classes
 		}
 
 		// Get all cars with given IDs
-		public Dictionary<int, ClsCar> GetCars(int[] carIds)
+		public static Dictionary<int, ClsCar> GetCars(int[] carIds)
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 			// Get all configurations for that user
 			// Get all the details for each configuration
 			string sql = @"SELECT t_Cars.*, t_Car_models.model, t_Cars_type.type FROM t_Cars
@@ -166,9 +166,9 @@ namespace GroupProject.Classes
 			return cars;
 		}
 
-		public List<CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
+		public static List<CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 
 			// Get all modifications AVAILABLE for that car id
 			string sql = @"SELECT T_modification_available.*
@@ -193,52 +193,52 @@ namespace GroupProject.Classes
 					Modifications = reader.GetString(1),
 					Price = reader.GetFloat(2)
 				});
-			}
-
-			;
+			};
 
 			conn.Close();
 
 			return customizationsAvailable;
 		}
 
-		public void AddUserCarConfiguration(ClsCar car, int userId)
+		public static void AddUserCarConfiguration(ClsCar car, int userId, bool review, bool purchase)
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 			// Add user config
-			string addUserConfig = $@"INSERT INTO t_User_configuration (ID, description, user_id, car_id, review) 
-                VALUES (NULL, 'App made config', '{userId}', '{car.Id}', 1); SELECT last_insert_id();";
+			string addUserConfig = $@"INSERT INTO t_User_configuration (ID, description, user_id, car_id, review, purchase) VALUES (NULL, 'App made config', '{userId}', '{car.Id}', '{(review ? "1" : "0")}', '{(purchase? "1" : "0")}'); SELECT last_insert_id();";
 			MySqlCommand command = new MySqlCommand(addUserConfig, conn);
 			conn.Open();
 			// We get the config id from the SELECT last_insert_id(); statement
 			var configId = (ulong) command.ExecuteScalar();
 
 			// Add modification to the config
-			string AddUserCarConfig =
-				"INSERT INTO t_User_car_configuration (ID, user_id, modification, configuration_id) VALUES";
+			string addUserCarConfig = "INSERT INTO t_User_car_configuration (ID, user_id, modification, configuration_id) VALUES";
+			int originalQueryLength = addUserCarConfig.Length;
 			foreach (var config in car.CarConfigurationsChosen)
 			{
 				// User has selected that config option
 				if (config.Value == true)
 				{
-					AddUserCarConfig += $"(NULL, '{userId}', '{config.Key}', '{configId}'),";
+					addUserCarConfig += $"(NULL, '{userId}', '{config.Key}', '{configId}'),";
 				}
 			}
+			// No configs were added don't run the query
+			if (originalQueryLength != addUserCarConfig.Length)
+			{
+				// Replace last comma with a ';'
+				addUserCarConfig = addUserCarConfig.Remove(addUserCarConfig.Length - 1, 1) + ";";
 
-			// Replace last comma with a ';'
-			AddUserCarConfig = AddUserCarConfig.Remove(AddUserCarConfig.Length - 1, 1) + ";";
-
-			// re-use command
-			command.Parameters.Clear();
-			command.CommandText = AddUserCarConfig;
-			command.ExecuteNonQuery();
+				// re-use command
+				command.Parameters.Clear();
+				command.CommandText = addUserCarConfig;
+				command.ExecuteNonQuery();
+			}
 
 			conn.Close();
 		}
 
-		public List<ClsSalesmanUserCarConfiguration> GetUsersCarsForReview()
+		public static List<ClsSalesmanUserCarConfiguration> GetUsersCarsForReview()
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 
 			string sql = @"SELECT
         `t_User_configuration`.*,
@@ -289,9 +289,9 @@ namespace GroupProject.Classes
 			return cars;
 		}
 
-		public List<CarConfigsForReview> GetUsersConfigForReview()
+		public static List<CarConfigsForReview> GetUsersConfigForReview()
 		{
-			var conn = this.GetConnection();
+			var conn = GetConnection();
 			string sql = "SELECT * FROM `t_User_configuration` WHERE `review` = 1";
 
 			MySqlCommand command = new MySqlCommand(sql, conn);

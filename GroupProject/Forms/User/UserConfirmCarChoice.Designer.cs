@@ -32,7 +32,7 @@ namespace GroupProject.Forms.User
 		private void InitializeComponent()
 		{
 			this.btnSave = new System.Windows.Forms.Button();
-			this.btnPurchase = new System.Windows.Forms.Button();
+			this.btnSubmitReview = new System.Windows.Forms.Button();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
@@ -43,11 +43,12 @@ namespace GroupProject.Forms.User
 			this.lblCarYear = new System.Windows.Forms.Label();
 			this.lblCarPrice = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
+			this.btnPurchaseCar = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(147, 333);
+			this.btnSave.Location = new System.Drawing.Point(120, 333);
 			this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(166, 79);
@@ -56,16 +57,16 @@ namespace GroupProject.Forms.User
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
-			// btnPurchase
+			// btnSubmitReview
 			// 
-			this.btnPurchase.Location = new System.Drawing.Point(580, 333);
-			this.btnPurchase.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.btnPurchase.Name = "btnPurchase";
-			this.btnPurchase.Size = new System.Drawing.Size(166, 79);
-			this.btnPurchase.TabIndex = 1;
-			this.btnPurchase.Text = "Submit for a review";
-			this.btnPurchase.UseVisualStyleBackColor = true;
-			this.btnPurchase.Click += new System.EventHandler(this.btnPurchase_Click);
+			this.btnSubmitReview.Location = new System.Drawing.Point(675, 333);
+			this.btnSubmitReview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.btnSubmitReview.Name = "btnSubmitReview";
+			this.btnSubmitReview.Size = new System.Drawing.Size(166, 79);
+			this.btnSubmitReview.TabIndex = 1;
+			this.btnSubmitReview.Text = "Submit for a review";
+			this.btnSubmitReview.UseVisualStyleBackColor = true;
+			this.btnSubmitReview.Click += new System.EventHandler(this.btnSubmitReview_Click);
 			// 
 			// label1
 			// 
@@ -157,11 +158,23 @@ namespace GroupProject.Forms.User
 			this.label6.TabIndex = 11;
 			this.label6.Text = "Modifications chosen";
 			// 
+			// btnPurchaseCar
+			// 
+			this.btnPurchaseCar.Location = new System.Drawing.Point(485, 333);
+			this.btnPurchaseCar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.btnPurchaseCar.Name = "btnPurchaseCar";
+			this.btnPurchaseCar.Size = new System.Drawing.Size(166, 79);
+			this.btnPurchaseCar.TabIndex = 12;
+			this.btnPurchaseCar.Text = "Purchase car";
+			this.btnPurchaseCar.UseVisualStyleBackColor = true;
+			this.btnPurchaseCar.Click += new System.EventHandler(this.btnPurchaseCar_Click);
+			// 
 			// UserConfirmCarChoice
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(905, 524);
+			this.Controls.Add(this.btnPurchaseCar);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.lblCarPrice);
 			this.Controls.Add(this.lblCarYear);
@@ -172,7 +185,7 @@ namespace GroupProject.Forms.User
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.btnPurchase);
+			this.Controls.Add(this.btnSubmitReview);
 			this.Controls.Add(this.btnSave);
 			this.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
 			this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -181,7 +194,9 @@ namespace GroupProject.Forms.User
 			this.Load += new System.EventHandler(this.UserConfirmCarChoice_Load);
 			this.ResumeLayout(false);
 		}
-		
+
+		private System.Windows.Forms.Button btnPurchaseCar;
+
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label3;
@@ -194,7 +209,7 @@ namespace GroupProject.Forms.User
 		private System.Windows.Forms.Label lblCarPrice;
 		
 		private System.Windows.Forms.Button btnSave;
-		private System.Windows.Forms.Button btnPurchase;
+		private System.Windows.Forms.Button btnSubmitReview;
 
 		#endregion
 	}
