@@ -166,6 +166,36 @@
     <Compile Include="Forms\User\ViewAndCustomiseCar.Designer.cs">
       <DependentUpon>ViewAndCustomiseCar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\AdminDashbord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashbord.Designer.cs">
+      <DependentUpon>AdminDashbord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminUpdatingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs">
+      <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\APRAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\APRAdd.Designer.cs">
+      <DependentUpon>APRAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\APRUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\APRUpdate.Designer.cs">
+      <DependentUpon>APRUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Delete.Designer.cs">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="EntryForm.resx">
