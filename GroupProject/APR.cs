@@ -16,7 +16,7 @@ namespace GroupProject
     
     public partial class APR : Form
     {
-        private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";
+       private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";
         public APR()
         {
             InitializeComponent();
@@ -24,9 +24,9 @@ namespace GroupProject
 
         private void btnAPR_Click(object sender, EventArgs e)
         {
-            
 
-            MySqlConnection cnn = new MySqlConnection(conString);
+
+            MySqlConnection cnn = new MySqlConnection(conString); 
             string comString = "INSERT INTO `t_APR`( `APR`, `Time`) VALUES ('" + txtAPR + "', '" + txtTime + "')";
             MySqlCommand sqlCom = new MySqlCommand(comString, cnn); 
         }
