@@ -34,5 +34,10 @@ namespace GroupProject.Forms.Admin
 		{
 			throw new System.NotImplementedException();
 		}
-	}
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
