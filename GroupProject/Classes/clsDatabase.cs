@@ -13,7 +13,7 @@ namespace GroupProject.Classes
 		private const string ConnString =
 			"Server=plesk.remote.ac;database=ws330584_dealership;user=ws330584_dealership;password=Password123;CharSet=utf8;";
 
-		public static MySqlConnection GetConnection()
+		private static MySqlConnection GetConnection()
 		{
 			MySqlConnection cnn = new MySqlConnection(ConnString);
 

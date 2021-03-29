@@ -17,35 +17,31 @@ namespace GroupProject.Forms.Salesman
 
 		private void SalesmanViewReview_Load(object sender, EventArgs e)
 		{
-			var CarsForReview = ClsDatabase.GetUsersConfigForReview();
+			this.dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+			this.dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;         
+			this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;         
+			this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			var CarsForReview = ClsDatabase.GetUsersCarsForReview();
 
-			for (int i = 0; i < CarsForReview.Count; i++)
+			foreach (var cars in CarsForReview)
 			{
-				// ID label
-				panel1.Controls.Add(new Label()
-				{
-					Text = CarsForReview[i].Id.ToString(),
-					Location = new Point(lblId.Location.X, 30 + (i * 50)),
-					AutoSize = true
-				});
-				// Description label
-				panel1.Controls.Add(new Label()
-				{
-					Text = CarsForReview[i].Description + "d;glfkjfgdjlk;sdsfgjk;lgsdfjkl;sgdfjl;kgsdfjlk;sgfdjgskfl;dsgfdjd;ljd;jlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd;jlkgfdsk;ljg;lfdjdldjgf;lkjl;kgfdjlk;gfdkjd",
-					Location = new Point(lblDescription.Location.X, 30 + (i * 50)),
-					AutoSize = true,
-					MaximumSize = new Size(110,100),
-				});
-				
-				panel1.Controls.Add(new Label()
-				{
-					Text = CarsForReview[i].Description + "d;glfkjfgdjlk;sdsfgjk;lgsdfjkl;sgdfjl;kgsdfjlk;sgfdjgskfl;dsgfdjd;ljd;jlkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkd;jlkgfdsk;ljg;lfdjdldjgf;lkjl;kgfdjlk;gfdkjd",
-					Location = new Point(lblModel.Location.X, 30 + (i * 50)),
-					AutoSize = true,
-					MaximumSize = new Size(130,100),
-				});
-				
+				dataGridView1.Rows.Add(
+					cars.UserId,
+					cars.ConfigDescription,
+					cars.UserId,
+					cars.CarId
+				);
 			}
+
+		}
+		
+		private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+		{
+			// TODO: DO something with the config (display editable info, message box for review)
+			var dataGridView = (DataGridView) sender;
+			// Rows will always be 0 since user can select only 1 row
+			// 0 for ConfigID / 1 for Desc / 2 for Model / 3 for Type
+			var configId = (int)dataGridView.SelectedRows[0].Cells[0].Value;
 		}
 	}
 }
