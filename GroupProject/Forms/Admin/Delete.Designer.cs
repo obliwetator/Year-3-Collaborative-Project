@@ -96,6 +96,7 @@ namespace GroupProject.Forms.Admin
             this.Controls.Add(this.label1);
             this.Name = "Delete";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.Delete_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

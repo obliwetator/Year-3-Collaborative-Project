@@ -47,7 +47,7 @@ namespace GroupProject.Forms.Admin
 			//MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
 
 			MySqlCommand myCommand = new MySqlCommand("UpdateAPR");
-			myCommand.CommandType = CommandType.StoredProcedure;
+			//myCommand.CommandType = CommandType.StoredProcedure;
 			myCommand.Connection = myCom;
 
 			try

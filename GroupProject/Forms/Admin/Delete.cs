@@ -28,7 +28,7 @@ namespace GroupProject.Forms.Admin
                     while (reader.Read())
                     {
                         lblCarID.Text = reader.GetValue(0).ToString();
-                       // lblScore.Text = reader.GetValue(1).ToString();
+                        // lblScore.Text = reader.GetValue(1).ToString();
                     }
                 }
                 cnn.Close(); // close connection 
@@ -40,5 +40,43 @@ namespace GroupProject.Forms.Admin
             }
 
         }
+
+        private void Delete_Load(object sender, EventArgs e)
+        {
+            MySqlConnection myCom = new MySqlConnection(conString);
+
+            // string sCommand = "SELECT `question` FROM `t_Question` WHERE `EID` = 1";
+            MySqlCommand myCommand = new MySqlCommand("SelectAllCarId");
+            myCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            //myCommand.CommandType = CommandType.StoredProcedure;
+            myCommand.Connection = myCom;
+
+            try
+            {
+                myCom.Open();
+
+                MySqlDataReader reader = myCommand.ExecuteReader();
+
+
+                while (reader.Read())
+                {
+                    cboDelete.Items.Add(reader.GetValue(0));
+
+
+                }
+
+            }
+            catch(Exception ex){
+
+            }
+
+
+    }
     }
 }
+
+
+
+                
+            
+
