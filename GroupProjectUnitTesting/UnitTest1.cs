@@ -12,7 +12,7 @@ namespace GroupProjectUnitTesting
     }
 
     [TestMethod]
-    public void TestAdd(
+    public void TestAdd()
         {
 
         }
