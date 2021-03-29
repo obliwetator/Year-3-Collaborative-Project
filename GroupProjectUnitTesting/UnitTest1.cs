@@ -7,13 +7,19 @@ namespace GroupProjectUnitTesting
   public class AdminTests
   {
     [TestMethod]
-    public void TestMethod1()
+    public void TestAPR()
     {
     }
 
+    [TestMethod]
+    public void TestAdd(
+        {
+
+        }
+
   }
   [TestClass]
-  public class USerTests // is this S ment to be lowercase? 
+  public class USerTests // is this S meant to be lowercase? 
   {
     [TestMethod]
     public void TestMethod1()
