@@ -135,7 +135,7 @@ namespace GroupProject.Forms.Admin
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(692, 448);
+            this.btnUpdate.Location = new System.Drawing.Point(692, 449);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 55);
             this.btnUpdate.TabIndex = 7;
