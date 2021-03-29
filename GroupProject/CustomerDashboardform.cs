@@ -16,5 +16,27 @@ namespace GroupProject
         {
             InitializeComponent();
         }
+
+        private void CustomerDashboardform_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblWelcome_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            {
+                System.Windows.Forms.Application.Exit();
+            }
+        }
     }
 }
