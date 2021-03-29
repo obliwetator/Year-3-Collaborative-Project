@@ -166,7 +166,7 @@ namespace GroupProject.Classes
 			return cars;
 		}
 
-		public static List<CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
+		public static Dictionary<int, CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
 		{
 			var conn = GetConnection();
 
@@ -184,10 +184,10 @@ namespace GroupProject.Classes
 
 			var reader = command.ExecuteReader();
 			// read once
-			var customizationsAvailable = new List<CarCustomizationAvailable>();
+			var customizationsAvailable = new Dictionary<int, CarCustomizationAvailable>();
 			while (reader.Read())
 			{
-				customizationsAvailable.Add(new CarCustomizationAvailable
+				customizationsAvailable.Add(reader.GetInt32(0) ,new CarCustomizationAvailable
 				{
 					Id = reader.GetInt32(0),
 					Modifications = reader.GetString(1),
@@ -200,7 +200,7 @@ namespace GroupProject.Classes
 			return customizationsAvailable;
 		}
 
-		public static void AddUserCarConfiguration(ClsCar car, int userId, bool review, bool purchase)
+		public static ulong AddUserCarConfiguration(ClsCar car, int userId, bool review, bool purchase)
 		{
 			var conn = GetConnection();
 			// Add user config
@@ -234,6 +234,8 @@ namespace GroupProject.Classes
 			}
 
 			conn.Close();
+
+			return configId;
 		}
 
 		public static List<ClsSalesmanUserCarConfiguration> GetUsersCarsForReview()
@@ -317,6 +319,18 @@ namespace GroupProject.Classes
 			conn.Close();
 
 			return cars;
+		}
+
+		public static void UpdateUserCarConfiguration(ClsCar car, int userId, int configId, bool review, bool purchase)
+		{
+			var conn = GetConnection();
+			string sql = $"UPDATE `t_User_configuration` SET `review` = '{(review ? "1" : "0")}', `purchase` = '{(purchase ? "1" : "0")}' WHERE `t_User_configuration`.`ID` = {configId}";
+
+			MySqlCommand command = new MySqlCommand(sql, conn);
+
+			conn.Open();
+			command.ExecuteNonQuery();
+			conn.Close();
 		}
 	}
 }
