@@ -48,7 +48,8 @@ namespace GroupProject.Forms.User
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(120, 333);
+			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.btnSave.Location = new System.Drawing.Point(13, 421);
 			this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(166, 79);
@@ -59,7 +60,8 @@ namespace GroupProject.Forms.User
 			// 
 			// btnSubmitReview
 			// 
-			this.btnSubmitReview.Location = new System.Drawing.Point(675, 333);
+			this.btnSubmitReview.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnSubmitReview.Location = new System.Drawing.Point(726, 421);
 			this.btnSubmitReview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnSubmitReview.Name = "btnSubmitReview";
 			this.btnSubmitReview.Size = new System.Drawing.Size(166, 79);
@@ -160,7 +162,8 @@ namespace GroupProject.Forms.User
 			// 
 			// btnPurchaseCar
 			// 
-			this.btnPurchaseCar.Location = new System.Drawing.Point(485, 333);
+			this.btnPurchaseCar.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+			this.btnPurchaseCar.Location = new System.Drawing.Point(526, 421);
 			this.btnPurchaseCar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnPurchaseCar.Name = "btnPurchaseCar";
 			this.btnPurchaseCar.Size = new System.Drawing.Size(166, 79);
@@ -173,6 +176,7 @@ namespace GroupProject.Forms.User
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(905, 524);
 			this.Controls.Add(this.btnPurchaseCar);
 			this.Controls.Add(this.label6);
