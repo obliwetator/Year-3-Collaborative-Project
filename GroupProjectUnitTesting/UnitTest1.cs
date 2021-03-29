@@ -13,7 +13,7 @@ namespace GroupProjectUnitTesting
 
   }
   [TestClass]
-  public class USerTests
+  public class USerTests // is this S ment to be lowercase? 
   {
     [TestMethod]
     public void TestMethod1()
@@ -36,6 +36,9 @@ namespace GroupProjectUnitTesting
     [TestMethod]
     public void TestMethod1()
     {
+      
+
+    
     }
 
   }
