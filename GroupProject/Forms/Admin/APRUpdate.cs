@@ -8,6 +8,8 @@ namespace GroupProject.Forms.Admin
 {
 	public partial class APRUpdate : Form
 	{
+		private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";  //conect to plesk databse 
+
 		public APRUpdate()
 		{
 			InitializeComponent();
@@ -39,7 +41,34 @@ namespace GroupProject.Forms.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-			MySqlConnection myCom  = new MySqlConnection(GetConnection);
-        }
+			MySqlConnection myCom  = new MySqlConnection(conString);
+
+			//string sCommand = "UPDATE `t_APR` SET `APR`= '"+txtAPRUpdate.Text+'",`Time`= '"+ txtTimeUpdate.text+"' WHERE `ID` = ;
+			//MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
+
+			MySqlCommand myCommand = new MySqlCommand("UpdateAPR");
+			myCommand.CommandType = CommandType.StoredProcedure;
+			myCommand.Connection = myCom;
+
+			try
+			{
+				myCom.Open();
+
+				myCommand.Parameters.AddWithValue("@id", txtUpdateID.Text);
+				myCommand.Parameters.AddWithValue("@apr", txtAPRUpdate.Text);
+				myCommand.Parameters.AddWithValue("@time", txtTimeUpdate.Text);
+				myCommand.Prepare();
+
+				myCommand.ExecuteNonQuery();
+
+				myCom.Close();
+			}
+			catch (Exception ex)
+			{
+
+			}
+
+
+		}
     }
 }
