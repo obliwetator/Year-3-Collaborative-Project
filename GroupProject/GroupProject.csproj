@@ -100,6 +100,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Admin\AddingCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AddingCar.Designer.cs">
+      <DependentUpon>AddingCar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\AdminDashbord.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AddingCar.resx">
+      <DependentUpon>AddingCar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\AdminDashbord.resx">
       <DependentUpon>AdminDashbord.cs</DependentUpon>
