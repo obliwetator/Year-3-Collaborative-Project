@@ -17,10 +17,7 @@ namespace GroupProject.Forms.Salesman
 
 		private void SalesmanViewReview_Load(object sender, EventArgs e)
 		{
-			this.dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
-			this.dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;         
-			this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;         
-			this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			this.InitDataGridView();
 			var CarsForReview = ClsDatabase.GetUsersCarsForReview();
 
 			foreach (var cars in CarsForReview)
@@ -34,7 +31,15 @@ namespace GroupProject.Forms.Salesman
 			}
 
 		}
-		
+
+		private void InitDataGridView()
+		{
+			this.dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+			this.dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;         
+			this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;         
+			this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+		}
+
 		private void DataGridView1_SelectionChanged(object sender, EventArgs e)
 		{
 			// TODO: DO something with the config (display editable info, message box for review)
