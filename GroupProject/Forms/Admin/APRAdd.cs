@@ -24,7 +24,7 @@ namespace GroupProject.Forms.Admin
             MySqlCommand sqlCom = new MySqlCommand(sql, cnn); 
             
             // TODO: Execute the query
-            // TODO: Ability to delete APRs?
+            // TODO: Ability to delete APRs? // added this to APRUpdate. 
             
         }
 

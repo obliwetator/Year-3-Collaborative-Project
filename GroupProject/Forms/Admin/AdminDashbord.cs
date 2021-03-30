@@ -36,15 +36,14 @@ namespace GroupProject.Forms.Admin
         private void btnInsert_Click(object sender, EventArgs e)
         {
             this.Hide();
-            // TODO: Create adding car form
-            //AddingCar f6 = new AddingCar();
-            //f6.Show();
+            AddingCar f6 = new AddingCar();
+            f6.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            var f7 = new APRUpdate();
+            APRUpdate f7 = new APRUpdate(); 
             f7.Show();
         }
     }

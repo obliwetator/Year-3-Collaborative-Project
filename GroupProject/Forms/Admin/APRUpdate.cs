@@ -70,5 +70,12 @@ namespace GroupProject.Forms.Admin
 
 
 		}
+
+        private void BtnAprDelete_Click(object sender, EventArgs e)
+        {
+			MySqlConnection myCom = new MySqlConnection(conString);
+			string sql = $"DELETE FROM `t_APR` WHERE `ID` = {txtAPRDelete.Text}";
+			MySqlCommand sqlCom = new MySqlCommand(sql, myCom);
+		}
     }
 }
