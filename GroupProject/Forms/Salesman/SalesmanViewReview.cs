@@ -28,8 +28,8 @@ namespace GroupProject.Forms.Salesman
 				dataGridView1.Rows.Add(
 					cars.UserId,
 					cars.ConfigDescription,
-					cars.UserId,
-					cars.CarId
+					cars.Model,
+					cars.Type
 				);
 			}
 

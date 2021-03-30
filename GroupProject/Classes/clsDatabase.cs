@@ -243,22 +243,20 @@ namespace GroupProject.Classes
 			var conn = GetConnection();
 
 			string sql = @"SELECT
-        `t_User_configuration`.*,
-        `t_User_car_configuration`.`modification`,
-        `t_Cars`.`model`,
-        `t_Cars`.`type`,
-        `t_Cars`.`year`,
-        `t_Cars`.`price`,
-        `t_Cars_type`.`type`,
-        `t_Car_models`.`model`
-      FROM
-        `t_User_configuration`
-      LEFT JOIN `t_User_car_configuration` ON `t_User_car_configuration`.`configuration_id` = `t_User_configuration`.`ID`
-      LEFT JOIN `t_Cars` ON `t_User_configuration`.`car_id` = `t_Cars`.`ID`
-      LEFT JOIN `t_Cars_type` ON `t_Cars`.`type` = `t_Cars_type`.`ID`
-      LEFT JOIN `t_Car_models` ON `t_Cars`.`model` = `t_Car_models`.`ID` 
-      WHERE `t_User_configuration`.`review` = 1
-      ORDER BY `t_Cars_type`.`ID` ASC";
+    `t_User_configuration`.*,
+    `t_Cars`.`model`,
+    `t_Cars`.`type`,
+    `t_Cars`.`year`,
+    `t_Cars`.`price`,
+    `t_Car_models`.`model`,
+    `t_Cars_type`.`type`
+FROM
+    `t_User_configuration`
+LEFT JOIN `t_Cars` ON `t_User_configuration`.`car_id` = `t_Cars`.`ID`
+LEFT JOIN `t_Car_models` ON `t_Cars`.`model` = `t_Car_models`.`ID`
+LEFT JOIN `t_Cars_type` ON `t_Cars`.`type` = `t_Cars_type`.`ID`
+WHERE
+    `t_User_configuration`.`review` = '1'";
 
 			MySqlCommand command = new MySqlCommand(sql, conn);
 			conn.Open();
