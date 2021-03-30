@@ -12,12 +12,13 @@ namespace GroupProject
   {
 
     private ClsCar _car;
+    private Dictionary<int, CarCustomizationAvailable> _carConfigurationsAvailable;
+    
     // we will receive the CarId from the previous form
     private void Form1_Load(object sender, EventArgs e)
     {
-      ClsDatabase clsDb = new ClsDatabase();
       // Temporary call
-      _car = clsDb.GetCar(_carId);
+      _car = ClsDatabase.GetCar(_carId);
 
       lblCarId.Text = _car.Id.ToString();
       lblModel.Text = _car.Model;
@@ -26,24 +27,26 @@ namespace GroupProject
       lblPrice.Text = _car.Price.ToString() + "£";
 
       // clsDb.GetUserCarConfigurations();
-      var carConfigurationsAvailable = clsDb.CarConfigurationsAvailable(_carId);
+      _carConfigurationsAvailable = ClsDatabase.CarConfigurationsAvailable(_carId);
       var carConfigurationCheckBoxes = new List<CheckBox>();
-      for (int i = 0; i < carConfigurationsAvailable.Count; i++)
+      int i = 0;
+      foreach (var car in _carConfigurationsAvailable)
       {
         // Create the checkboxes and store them in an array if we need them in the future
         carConfigurationCheckBoxes.Add(new CheckBox()
         {
           Location = new Point(200, 50 + (20 * i)),
-          Text = carConfigurationsAvailable[i].Modifications + $"    {carConfigurationsAvailable[i].Price}£",
-          Name = carConfigurationsAvailable[i].Id.ToString(),
+          Text = car.Value.Modifications + $"    {car.Value.Price}£",
+          Name = car.Value.Id.ToString(),
           AutoSize = true
         });
         // Set the default configuration as NOT chosen
-        _car.CarConfigurationsChosen.Add(carConfigurationsAvailable[i].Id.ToString(), false);
+        _car.CarConfigurationsChosen.Add(car.Value.Id.ToString(), false);
         // Add an event listener
         carConfigurationCheckBoxes[i].CheckedChanged += DynamicCheckBoxCheckedChanged;
         // Add the checkboxes to the form
         this.Controls.Add(carConfigurationCheckBoxes[i]);
+        i++;
       }
     }
 
@@ -68,7 +71,7 @@ namespace GroupProject
     private void btnContinue_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId)
+      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId, _carConfigurationsAvailable)
       {
         Location = this.Location,
         Size = this.Size,

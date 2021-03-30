@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using GroupProject.Classes;
 using GroupProject.Classes.Salesman;
@@ -16,22 +17,31 @@ namespace GroupProject.Forms.Salesman
 
 		private void SalesmanViewReview_Load(object sender, EventArgs e)
 		{
-			dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-			dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-			ClsDatabase database = new ClsDatabase();
+			this.dataGridView1.SelectionChanged += DataGridView1_SelectionChanged;
+			this.dataGridView1.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;         
+			this.dataGridView1.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCellsExceptHeaders;         
+			this.dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+			var CarsForReview = ClsDatabase.GetUsersCarsForReview();
 
-			var CarsForReview = database.GetUsersConfigForReview();
-			
-			// TODO: Replace id with something else
-			foreach (var t in CarsForReview)
+			foreach (var cars in CarsForReview)
 			{
 				dataGridView1.Rows.Add(
-					t.Id,
-					t.Description,
-					t.UserId,
-					t.CarId
+					cars.UserId,
+					cars.ConfigDescription,
+					cars.UserId,
+					cars.CarId
 				);
 			}
+
+		}
+		
+		private void DataGridView1_SelectionChanged(object sender, EventArgs e)
+		{
+			// TODO: DO something with the config (display editable info, message box for review)
+			var dataGridView = (DataGridView) sender;
+			// Rows will always be 0 since user can select only 1 row
+			// 0 for ConfigID / 1 for Desc / 2 for Model / 3 for Type
+			var configId = (int)dataGridView.SelectedRows[0].Cells[0].Value;
 		}
 	}
 }
