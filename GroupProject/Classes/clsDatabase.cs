@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using GroupProject.Classes.Admin;
 using GroupProject.Classes.Car;
 using GroupProject.Classes.Salesman;
 using GroupProject.Classes.User;
@@ -332,5 +333,35 @@ namespace GroupProject.Classes
 			command.ExecuteNonQuery();
 			conn.Close();
 		}
+
+		static public List<ClsApr> GetAPRs()
+        {
+            var conn = GetConnection();
+
+            string sql = "SELECT `id`, `apr`, `time` FROM `t_APR`";
+
+            MySqlCommand command = new MySqlCommand(sql, conn);
+            
+            conn.Open();
+
+            var apr = new List<ClsApr>();
+            
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    apr.Add(new ClsApr()
+                    {
+                        Id = reader.GetInt32(0),
+                        Apr = reader.GetInt32(1),
+                        Time = reader.GetString(2)
+                    });
+                }
+            }
+            
+            conn.Close();
+            
+            return apr;
+        }
 	}
 }
