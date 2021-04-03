@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using GroupProject.Classes.Admin;
 using GroupProject.Classes.Car;
 using GroupProject.Classes.Salesman;
@@ -349,5 +350,62 @@ namespace GroupProject.Classes
             
             return apr;
         }
+
+		public static List<int> GetModificationsForConfigId(int configId, int userId)
+		{
+			var conn = GetConnection();
+
+			MySqlCommand command = new MySqlCommand("GetModificationsForConfigID", conn)
+			{
+				CommandType = CommandType.StoredProcedure,
+			};
+
+			command.Parameters.AddWithValue("@conf", configId);
+			command.Parameters.AddWithValue("@user", userId);
+			conn.Open();
+
+			var mods = new List<int>();
+			using (MySqlDataReader reader = command.ExecuteReader())
+			{
+				while (reader.Read())
+				{
+					mods.Add(reader.GetInt32(0));
+				}
+			}
+			
+			conn.Close();
+
+			return mods;
+		}
+
+		public static Dictionary<int, ClsModifications> GetModificationsAvailable()
+		{
+			var conn = GetConnection();
+			
+			MySqlCommand command = new MySqlCommand("GetModificationsAvailable", conn)
+			{
+				CommandType = CommandType.StoredProcedure,
+			};
+
+			var mods = new Dictionary<int, ClsModifications>();
+			
+			conn.Open();
+			using (MySqlDataReader reader = command.ExecuteReader())
+			{
+				while (reader.Read())
+				{
+					mods.Add(reader.GetInt32(0), new ClsModifications()
+					{
+						Id = reader.GetInt32(0),
+						Modification = reader.GetString(1),
+						Price = reader.GetFloat(2)
+					});
+				}
+			}
+			
+			conn.Close();
+
+			return mods;
+		}
 	}
 }

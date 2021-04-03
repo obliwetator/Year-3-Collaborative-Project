@@ -119,6 +119,7 @@
     <Compile Include="Classes\Admin\ClsAPR.cs" />
     <Compile Include="Classes\CarCustomizationAvailable.cs" />
     <Compile Include="Classes\Car\clsCar.cs" />
+    <Compile Include="Classes\Car\ClsModifications.cs" />
     <Compile Include="Classes\clsDatabase.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Salesman\CarConfigsForReview.cs" />
