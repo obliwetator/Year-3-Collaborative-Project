@@ -264,13 +264,15 @@ namespace GroupProject.Classes
 						CarId = reader.GetInt32(3),
 						Review = reader.GetBoolean(4),
 						WasReviewed = reader.GetBoolean(5),
-						ModificationId = reader.GetInt32(6),
-						ModelId = reader.GetInt32(7),
-						TypeId = reader.GetInt32(8),
-						Year = reader.GetInt32(9),
-						Price = reader.GetFloat(10),
-						Type = reader.GetString(11),
+						Purchase = reader.GetBoolean(6),
+						// There might be no comment
+						CommentForReview = reader.IsDBNull(7) ? "" : reader.GetString(7),
+						ModelId = reader.GetInt32(8),
+						TypeId = reader.GetInt32(9),
+						Year = reader.GetInt32(10),
+						Price = reader.GetFloat(11),
 						Model = reader.GetString(12),
+						Type = reader.GetString(13)
 					});
 				}
 			}
@@ -406,6 +408,16 @@ namespace GroupProject.Classes
 			conn.Close();
 
 			return mods;
+		}
+
+		public static void GetReviewedConfiguration(int userId)
+		{
+			var conn = GetConnection();
+			
+			MySqlCommand command = new MySqlCommand("GetModificationsAvailable", conn)
+			{
+				CommandType = CommandType.StoredProcedure,
+			};
 		}
 	}
 }
