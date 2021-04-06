@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using MySql.Data;
 
 namespace GroupProject.Forms.Admin
 {
@@ -21,11 +22,14 @@ namespace GroupProject.Forms.Admin
            //  string comString = "INSERT INTO `t_APR`( `APR`, `Time`) VALUES ('" + txtAPR + "', '" + txtTime + "')";
             // Looks cleaner
             string sql = $"INSERT INTO `t_APR` (`ID`, `APR`, `Time`) VALUES (NULL, '${txtAPR.Text}', ${txtTime.Text})";
-            MySqlCommand sqlCom = new MySqlCommand(sql, cnn); 
-            
+            MySqlCommand sqlCom = new MySqlCommand(sql, cnn);
+
+            sqlCom.ExecuteNonQuery();
+
+            //sqlcCom.ExecuteNonQuery();
             // TODO: Execute the query
             // TODO: Ability to delete APRs? // added this to APRUpdate. 
-            
+
         }
 
         private void APR_Load(object sender, EventArgs e)
