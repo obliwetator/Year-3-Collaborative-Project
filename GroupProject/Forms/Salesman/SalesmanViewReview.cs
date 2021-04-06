@@ -10,7 +10,6 @@ namespace GroupProject.Forms.Salesman
 {
 	// Car review will always lead to ViewInvoice
 	// It's a way for the salesman to provide feedback to the user
-	//TODO: Display running cost somewhere
 	public partial class SalesmanViewReview : Form
 	{
 		// User checkboxes
@@ -22,8 +21,21 @@ namespace GroupProject.Forms.Salesman
 		// All modifications
 		private Dictionary<int, ClsModifications> _modificationsMap;
 		private List<ClsSalesmanUserCarConfiguration> _carsForReview;
-		public SalesmanViewReview()
+		// By default there is no discount
+		private ClsDiscount _discount = new ClsDiscount()
 		{
+			Id = 0,
+			Type = "flat",
+			DiscountAmmount = 0,
+		};
+
+		//TODO: Add caching
+		private List<int> _modifications;
+		private int _salesmanId;
+
+		public SalesmanViewReview(int salesmanId = 4)
+		{
+			this._salesmanId = salesmanId;
 			InitializeComponent();
 		}
 
@@ -63,7 +75,7 @@ namespace GroupProject.Forms.Salesman
 			var configId = (int)dataGridView.SelectedRows[0].Cells[0].Value;
 			var userId = (int)dataGridView.SelectedRows[0].Cells[1].Value;
 			// TODO: Add caching
-			var modifications = ClsDatabase.GetModificationsForConfigId(configId, userId);
+			_modifications = ClsDatabase.GetModificationsForConfigId(configId, userId);
 			// Comment text
 			lblUserComment.Text = _carsForReview[dataGridView.SelectedRows[0].Index].CommentForReview;
 
@@ -71,7 +83,8 @@ namespace GroupProject.Forms.Salesman
 			// Show User's selected modifications as checkboxes
 			// Those can be edited by the salesman and sent back in the review process
 			this.ShowAvailableModifications(_carsForReview[dataGridView.SelectedRows[0].Index].CarId);
-			this.ShowUserModification(modifications);
+			this.ShowUserModification();
+			this.DisplayTotalCarCost();
 		}
 
 		private void ResetAllModificationCheckBoxes()
@@ -126,7 +139,7 @@ namespace GroupProject.Forms.Salesman
 		}
 
 		// Runs every time user changes selection
-		private void ShowUserModification(List<int> modifications)
+		private void ShowUserModification()
 		{
 			// Clear any previous checkboxes
 			foreach (var checkBox in this._checkBoxMap)
@@ -139,7 +152,7 @@ namespace GroupProject.Forms.Salesman
 			
 			int j = 0;
 			int k = 0;
-			for (int i = 0; i < modifications.Count; i++)
+			for (int i = 0; i < _modifications.Count; i++)
 			{
 				// 3 checkboxes per row
 				if (i % 3 == 0)
@@ -150,8 +163,8 @@ namespace GroupProject.Forms.Salesman
 				var temp = new CheckBox()
 				{
 					Location = new Point(500 + (180 * k), -30 + (j * 30)),
-					Text = this._modificationsMap[modifications[i]].Modification + "   £" + this._modificationsMap[modifications[i]].Price.ToString(),
-					Name = "1" + this._modificationsMap[modifications[i]].Id.ToString(),
+					Text = this._modificationsMap[_modifications[i]].Modification + "   £" + this._modificationsMap[_modifications[i]].Price.ToString(),
+					Name = "1" + this._modificationsMap[_modifications[i]].Id.ToString(),
 					Height = 100,
 					Width = 180,
 					AutoSize = false,
@@ -159,16 +172,16 @@ namespace GroupProject.Forms.Salesman
 				};
 
 				// Tick the all modification checkbox
-				if (_checkBoxMapAll.ContainsKey(this._modificationsMap[modifications[i]].Id))
+				if (_checkBoxMapAll.ContainsKey(this._modificationsMap[_modifications[i]].Id))
 				{
-					_checkBoxMapAll[this._modificationsMap[modifications[i]].Id].Checked = true;
+					_checkBoxMapAll[this._modificationsMap[_modifications[i]].Id].Checked = true;
 				}
 
 				temp.CheckedChanged += chck_CheckedChanged;
 
 				k++;
 				
-				_checkBoxMap.Add(modifications[i], temp);
+				_checkBoxMap.Add(_modifications[i], temp);
 				
 				this.Controls.Add(temp);
 			}
@@ -176,12 +189,11 @@ namespace GroupProject.Forms.Salesman
 
 		private void btnApprove_Click(object sender, EventArgs e)
 		{
-			DialogResult dialogResult = MessageBox.Show("Are you sure you want to approve this review with the selected changes?", "Confirmation", MessageBoxButtons.YesNo);
+			DialogResult dialogResult = MessageBox.Show("Are you sure you want to approve this configuration with the selected changes?", "Confirmation", MessageBoxButtons.YesNo);
 			if(dialogResult == DialogResult.Yes)
 			{
 				var configId = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-				//TODO: send the review to db
-				ClsDatabase.AddSalesmanConfigurationReview(txtReview.Text, _selectedMods, configId);
+				ClsDatabase.AddSalesmanConfigurationReview(txtReview.Text, _selectedMods, configId, _salesmanId);
 			}
 			else if (dialogResult == DialogResult.No)
 			{
@@ -189,7 +201,28 @@ namespace GroupProject.Forms.Salesman
 			}
 		}
 		
-		void chck_CheckedChanged(object sender, EventArgs e)
+		private void DisplayTotalCarCost()
+		{
+			float totalPrice = 0;
+			for (int i = 0; i < _modifications.Count; i++)
+			{
+				totalPrice += _modificationsMap[_modifications[i]].Price;
+			}
+
+			totalPrice += _carsForReview[dataGridView1.SelectedRows[0].Index].Price;
+			if (_discount.Type == "flat")
+			{
+				totalPrice -= _discount.DiscountAmmount;
+			}
+			else if (_discount.Type == "percent")
+			{
+				totalPrice -= (totalPrice * (_discount.DiscountAmmount / 100));
+			}
+
+			lblTotalCost.Text ="£" + totalPrice.ToString();
+		}
+
+		private void chck_CheckedChanged(object sender, EventArgs e)
 		{
 			CheckBox checkBox = (sender as CheckBox);
 			// Remove prfix and get the mod ID
@@ -254,9 +287,22 @@ namespace GroupProject.Forms.Salesman
 			
 		}
 
-		private void CheckCheckBoxes(CheckBox checkBox)
+		private void btnDiscount_Click(object sender, EventArgs e)
 		{
+			SalesmanDiscount userConfirmCarChoice = new SalesmanDiscount()
+			{
+				Location = this.Location,
+				Size = new Size(500, 300),
+				// Otherwise we can't put the form where we want
+				StartPosition = FormStartPosition.Manual
+			};
 
+			var result = userConfirmCarChoice.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				_discount = userConfirmCarChoice.Discount;            //values preserved after close
+				this.DisplayTotalCarCost();
+			}
 		}
 	}
 }

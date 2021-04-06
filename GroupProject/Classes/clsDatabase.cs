@@ -412,11 +412,11 @@ namespace GroupProject.Classes
 			return mods;
 		}
 
-		public static void AddSalesmanConfigurationReview(string txtReviewText, HashSet<int> selectedMods, int configId)
+		public static void AddSalesmanConfigurationReview(string txtReviewText, HashSet<int> selectedMods, int configId, int salesmanId)
 		{
 			var conn = GetConnection();
-			string sql = $@"INSERT INTO `t_Salesman_configuration_review` (`ID`, `config_id`, `comment`) VALUES (NULL, '{configId}', '{txtReviewText}'); SELECT last_insert_id();
-						UPDATE `t_User_configuration` SET `was_reviewed` = '1' WHERE `t_User_configuration`.`ID` = {configId};		
+			string sql = $@"INSERT INTO `t_Salesman_configuration_review` (`ID`, `salesman_id`, `config_id`, `comment`) VALUES (NULL, '{configId}', {salesmanId} '{txtReviewText}'); SELECT last_insert_id();
+						UPDATE `t_User_configuration` SET `was_reviewed` = '1', `review` = 0 WHERE `t_User_configuration`.`ID` = {configId};		
 			";
 			
 			MySqlCommand command = new MySqlCommand(sql, conn);
@@ -445,6 +445,91 @@ namespace GroupProject.Classes
 			}
 
 			conn.Close();
+		}
+
+		public static List<ClsDiscount> GetAllDiscounts()
+		{
+			
+			var conn = GetConnection();
+			string sql = "SELECT * FROM `t_discount`";
+
+			MySqlCommand command = new MySqlCommand(sql, conn);
+			List<ClsDiscount> discount = new List<ClsDiscount>();
+			conn.Open();
+			using (MySqlDataReader reader = command.ExecuteReader())
+			{
+				while (reader.Read())
+				{
+					discount.Add(new ClsDiscount()
+					{
+						Id = reader.GetInt32(0),
+						DiscountAmmount = reader.GetFloat(1),
+						Type = reader.GetString(2),
+					});
+				}
+			}
+			
+			conn.Close();
+
+			return discount;
+		}
+
+		public static void FinalizeConfiguration(int configId, ClsDiscount discount, int userId, int salesmanId)
+		{
+			var conn = GetConnection();
+			string sql = $"UPDATE `t_User_configuration` SET `purchased` = '1', `discount` = {discount.Id } WHERE `t_User_configuration`.`ID` = {configId};";
+			string insertOrder = $"INSERT INTO `t_Order` (`salesman_id`, `user_id`, `config_id`) VALUES ('{salesmanId}', '{userId}', '{configId}')";
+			MySqlCommand command = new MySqlCommand(sql, conn);
+			
+			conn.Open();
+
+			command.ExecuteNonQuery();
+			// new command
+			command.CommandText = insertOrder;
+			command.ExecuteNonQuery();
+			
+			conn.Close();
+		}
+
+		public static List<ClsSalesmanUserCarConfiguration> GetUsersCarsForApproval()
+		{
+			var conn = GetConnection();
+
+			MySqlCommand command = new MySqlCommand("GetCArConfigForApproval")
+			{
+				Connection = conn,
+				CommandType = CommandType.StoredProcedure,
+			};
+			conn.Open();
+
+			var cars = new List<ClsSalesmanUserCarConfiguration>();
+			using (MySqlDataReader reader = command.ExecuteReader())
+			{
+				while (reader.Read())
+				{
+					cars.Add(new ClsSalesmanUserCarConfiguration()
+					{
+						ConfigId = reader.GetInt32(0),
+						ConfigDescription = reader.GetString(1),
+						UserId = reader.GetInt32(2),
+						CarId = reader.GetInt32(3),
+						// We will still load configuration that were reviewed in case we might add the functionality
+						// to edit already submitted configuration 
+						Purchase = reader.GetBoolean(4),
+						// There might be no comment
+						CommentForReview = reader.IsDBNull(5) ? "" : reader.GetString(5),
+						ModelId = reader.GetInt32(6),
+						TypeId = reader.GetInt32(7),
+						Year = reader.GetInt32(8),
+						Price = reader.GetFloat(9),
+						Model = reader.GetString(10),
+						Type = reader.GetString(11)
+					});
+				}
+			}
+
+			conn.Close();
+			return cars;
 		}
 	}
 }

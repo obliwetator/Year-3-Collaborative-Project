@@ -44,6 +44,9 @@ namespace GroupProject.Forms.Salesman
 			this.label2 = new System.Windows.Forms.Label();
 			this.label3 = new System.Windows.Forms.Label();
 			this.label4 = new System.Windows.Forms.Label();
+			this.lblTotalCost = new System.Windows.Forms.Label();
+			this.label5 = new System.Windows.Forms.Label();
+			this.btnDiscount = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -143,7 +146,7 @@ namespace GroupProject.Forms.Salesman
 			// 
 			// label3
 			// 
-			this.label3.Location = new System.Drawing.Point(500, 22);
+			this.label3.Location = new System.Drawing.Point(500, 12);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(152, 21);
 			this.label3.TabIndex = 7;
@@ -157,12 +160,41 @@ namespace GroupProject.Forms.Salesman
 			this.label4.TabIndex = 8;
 			this.label4.Text = "Available modifications";
 			// 
+			// lblTotalCost
+			// 
+			this.lblTotalCost.Location = new System.Drawing.Point(1178, 33);
+			this.lblTotalCost.Name = "lblTotalCost";
+			this.lblTotalCost.Size = new System.Drawing.Size(77, 23);
+			this.lblTotalCost.TabIndex = 16;
+			this.lblTotalCost.Text = "Total Cost";
+			// 
+			// label5
+			// 
+			this.label5.Location = new System.Drawing.Point(1178, 12);
+			this.label5.Name = "label5";
+			this.label5.Size = new System.Drawing.Size(64, 21);
+			this.label5.TabIndex = 15;
+			this.label5.Text = "Total Cost";
+			// 
+			// btnDiscount
+			// 
+			this.btnDiscount.Location = new System.Drawing.Point(904, 614);
+			this.btnDiscount.Name = "btnDiscount";
+			this.btnDiscount.Size = new System.Drawing.Size(157, 55);
+			this.btnDiscount.TabIndex = 17;
+			this.btnDiscount.Text = "Apply Discount";
+			this.btnDiscount.UseVisualStyleBackColor = true;
+			this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
+			// 
 			// SalesmanViewReview
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.btnDiscount);
+			this.Controls.Add(this.lblTotalCost);
+			this.Controls.Add(this.label5);
 			this.Controls.Add(this.label4);
 			this.Controls.Add(this.label3);
 			this.Controls.Add(this.label2);
@@ -171,13 +203,18 @@ namespace GroupProject.Forms.Salesman
 			this.Controls.Add(this.txtReview);
 			this.Controls.Add(this.btnApprove);
 			this.Controls.Add(this.dataGridView1);
+			this.Location = new System.Drawing.Point(15, 15);
 			this.Name = "SalesmanViewReview";
-			this.Text = "SalesmanViewReview";
 			this.Load += new System.EventHandler(this.SalesmanViewReview_Load);
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+
+		private System.Windows.Forms.Button btnDiscount;
+
+		private System.Windows.Forms.Label label5;
+		private System.Windows.Forms.Label lblTotalCost;
 
 		private System.Windows.Forms.Label label3;
 		private System.Windows.Forms.Label label4;
