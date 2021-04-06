@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using GroupProject.Classes;
 
 namespace GroupProject.Forms.Admin
 {
@@ -15,28 +16,7 @@ namespace GroupProject.Forms.Admin
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            MySqlConnection cnn = new MySqlConnection(conString);
 
-            String com = "SELECT * From `tbl_Test`";
-            MySqlDataAdapter adapter = new MySqlDataAdapter(com, cnn);
-
-            DataTable dt = new DataTable(); //create copy of database table 
-
-            try
-            {
-                cnn.Open();
-
-                adapter.Fill(dt);
-
-                cnn.Close();
-            }
-
-            catch (Exception ex)
-            {
-
-            }
-
-            gvUpdate.DataSource = dt;
         }
 
         private void btnSaveUpdate_Click(object sender, System.EventArgs e)
@@ -52,7 +32,9 @@ namespace GroupProject.Forms.Admin
                 myCommand.Parameters.AddWithValue("@type", txtTypeUpdate.Text);
                 myCommand.Parameters.AddWithValue("@year", txtYearUpdate.Text);
                 myCommand.Parameters.AddWithValue("@price", txtPriceUpdate.Text);
-                myCommand.Parameters.AddWithValue("@ID", txtIdUpdate.Text); 
+                myCommand.Parameters.AddWithValue("@ID", txtIdUpdate.Text);
+                myCommand.Prepare();
+                myCommand.ExecuteNonQuery(); 
 
                 myCom.Close();
             }
@@ -62,6 +44,11 @@ namespace GroupProject.Forms.Admin
             }
 
 
+        }
+
+        private void AdminUpdatingPage_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

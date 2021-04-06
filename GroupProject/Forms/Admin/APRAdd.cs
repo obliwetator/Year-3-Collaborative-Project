@@ -18,9 +18,8 @@ namespace GroupProject.Forms.Admin
         {
             // TODO: Move th sql to the database file?
             MySqlConnection cnn = new MySqlConnection(conString);
-            //                                                                  Needs .Text            and here
-           //  string comString = "INSERT INTO `t_APR`( `APR`, `Time`) VALUES ('" + txtAPR + "', '" + txtTime + "')";
-            // Looks cleaner
+            //                                                                 
+          
             string sql = $"INSERT INTO `t_APR` (`ID`, `APR`, `Time`) VALUES (NULL, '${txtAPR.Text}', ${txtTime.Text})";
             MySqlCommand sqlCom = new MySqlCommand(sql, cnn);
 

@@ -93,7 +93,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\Admin\ClsAPR.cs" />
-    <Compile Include="Classes\Admin\ClsUpdate.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

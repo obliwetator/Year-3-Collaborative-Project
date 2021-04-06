@@ -65,7 +65,6 @@ namespace GroupProject.Forms.Admin
             this.gvUpdate.RowTemplate.Height = 28;
             this.gvUpdate.Size = new System.Drawing.Size(347, 204);
             this.gvUpdate.TabIndex = 8;
-            this.gvUpdate.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btnSaveUpdate
             // 
@@ -182,6 +181,7 @@ namespace GroupProject.Forms.Admin
             this.Controls.Add(this.lblDashbord);
             this.Name = "AdminUpdatingPage";
             this.Text = "AdminUpdatingPage";
+            this.Load += new System.EventHandler(this.AdminUpdatingPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gvUpdate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
