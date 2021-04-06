@@ -27,7 +27,7 @@ namespace GroupProject
       lblPrice.Text = _car.Price.ToString() + "£";
 
       // clsDb.GetUserCarConfigurations();
-      _carConfigurationsAvailable = ClsDatabase.CarConfigurationsAvailable(_carId);
+      _carConfigurationsAvailable = ClsDatabase.GetCarConfigurationsAvailable(_carId);
       var carConfigurationCheckBoxes = new List<CheckBox>();
       int i = 0;
       foreach (var car in _carConfigurationsAvailable)
