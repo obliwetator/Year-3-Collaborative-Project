@@ -168,7 +168,7 @@ namespace GroupProject.Classes
 			return cars;
 		}
 
-		public static Dictionary<int, CarCustomizationAvailable> CarConfigurationsAvailable(int carId)
+		public static Dictionary<int, CarCustomizationAvailable> GetCarConfigurationsAvailable(int carId)
 		{
 			var conn = GetConnection();
 
@@ -263,6 +263,8 @@ namespace GroupProject.Classes
 						UserId = reader.GetInt32(2),
 						CarId = reader.GetInt32(3),
 						Review = reader.GetBoolean(4),
+						// We will still load configuration that were reviewed in case we might add the functionality
+						// to edit already submitted configuration 
 						WasReviewed = reader.GetBoolean(5),
 						Purchase = reader.GetBoolean(6),
 						// There might be no comment
@@ -410,14 +412,39 @@ namespace GroupProject.Classes
 			return mods;
 		}
 
-		public static void GetReviewedConfiguration(int userId)
+		public static void AddSalesmanConfigurationReview(string txtReviewText, HashSet<int> selectedMods, int configId)
 		{
 			var conn = GetConnection();
+			string sql = $@"INSERT INTO `t_Salesman_configuration_review` (`ID`, `config_id`, `comment`) VALUES (NULL, '{configId}', '{txtReviewText}'); SELECT last_insert_id();
+						UPDATE `t_User_configuration` SET `was_reviewed` = '1' WHERE `t_User_configuration`.`ID` = {configId};		
+			";
 			
-			MySqlCommand command = new MySqlCommand("GetModificationsAvailable", conn)
+			MySqlCommand command = new MySqlCommand(sql, conn);
+			conn.Open();
+			// We get the config id from the SELECT last_insert_id(); statement
+			var salesmanReviewId = (ulong) command.ExecuteScalar();
+			
+			// Add modification to the config
+			string addUserCarConfig = "INSERT INTO `t_Salesman_configuration_review_car` (`ID`, `salesman_config_id`, `modification_id`) VALUES";
+			int originalQueryLength = addUserCarConfig.Length;
+			foreach (var modId in selectedMods)
 			{
-				CommandType = CommandType.StoredProcedure,
-			};
+				addUserCarConfig += $"(NULL, '{salesmanReviewId}', {modId}),";
+			}
+			
+			// No configs were added don't run the query
+			if (originalQueryLength != addUserCarConfig.Length)
+			{
+				// Replace last comma with a ';'
+				addUserCarConfig = addUserCarConfig.Remove(addUserCarConfig.Length - 1, 1) + ";";
+
+				// re-use command
+				command.Parameters.Clear();
+				command.CommandText = addUserCarConfig;
+				command.ExecuteNonQuery();
+			}
+
+			conn.Close();
 		}
 	}
 }

@@ -37,7 +37,13 @@ namespace GroupProject.Forms.Salesman
 			this.Description = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.ModelType = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.CarType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.btnApprove = new System.Windows.Forms.Button();
+			this.txtReview = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.lblUserComment = new System.Windows.Forms.Label();
+			this.label2 = new System.Windows.Forms.Label();
+			this.label3 = new System.Windows.Forms.Label();
+			this.label4 = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -93,13 +99,63 @@ namespace GroupProject.Forms.Salesman
 			this.CarType.ReadOnly = true;
 			this.CarType.Width = 80;
 			// 
+			// btnApprove
+			// 
+			this.btnApprove.Location = new System.Drawing.Point(1095, 614);
+			this.btnApprove.Name = "btnApprove";
+			this.btnApprove.Size = new System.Drawing.Size(157, 55);
+			this.btnApprove.TabIndex = 1;
+			this.btnApprove.Text = "Approve Review";
+			this.btnApprove.UseVisualStyleBackColor = true;
+			this.btnApprove.Click += new System.EventHandler(this.btnApprove_Click);
+			// 
+			// txtReview
+			// 
+			this.txtReview.Location = new System.Drawing.Point(733, 434);
+			this.txtReview.Multiline = true;
+			this.txtReview.Name = "txtReview";
+			this.txtReview.Size = new System.Drawing.Size(462, 136);
+			this.txtReview.TabIndex = 2;
+			// 
 			// label1
 			// 
-			this.label1.Location = new System.Drawing.Point(543, 12);
+			this.label1.Location = new System.Drawing.Point(733, 408);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(100, 23);
-			this.label1.TabIndex = 1;
-			this.label1.Text = "label1";
+			this.label1.Size = new System.Drawing.Size(101, 23);
+			this.label1.TabIndex = 3;
+			this.label1.Text = "Review Comment";
+			// 
+			// lblUserComment
+			// 
+			this.lblUserComment.Location = new System.Drawing.Point(12, 491);
+			this.lblUserComment.Name = "lblUserComment";
+			this.lblUserComment.Size = new System.Drawing.Size(454, 118);
+			this.lblUserComment.TabIndex = 5;
+			this.lblUserComment.Text = "User Comment";
+			// 
+			// label2
+			// 
+			this.label2.Location = new System.Drawing.Point(12, 469);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(137, 22);
+			this.label2.TabIndex = 6;
+			this.label2.Text = "User Comment";
+			// 
+			// label3
+			// 
+			this.label3.Location = new System.Drawing.Point(500, 22);
+			this.label3.Name = "label3";
+			this.label3.Size = new System.Drawing.Size(152, 21);
+			this.label3.TabIndex = 7;
+			this.label3.Text = "User selected modifications";
+			// 
+			// label4
+			// 
+			this.label4.Location = new System.Drawing.Point(500, 227);
+			this.label4.Name = "label4";
+			this.label4.Size = new System.Drawing.Size(134, 20);
+			this.label4.TabIndex = 8;
+			this.label4.Text = "Available modifications";
 			// 
 			// SalesmanViewReview
 			// 
@@ -107,16 +163,36 @@ namespace GroupProject.Forms.Salesman
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.label4);
+			this.Controls.Add(this.label3);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.lblUserComment);
 			this.Controls.Add(this.label1);
+			this.Controls.Add(this.txtReview);
+			this.Controls.Add(this.btnApprove);
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "SalesmanViewReview";
 			this.Text = "SalesmanViewReview";
 			this.Load += new System.EventHandler(this.SalesmanViewReview_Load);
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
+			this.PerformLayout();
 		}
 
+		private System.Windows.Forms.Label label3;
+		private System.Windows.Forms.Label label4;
+
+		private System.Windows.Forms.Label label2;
+
+		private System.Windows.Forms.Label lblUserCommand;
+
+		private System.Windows.Forms.Label lblUserComment;
+
 		private System.Windows.Forms.Label label1;
+
+		private System.Windows.Forms.TextBox txtReview;
+
+		private System.Windows.Forms.Button btnApprove;
 
 		private System.Windows.Forms.DataGridViewTextBoxColumn CarType;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Description;

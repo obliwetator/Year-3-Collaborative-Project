@@ -8,6 +8,8 @@
 		public int CarId { get; set; }
 		public bool Review { get; set; }
 		public bool WasReviewed { get; set; }
+		public bool Purchase { get; set; }
+		public string CommentForReview { get; set; }
 		public int ModificationId { get; set; }
 		public int ModelId { get; set; }
 		public int TypeId { get; set; }
