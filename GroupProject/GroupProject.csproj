@@ -123,6 +123,7 @@
     <Compile Include="Classes\clsDatabase.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Salesman\CarConfigsForReview.cs" />
+    <Compile Include="Classes\Salesman\ClsDiscount.cs" />
     <Compile Include="Classes\Salesman\ClsSalesmanUserCarConfiguration.cs" />
     <Compile Include="Classes\SaveLoad.cs" />
     <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
@@ -148,6 +149,12 @@
     </Compile>
     <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanDiscount.Designer.cs">
+      <DependentUpon>SalesmanDiscount.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs">
       <SubType>Form</SubType>
@@ -191,6 +198,9 @@
     <EmbeddedResource Include="Forms\Admin\Delete.resx" />
     <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanDiscount.resx">
+      <DependentUpon>SalesmanDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx">
       <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
