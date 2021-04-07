@@ -16,6 +16,7 @@ namespace GroupProject.Forms.Salesman
 		
 		private Dictionary<int, ClsModifications> _modificationsMap;
 		private List<ClsSalesmanUserCarConfiguration> _carsForAproval;
+		private SalesmanDashboard _salesmanDashboard;
 
 		// By default there is no discount
 		private ClsDiscount _discount = new ClsDiscount()
@@ -28,8 +29,9 @@ namespace GroupProject.Forms.Salesman
 		private List<int> _modifications;
 		private int _salesmanId;
 		// Hardcoded id
-		public SalesmanViewInvoice(int salesmanId = 4)
+		public SalesmanViewInvoice(int salesmanId, SalesmanDashboard salesmanDashboard)
 		{
+			this._salesmanDashboard = salesmanDashboard;
 			this._salesmanId = salesmanId;
 			InitializeComponent();
 		}
@@ -154,7 +156,6 @@ namespace GroupProject.Forms.Salesman
 			{
 				var configId = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
 				var userId = (int)dataGridView1.SelectedRows[0].Cells[1].Value;
-				//TODO: send the finished config to db
 				ClsDatabase.FinalizeConfiguration(configId, _discount, userId, _salesmanId);
 				// Remove that entry for the data table
 				dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
@@ -181,6 +182,14 @@ namespace GroupProject.Forms.Salesman
 				_discount = userConfirmCarChoice.Discount;            //values preserved after close
 				this.DisplayTotalCarCost();
 			}
+		}
+
+		private void btnBack_Click(object sender, EventArgs e)
+		{
+			// Completely delete
+			this.Close();
+			
+			_salesmanDashboard.Show();
 		}
 	}
 }

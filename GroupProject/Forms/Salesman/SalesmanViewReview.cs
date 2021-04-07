@@ -12,6 +12,7 @@ namespace GroupProject.Forms.Salesman
 	// It's a way for the salesman to provide feedback to the user
 	public partial class SalesmanViewReview : Form
 	{
+		private SalesmanDashboard _salesmanDashboard;
 		// User checkboxes
 		private readonly Dictionary<int, CheckBox> _checkBoxMap = new Dictionary<int, CheckBox>();
 		// All checkboxes
@@ -33,8 +34,9 @@ namespace GroupProject.Forms.Salesman
 		private List<int> _modifications;
 		private readonly int _salesmanId;
 
-		public SalesmanViewReview(int salesmanId = 4)
+		public SalesmanViewReview(int salesmanId, SalesmanDashboard salesmanDashboard)
 		{
+			this._salesmanDashboard = salesmanDashboard;
 			this._salesmanId = salesmanId;
 			InitializeComponent();
 		}
@@ -303,6 +305,14 @@ namespace GroupProject.Forms.Salesman
 				_discount = userConfirmCarChoice.Discount;            //values preserved after close
 				this.DisplayTotalCarCost();
 			}
+		}
+
+		private void btnBack_Click(object sender, EventArgs e)
+		{
+			// Completely delete
+			this.Close();
+			
+			_salesmanDashboard.Show();
 		}
 	}
 }

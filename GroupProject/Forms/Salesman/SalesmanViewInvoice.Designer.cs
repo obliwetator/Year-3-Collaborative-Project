@@ -45,6 +45,7 @@ namespace GroupProject.Forms.Salesman
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblTotalCost = new System.Windows.Forms.Label();
 			this.lblNothing = new System.Windows.Forms.Label();
+			this.btnBack = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -168,11 +169,22 @@ namespace GroupProject.Forms.Salesman
 			this.lblNothing.Text = "No cars left to approve";
 			this.lblNothing.Visible = false;
 			// 
+			// btnBack
+			// 
+			this.btnBack.Location = new System.Drawing.Point(12, 614);
+			this.btnBack.Name = "btnBack";
+			this.btnBack.Size = new System.Drawing.Size(157, 55);
+			this.btnBack.TabIndex = 19;
+			this.btnBack.Text = "Back";
+			this.btnBack.UseVisualStyleBackColor = true;
+			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+			// 
 			// SalesmanViewInvoice
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.lblNothing);
 			this.Controls.Add(this.lblTotalCost);
 			this.Controls.Add(this.label1);
@@ -188,6 +200,8 @@ namespace GroupProject.Forms.Salesman
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.Button btnBack;
 
 		private System.Windows.Forms.Label lblNothing;
 

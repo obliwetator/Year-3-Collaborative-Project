@@ -47,6 +47,7 @@ namespace GroupProject.Forms.Salesman
 			this.lblTotalCost = new System.Windows.Forms.Label();
 			this.label5 = new System.Windows.Forms.Label();
 			this.btnDiscount = new System.Windows.Forms.Button();
+			this.btnBack = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize) (this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -132,7 +133,7 @@ namespace GroupProject.Forms.Salesman
 			// 
 			this.lblUserComment.Location = new System.Drawing.Point(12, 491);
 			this.lblUserComment.Name = "lblUserComment";
-			this.lblUserComment.Size = new System.Drawing.Size(454, 118);
+			this.lblUserComment.Size = new System.Drawing.Size(454, 105);
 			this.lblUserComment.TabIndex = 5;
 			this.lblUserComment.Text = "User Comment";
 			// 
@@ -186,12 +187,23 @@ namespace GroupProject.Forms.Salesman
 			this.btnDiscount.UseVisualStyleBackColor = true;
 			this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
 			// 
+			// btnBack
+			// 
+			this.btnBack.Location = new System.Drawing.Point(12, 614);
+			this.btnBack.Name = "btnBack";
+			this.btnBack.Size = new System.Drawing.Size(157, 55);
+			this.btnBack.TabIndex = 18;
+			this.btnBack.Text = "Back";
+			this.btnBack.UseVisualStyleBackColor = true;
+			this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+			// 
 			// SalesmanViewReview
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.btnBack);
 			this.Controls.Add(this.btnDiscount);
 			this.Controls.Add(this.lblTotalCost);
 			this.Controls.Add(this.label5);
@@ -210,6 +222,8 @@ namespace GroupProject.Forms.Salesman
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+
+		private System.Windows.Forms.Button btnBack;
 
 		private System.Windows.Forms.Button btnDiscount;
 
