@@ -21,7 +21,8 @@ namespace GroupProject.Forms.Admin
         private void btnSetApr_Click(object sender, EventArgs e)
         {
             this.Hide();
-            APR f4 = new APR();
+              APR f4 = new APR();
+           // StatsSalemen f4 = new StatsSalemen();
             f4.Show();
 
         }
