@@ -545,5 +545,20 @@ namespace GroupProject.Classes
 			
 			conn.Close();
 		}
+
+		public static long GetHowManyInvoicesHaveBeenCompleted()
+		{
+			string sql = "SELECT COUNT(ID) FROM `t_Order`";
+			var conn = GetConnection();
+			
+			MySqlCommand command = new MySqlCommand(sql, conn);
+			conn.Open();
+	
+			long count = (long)command.ExecuteScalar();
+			
+			conn.Close();
+
+			return count;
+		}
 	}
 }

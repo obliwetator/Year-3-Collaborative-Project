@@ -152,6 +152,12 @@
     <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
     <Compile Include="Forms\Admin\AdminDashboard.cs" />
     <Compile Include="Forms\Admin\AdminDashboard.Designer.cs" />
+    <Compile Include="Forms\Admin\AdminMiscStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminMiscStats.Designer.cs">
+      <DependentUpon>AdminMiscStats.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs" />
     <Compile Include="Forms\Admin\APRAdd.cs" />
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\AddingCar.resx" />
     <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminMiscStats.resx">
+      <DependentUpon>AdminMiscStats.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
     <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
     <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
