@@ -1,7 +1,7 @@
 ﻿
 namespace GroupProject.Forms.Admin
 {
-    partial class AdminDashbord
+    partial class AdminDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -126,7 +126,7 @@ namespace GroupProject.Forms.Admin
             this.Controls.Add(this.btnSetApr);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.lblDashbord);
-            this.Name = "AdminDashbord";
+            this.Name = "AdminDashboard";
             this.Text = "AdminDashbord";
             this.ResumeLayout(false);
             this.PerformLayout();

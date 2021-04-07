@@ -124,11 +124,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BrowseVehicles.cs" />
+    <Compile Include="BrowseVehicles.Designer.cs" />
     <Compile Include="Classes\Admin\ClsAPR.cs" />
     <Compile Include="Classes\CarCustomizationAvailable.cs" />
     <Compile Include="Classes\Car\clsCar.cs" />
     <Compile Include="Classes\Car\ClsModifications.cs" />
     <Compile Include="Classes\clsDatabase.cs" />
+    <Compile Include="Classes\clsUser.cs" />
     <Compile Include="Classes\Database.cs" />
     <Compile Include="Classes\Salesman\CarConfigsForReview.cs" />
     <Compile Include="Classes\Salesman\ClsDiscount.cs" />
@@ -137,14 +140,20 @@
     <Compile Include="Classes\SerialzationClasses\UserSaveLoadConfig.cs" />
     <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
     <Compile Include="Classes\User\clsUserConfiguration.cs" />
+    <Compile Include="CustomerDashboardform.cs" />
+    <Compile Include="CustomerDashboardform.Designer.cs" />
     <Compile Include="EntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\AdminDashbord.cs" />
-    <Compile Include="Forms\Admin\AdminDashbord.Designer.cs" />
+    <Compile Include="Form.Designer.cs" />
+    <Compile Include="Form1.cs" />
+    <Compile Include="Forms\Admin\AddingCar.cs" />
+    <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
+    <Compile Include="Forms\Admin\AdminDashboard.cs" />
+    <Compile Include="Forms\Admin\AdminDashboard.Designer.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs" />
     <Compile Include="Forms\Admin\APRAdd.cs" />
@@ -195,12 +204,18 @@
     <Compile Include="Forms\User\UserLoadConfiguration.Designer.cs">
       <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs" />
+    <Compile Include="Login.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BrowseVehicles.resx" />
+    <EmbeddedResource Include="CustomerDashboardform.resx" />
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\AdminDashbord.resx" />
+    <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Forms\Admin\AddingCar.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx" />
     <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
     <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
     <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
@@ -226,6 +241,8 @@
     <EmbeddedResource Include="Forms\User\UserLoadConfiguration.resx">
       <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ViewAndCustomiseCar.resx" />
+    <EmbeddedResource Include="Login.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
