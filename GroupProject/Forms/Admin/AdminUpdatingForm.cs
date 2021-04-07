@@ -14,9 +14,12 @@ namespace GroupProject.Forms.Admin
 {
     public partial class AdminUpdatingForm : Form
     {
+        private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";  //conect to plesk databse
         public AdminUpdatingForm()
         {
             InitializeComponent();
+            
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -42,6 +45,34 @@ namespace GroupProject.Forms.Admin
             {
 
             }
+        }
+
+        private void gvCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MySqlConnection myCon = new MySqlConnection(conString);
+            MySqlCommand myCom = new MySqlCommand("Select * from  `t_Car`");
+            MySqlDataAdapter dt = new MySqlDataAdapter();
+            try
+            {
+                myCom.Connection = myCon;
+                myCon.Open();
+                dt.SelectCommand = myCom;
+
+                DataTable dTable = new DataTable();
+                dt.Fill(dTable);
+
+                myCon.Close();
+ 
+                gvCar.DataSource = dTable;
+                
+
+                
+            }
+            catch(Exception ex)
+            {
+
+            }
+
         }
     }
 }

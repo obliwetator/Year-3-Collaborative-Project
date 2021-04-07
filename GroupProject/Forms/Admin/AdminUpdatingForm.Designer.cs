@@ -41,6 +41,8 @@ namespace GroupProject.Forms.Admin
             this.txtTypeUpdate = new System.Windows.Forms.TextBox();
             this.txtYearUpdate = new System.Windows.Forms.TextBox();
             this.txtPriceUpdate = new System.Windows.Forms.TextBox();
+            this.gvCar = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gvCar)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -57,7 +59,7 @@ namespace GroupProject.Forms.Admin
             // 
             this.lblUpdate.AutoSize = true;
             this.lblUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdate.Location = new System.Drawing.Point(20, 102);
+            this.lblUpdate.Location = new System.Drawing.Point(454, 77);
             this.lblUpdate.Name = "lblUpdate";
             this.lblUpdate.Size = new System.Drawing.Size(253, 25);
             this.lblUpdate.TabIndex = 1;
@@ -67,7 +69,7 @@ namespace GroupProject.Forms.Admin
             // 
             this.lblModel.AutoSize = true;
             this.lblModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblModel.Location = new System.Drawing.Point(20, 173);
+            this.lblModel.Location = new System.Drawing.Point(456, 151);
             this.lblModel.Name = "lblModel";
             this.lblModel.Size = new System.Drawing.Size(198, 25);
             this.lblModel.TabIndex = 2;
@@ -77,7 +79,7 @@ namespace GroupProject.Forms.Admin
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(20, 247);
+            this.lblType.Location = new System.Drawing.Point(456, 225);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(189, 25);
             this.lblType.TabIndex = 3;
@@ -87,7 +89,7 @@ namespace GroupProject.Forms.Admin
             // 
             this.lblYear.AutoSize = true;
             this.lblYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblYear.Location = new System.Drawing.Point(398, 173);
+            this.lblYear.Location = new System.Drawing.Point(456, 288);
             this.lblYear.Name = "lblYear";
             this.lblYear.Size = new System.Drawing.Size(185, 25);
             this.lblYear.TabIndex = 4;
@@ -97,7 +99,7 @@ namespace GroupProject.Forms.Admin
             // 
             this.lblPrice.AutoSize = true;
             this.lblPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrice.Location = new System.Drawing.Point(398, 247);
+            this.lblPrice.Location = new System.Drawing.Point(456, 362);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(188, 25);
             this.lblPrice.TabIndex = 5;
@@ -105,7 +107,7 @@ namespace GroupProject.Forms.Admin
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(256, 336);
+            this.btnUpdate.Location = new System.Drawing.Point(145, 348);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(129, 70);
             this.btnUpdate.TabIndex = 6;
@@ -115,44 +117,56 @@ namespace GroupProject.Forms.Admin
             // 
             // txtIdUpdate
             // 
-            this.txtIdUpdate.Location = new System.Drawing.Point(25, 130);
+            this.txtIdUpdate.Location = new System.Drawing.Point(461, 105);
             this.txtIdUpdate.Name = "txtIdUpdate";
             this.txtIdUpdate.Size = new System.Drawing.Size(168, 26);
             this.txtIdUpdate.TabIndex = 7;
             // 
             // txtModelUpdate
             // 
-            this.txtModelUpdate.Location = new System.Drawing.Point(25, 201);
+            this.txtModelUpdate.Location = new System.Drawing.Point(461, 179);
             this.txtModelUpdate.Name = "txtModelUpdate";
             this.txtModelUpdate.Size = new System.Drawing.Size(222, 26);
             this.txtModelUpdate.TabIndex = 8;
             // 
             // txtTypeUpdate
             // 
-            this.txtTypeUpdate.Location = new System.Drawing.Point(25, 277);
+            this.txtTypeUpdate.Location = new System.Drawing.Point(461, 255);
             this.txtTypeUpdate.Name = "txtTypeUpdate";
             this.txtTypeUpdate.Size = new System.Drawing.Size(222, 26);
             this.txtTypeUpdate.TabIndex = 9;
             // 
             // txtYearUpdate
             // 
-            this.txtYearUpdate.Location = new System.Drawing.Point(403, 201);
+            this.txtYearUpdate.Location = new System.Drawing.Point(461, 316);
             this.txtYearUpdate.Name = "txtYearUpdate";
             this.txtYearUpdate.Size = new System.Drawing.Size(222, 26);
             this.txtYearUpdate.TabIndex = 10;
             // 
             // txtPriceUpdate
             // 
-            this.txtPriceUpdate.Location = new System.Drawing.Point(403, 277);
+            this.txtPriceUpdate.Location = new System.Drawing.Point(461, 392);
             this.txtPriceUpdate.Name = "txtPriceUpdate";
             this.txtPriceUpdate.Size = new System.Drawing.Size(222, 26);
             this.txtPriceUpdate.TabIndex = 11;
+            // 
+            // gvCar
+            // 
+            this.gvCar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gvCar.Location = new System.Drawing.Point(23, 77);
+            this.gvCar.Name = "gvCar";
+            this.gvCar.RowHeadersWidth = 62;
+            this.gvCar.RowTemplate.Height = 28;
+            this.gvCar.Size = new System.Drawing.Size(379, 236);
+            this.gvCar.TabIndex = 12;
+            this.gvCar.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gvCar_CellContentClick);
             // 
             // AdminUpdatingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.gvCar);
             this.Controls.Add(this.txtPriceUpdate);
             this.Controls.Add(this.txtYearUpdate);
             this.Controls.Add(this.txtTypeUpdate);
@@ -167,6 +181,7 @@ namespace GroupProject.Forms.Admin
             this.Controls.Add(this.label1);
             this.Name = "AdminUpdatingForm";
             this.Text = "AdminUpdatingForm";
+            ((System.ComponentModel.ISupportInitialize)(this.gvCar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +201,6 @@ namespace GroupProject.Forms.Admin
         private System.Windows.Forms.TextBox txtTypeUpdate;
         private System.Windows.Forms.TextBox txtYearUpdate;
         private System.Windows.Forms.TextBox txtPriceUpdate;
+        private System.Windows.Forms.DataGridView gvCar;
     }
 }
