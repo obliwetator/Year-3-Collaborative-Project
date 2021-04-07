@@ -69,34 +69,41 @@ namespace GroupProject
 
             if (String.Equals(clsUser.SUser_type, "Customer"))
             {
-                var Userform = new CustomerDashboardform();
+                var CustomerDashboardform = new CustomerDashboardform();
 
                 this.Hide();
 
-                Userform.Show();
+                CustomerDashboardform.Show();
+                          
+
             }
 
-            else (String.Equals(clsUser.SUser_type, "Admin"))
-                {
-                var AdminDashboardform = new AdminDashboardform();
+           /* else if (String.Equals(clsUser.SUser_type, "Admin"))
+             {
+                 var AdminDashboardform = new AdminDashboardform();
 
-                this.Hide();
+                 this.Hide();
 
-                AdminDashboardform.Show();
+                 AdminDashboardform.Show();
+             }
+            
+           else if  (String.Equals(clsUser.SUser_type, "Sales"))
+             {
+                 var SalesDashboardform = new SalesDashboardform();
+
+                 this.Hide();
+
+                 SalesDashboardfrom.Show();
+             }*/
+
+           else
+            {
+                MessageBox.Show("Invalid Username or Password !");
             }
 
-            else (String.Equals(clsUser.SUser_type, "Sales"))
-               {
-                var Userform = new SalesDashboardform();
 
-                this.Hide();
 
-                Userform.Show();
             }
-
-
-
-        }
     
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {

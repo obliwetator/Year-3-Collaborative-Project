@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GroupProject
 {
-  public partial class Form1 : Form
-  {
-    public Form1()
+    public partial class BrowseVehicles : Form
     {
-      InitializeComponent();
+        public BrowseVehicles()
+        {
+            InitializeComponent();
+        }
+
+        private void BrowseVehicles_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-  }
 }
