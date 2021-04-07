@@ -48,6 +48,11 @@
     <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
       <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0-preview.2.21154.6\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="mscorlib" />
     <Reference Include="MySql.Data, Version=8.0.23.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.23\lib\net452\MySql.Data.dll</HintPath>
     </Reference>
@@ -64,17 +69,36 @@
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Management" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0-preview.2.21154.6\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Encodings.Web.6.0.0-preview.2.21154.6\lib\net461\System.Text.Encodings.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Text.Json.6.0.0-preview.2.21154.6\lib\net461\System.Text.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,36 +116,104 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowseVehicles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BrowseVehicles.Designer.cs">
-      <DependentUpon>BrowseVehicles.cs</DependentUpon>
-    </Compile>
+    <Compile Include="BrowseVehicles.cs" />
+    <Compile Include="BrowseVehicles.Designer.cs" />
+    <Compile Include="Classes\Admin\ClsAPR.cs" />
+    <Compile Include="Classes\CarCustomizationAvailable.cs" />
+    <Compile Include="Classes\Car\clsCar.cs" />
+    <Compile Include="Classes\clsDatabase.cs" />
     <Compile Include="Classes\clsUser.cs" />
-    <Compile Include="CustomerDashboardform.cs">
+    <Compile Include="Classes\Database.cs" />
+    <Compile Include="Classes\Salesman\CarConfigsForReview.cs" />
+    <Compile Include="Classes\Salesman\ClsSalesmanUserCarConfiguration.cs" />
+    <Compile Include="Classes\SaveLoad.cs" />
+    <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
+    <Compile Include="Classes\User\clsUserConfiguration.cs" />
+    <Compile Include="CustomerDashboardform.cs" />
+    <Compile Include="CustomerDashboardform.Designer.cs" />
+    <Compile Include="EntryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomerDashboardform.Designer.cs">
-      <DependentUpon>CustomerDashboardform.cs</DependentUpon>
+    <Compile Include="EntryForm.Designer.cs">
+      <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs">
+    <Compile Include="Forms\Admin\AdminDashbord.cs" />
+    <Compile Include="Forms\Admin\AdminDashbord.Designer.cs" />
+    <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
+    <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs" />
+    <Compile Include="Forms\Admin\APRAdd.cs" />
+    <Compile Include="Forms\Admin\APRAdd.Designer.cs" />
+    <Compile Include="Forms\Admin\APRUpdate.cs" />
+    <Compile Include="Forms\Admin\APRUpdate.Designer.cs" />
+    <Compile Include="Forms\Admin\Delete.cs" />
+    <Compile Include="Forms\Admin\Delete.Designer.cs" />
+    <Compile Include="Forms\Salesman\SalesmanDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.cs">
-      <DependentUpon>Login.cs</DependentUpon>
+    <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs">
+      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.Designer.cs">
+      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewReview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanViewReview.Designer.cs">
+      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\UserConfirmCarChoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\UserConfirmCarChoice.Designer.cs">
+      <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\UserLoadConfiguration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\UserLoadConfiguration.Designer.cs">
+      <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\User\ViewAndCustomiseCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\User\ViewAndCustomiseCar.Designer.cs">
+      <DependentUpon>ViewAndCustomiseCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs" />
+    <Compile Include="Login.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BrowseVehicles.resx">
-      <DependentUpon>BrowseVehicles.cs</DependentUpon>
+    <EmbeddedResource Include="BrowseVehicles.resx" />
+    <EmbeddedResource Include="CustomerDashboardform.resx" />
+    <EmbeddedResource Include="EntryForm.resx">
+      <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomerDashboardform.resx">
-      <DependentUpon>CustomerDashboardform.cs</DependentUpon>
+    <EmbeddedResource Include="Form1.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminDashbord.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
+    <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
+    <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
+    <EmbeddedResource Include="Forms\Admin\Delete.resx" />
+    <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
+      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
-      <DependentUpon>Login.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx">
+      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewReview.resx">
+      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\UserConfirmCarChoice.resx">
+      <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\UserLoadConfiguration.resx">
+      <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -145,6 +237,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
