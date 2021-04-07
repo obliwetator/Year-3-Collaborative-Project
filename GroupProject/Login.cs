@@ -78,23 +78,30 @@ namespace GroupProject
 
             }
 
-            else if (String.Equals(clsUser.SUser_type, "Admin"))
+           else if (String.Equals(clsUser.SUser_type, "Admin"))
              {
-                 var AdminDashboard = new AdminDashboard();
+                 var AdminDashboardform = new AdminDashboardform();
 
                  this.Hide();
 
-                 AdminDashboard.Show();
-             }
-            
+                 AdminDashboardform.Show();
+
            else if  (String.Equals(clsUser.SUser_type, "Sales"))
              {
+
+                 var SalesDashboardform = new SalesDashboardform();
+
+                 this.Hide();
+
+                 SalesDashboardfrom.Show();
+             }
+             
                  var SalesDashboard = new SalesDashboard();
 
                  this.Hide();
 
                  SalesDashboard.Show();
-             }
+            }
 
            else
             {
