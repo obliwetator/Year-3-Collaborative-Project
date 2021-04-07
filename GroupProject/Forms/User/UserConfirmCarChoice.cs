@@ -6,12 +6,14 @@ using System.Windows.Forms;
 using GroupProject.Classes.Car;
 using System.Text.Json;
 using GroupProject.Classes;
+using GroupProject.Classes.Admin;
+using GroupProject.Classes.SerialzationClasses;
 
 namespace GroupProject.Forms.User
 {
 	public partial class UserConfirmCarChoice : Form
 	{
-		private ulong _submittedFormId;
+		private ulong? _submittedFormId;
 		private enum SubmittedFromStatus
 		{
 			None,
@@ -23,22 +25,56 @@ namespace GroupProject.Forms.User
 		
 		private readonly ClsCar _car;
 		private readonly int _userId;
-		private Dictionary<int, CarCustomizationAvailable> _carConfigurationsAvailable;
+		private readonly Dictionary<int, CarCustomizationAvailable> _carConfigurationsAvailable;
+		private readonly string _comment;
+		private List<ClsApr> _apr;
+		private int _aprSelected;
+		private float _totalPrice;
 
-		public UserConfirmCarChoice(ClsCar car, int userId, Dictionary<int, CarCustomizationAvailable> carConfigurationsAvailable)
+		// Default flow
+		public  UserConfirmCarChoice(ClsCar car, int userId,
+			Dictionary<int, CarCustomizationAvailable> carConfigurationsAvailable, string txtCommentText)
 		{
 			this._car = car;
 			this._userId = userId;
 			this._carConfigurationsAvailable = carConfigurationsAvailable;
+			this._comment = txtCommentText;
 			InitializeComponent();
 		}
+		
+		// User tries to load a configuration
+		public  UserConfirmCarChoice(ClsCar car, int userId, string txtCommentText)
+		{
+			this._car = car;
+			this._userId = userId;
+			this._comment = txtCommentText;
+			this._carConfigurationsAvailable = ClsDatabase.GetCarConfigurationsAvailable(car.Id);
+			InitializeComponent();
+		}
+		// TODO: Move this after merging
+		private void button2_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog ofd = new OpenFileDialog()
+			{
+				Filter = "JSON File (*.json)|*.json",
+				Title = "Load your configuration",
+			};
 
+			if (ofd.ShowDialog() != DialogResult.OK) return;
+			if (ofd.FileName != "")
+			{
+				// Open the text file using a stream reader.
+				using (var sr = new StreamReader(ofd.FileName))
+				{
+					// Read the stream as a string, and write the string to the console.
+					var a = sr.ReadToEnd();
+					// TODO: Something with the loaded config
+					var LoadedValues = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
+				}
+			}
+		}
 		private void btnSave_Click(object sender, EventArgs e)
 		{
-			// Save config in DB
-			// TODO: User might not be aware that saving locally also saves to the DB. Create a separate button for that
-			_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, false, false);
-			
 			// Displays a SaveFileDialog so the user can save the Configuration
 			// assigned to btnSave.
 			SaveFileDialog sfd = new SaveFileDialog
@@ -48,7 +84,13 @@ namespace GroupProject.Forms.User
 			};
 
 			// to JSON
-			string carJson = JsonSerializer.Serialize(_car);
+			string carJson = JsonSerializer.Serialize(new UserSaveLoadConfig()
+			{
+				car = _car,
+				comment = _comment,
+				userId = _userId,
+			});
+			
 			// User most likely pressed cancel
 			if (sfd.ShowDialog() != DialogResult.OK) return;
 			// Don't proceed if user doesn't input file name in the prompt
@@ -60,12 +102,35 @@ namespace GroupProject.Forms.User
 
 		private void UserConfirmCarChoice_Load(object sender, EventArgs e)
 		{
+			this._apr = ClsDatabase.GetAPRs();
 			lblCarModel.Text = _car.Model;
 			lblCarPrice.Text = _car.Price.ToString();
 			lblCarType.Text = _car.Type;
 			lblCarYear.Text = _car.Year.ToString();
-			
+			lblComment.Text = _comment;
+			DisplayTotalCarCost();
+			DisplayApr();
 			DisplayCarModificationsLabels();
+		}
+
+		private void DisplayApr()
+		{
+			// No APR
+			cboAPR.Items.Add("No installments");
+			
+			foreach (var apr in _apr)
+			{
+				if (apr.Id == 0)
+				{
+					// ignore
+				}
+				else
+				{
+					cboAPR.Items.Add(apr.Apr + "% APR for: " + apr.Time + " Months");
+				}
+			}
+
+			cboAPR.SelectedIndex = 0;
 		}
 
 		private void DisplayCarModificationsLabels()
@@ -107,11 +172,9 @@ namespace GroupProject.Forms.User
 					}
 					else
 					{
-						Label tmp;
-
-						tmp = new Label()
+						var tmp = new Label()
 						{
-							Location = new Point(400, 100 + height1 + ref1.Size.Height),
+							Location = new Point(400, 100 + height1),
 							Text = _carConfigurationsAvailable[int.Parse(pair.Key)].Modifications,
 							AutoSize = true,
 							MaximumSize = new Size(200, 200),
@@ -122,7 +185,7 @@ namespace GroupProject.Forms.User
 						// Price label
 						this.Controls.Add(new Label()
 						{
-							Location = new Point(600, 100 + height1 + ref1.Size.Height),
+							Location = new Point(600, 100 + height1),
 							Text = _carConfigurationsAvailable[int.Parse(pair.Key)].Price + "£",
 							AutoSize = true,
 							BackColor = Color.Transparent,
@@ -166,11 +229,20 @@ namespace GroupProject.Forms.User
 				}
 				default:
 				{
+					// NOTE: Payments will not be implemented in this iteration
+					UserConfirmPayment userConfirmCarChoice = new UserConfirmPayment()
+					{
+						Location = this.Location,
+						Size = new Size(500, 300),
+						// Otherwise we can't put the form where we want
+						StartPosition = FormStartPosition.Manual
+					};
+
+					userConfirmCarChoice.Show();
 					_submittedFromStatus = SubmittedFromStatus.Review;
 					// Store in db
 
-					_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, true ,false);
-					// Once user click the button a message will show up telling them they've completed their order
+					_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, true ,false);
 					// TODO: After merging return the user to the car selection menu
 					break;
 				}
@@ -205,12 +277,81 @@ namespace GroupProject.Forms.User
 				}
 				default:
 				{
+					// NOTE: Payments will not be implemented in this iteration
+					UserConfirmPayment userConfirmCarChoice = new UserConfirmPayment()
+					{
+						Location = this.Location,
+						Size = new Size(500, 300),
+						// Otherwise we can't put the form where we want
+						StartPosition = FormStartPosition.Manual
+					};
+
+					userConfirmCarChoice.Show();
 					_submittedFromStatus = SubmittedFromStatus.Purchase;
 
-					_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, false, true);
+					_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, false, true);
+					// TODO: After merging return the user to the car selection menu
 					break;
 				}
 			}
 		}
+		
+		private void DisplayTotalCarCost()
+		{
+			_totalPrice = 0;
+			foreach (var car in _car.CarConfigurationsChosen)
+			{
+				if (car.Value == true)
+				{
+					_totalPrice += _carConfigurationsAvailable[int.Parse(car.Key)].Price;
+				}
+			}
+
+			_totalPrice += _car.Price;
+
+			lblTotalCost.Text ="£" + _totalPrice.ToString();
+		}
+
+		private void button1_Click(object sender, EventArgs e)
+		{
+			// if it's set we have already submitted the form
+			if (_submittedFormId != null)
+			{
+				// Save config in DB
+				// TODO: User might not be aware that saving locally also saves to the DB. Create a separate button for that
+				_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, false, false);
+			}
+		}
+
+		private void SelectedIndexChanged(object sender, EventArgs e)
+		{
+			ComboBox cb = (ComboBox) sender;
+			if (cb.SelectedItem != null)
+			{
+				// offset
+				_aprSelected = cb.SelectedIndex;
+				var a = _apr[_aprSelected];
+				// No apr hide labels
+				if (cb.SelectedIndex == 0)
+				{
+					lblPerMonth.Visible = false;
+					lblCostPerMonth.Visible = false;
+				}
+				else
+				{
+					lblPerMonth.Visible = true;
+					lblCostPerMonth.Visible = true;
+
+					float totalCost = _totalPrice;
+					int time = int.Parse(_apr[_aprSelected].Time);
+					var ccc = totalCost * (float) _apr[_aprSelected].Apr / 100;
+					totalCost = (totalCost + ccc) / time;
+
+					lblCostPerMonth.Text = totalCost.ToString();
+				}
+			}
+		}
+
+
 	}
 }

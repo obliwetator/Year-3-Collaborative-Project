@@ -202,11 +202,12 @@ namespace GroupProject.Classes
 			return customizationsAvailable;
 		}
 
-		public static ulong AddUserCarConfiguration(ClsCar car, int userId, bool review, bool purchase)
+		public static ulong AddUserCarConfiguration(ClsCar car, int userId, string comment, int aprSelected,
+			bool review, bool purchase)
 		{
 			var conn = GetConnection();
 			// Add user config
-			string addUserConfig = $@"INSERT INTO t_User_configuration (ID, description, user_id, car_id, review, purchase) VALUES (NULL, 'App made config', '{userId}', '{car.Id}', '{(review ? "1" : "0")}', '{(purchase? "1" : "0")}'); SELECT last_insert_id();";
+			string addUserConfig = $@"INSERT INTO t_User_configuration (ID, description, user_id, car_id, review, purchase, comment_for_review, APR) VALUES (NULL, 'App made config', '{userId}', '{car.Id}', '{(review ? "1" : "0")}', '{(purchase? "1" : "0")}', '{comment}', {aprSelected}); SELECT last_insert_id();";
 			MySqlCommand command = new MySqlCommand(addUserConfig, conn);
 			conn.Open();
 			// We get the config id from the SELECT last_insert_id(); statement

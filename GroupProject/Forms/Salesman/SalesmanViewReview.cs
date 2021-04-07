@@ -31,7 +31,7 @@ namespace GroupProject.Forms.Salesman
 
 		//TODO: Add caching
 		private List<int> _modifications;
-		private int _salesmanId;
+		private readonly int _salesmanId;
 
 		public SalesmanViewReview(int salesmanId = 4)
 		{

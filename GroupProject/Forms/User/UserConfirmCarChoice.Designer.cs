@@ -44,24 +44,34 @@ namespace GroupProject.Forms.User
 			this.lblCarPrice = new System.Windows.Forms.Label();
 			this.label6 = new System.Windows.Forms.Label();
 			this.btnPurchaseCar = new System.Windows.Forms.Button();
+			this.label7 = new System.Windows.Forms.Label();
+			this.lblComment = new System.Windows.Forms.Label();
+			this.lblTotalCost = new System.Windows.Forms.Label();
+			this.label8 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
+			this.cboAPR = new System.Windows.Forms.ComboBox();
+			this.label9 = new System.Windows.Forms.Label();
+			this.lblPerMonth = new System.Windows.Forms.Label();
+			this.lblCostPerMonth = new System.Windows.Forms.Label();
+			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSave
 			// 
 			this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.btnSave.Location = new System.Drawing.Point(13, 421);
+			this.btnSave.Location = new System.Drawing.Point(13, 578);
 			this.btnSave.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(166, 79);
 			this.btnSave.TabIndex = 0;
-			this.btnSave.Text = "Save Configuration";
+			this.btnSave.Text = "Save Configuration locally";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
 			// btnSubmitReview
 			// 
 			this.btnSubmitReview.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnSubmitReview.Location = new System.Drawing.Point(726, 421);
+			this.btnSubmitReview.Location = new System.Drawing.Point(1085, 578);
 			this.btnSubmitReview.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnSubmitReview.Name = "btnSubmitReview";
 			this.btnSubmitReview.Size = new System.Drawing.Size(166, 79);
@@ -163,7 +173,7 @@ namespace GroupProject.Forms.User
 			// btnPurchaseCar
 			// 
 			this.btnPurchaseCar.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.btnPurchaseCar.Location = new System.Drawing.Point(526, 421);
+			this.btnPurchaseCar.Location = new System.Drawing.Point(885, 578);
 			this.btnPurchaseCar.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
 			this.btnPurchaseCar.Name = "btnPurchaseCar";
 			this.btnPurchaseCar.Size = new System.Drawing.Size(166, 79);
@@ -172,12 +182,112 @@ namespace GroupProject.Forms.User
 			this.btnPurchaseCar.UseVisualStyleBackColor = true;
 			this.btnPurchaseCar.Click += new System.EventHandler(this.btnPurchaseCar_Click);
 			// 
+			// label7
+			// 
+			this.label7.Location = new System.Drawing.Point(120, 271);
+			this.label7.Name = "label7";
+			this.label7.Size = new System.Drawing.Size(96, 21);
+			this.label7.TabIndex = 13;
+			this.label7.Text = "Comment";
+			// 
+			// lblComment
+			// 
+			this.lblComment.Location = new System.Drawing.Point(120, 292);
+			this.lblComment.Name = "lblComment";
+			this.lblComment.Size = new System.Drawing.Size(245, 114);
+			this.lblComment.TabIndex = 14;
+			// 
+			// lblTotalCost
+			// 
+			this.lblTotalCost.Location = new System.Drawing.Point(808, 79);
+			this.lblTotalCost.Name = "lblTotalCost";
+			this.lblTotalCost.Size = new System.Drawing.Size(77, 23);
+			this.lblTotalCost.TabIndex = 18;
+			this.lblTotalCost.Text = "Total Cost";
+			// 
+			// label8
+			// 
+			this.label8.Location = new System.Drawing.Point(808, 58);
+			this.label8.Name = "label8";
+			this.label8.Size = new System.Drawing.Size(64, 21);
+			this.label8.TabIndex = 17;
+			this.label8.Text = "Total Cost";
+			// 
+			// button1
+			// 
+			this.button1.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.button1.Location = new System.Drawing.Point(204, 578);
+			this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(166, 79);
+			this.button1.TabIndex = 19;
+			this.button1.Text = "Save Configuration to the cloud";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// cboAPR
+			// 
+			this.cboAPR.FormattingEnabled = true;
+			this.cboAPR.Location = new System.Drawing.Point(808, 151);
+			this.cboAPR.Name = "cboAPR";
+			this.cboAPR.Size = new System.Drawing.Size(217, 22);
+			this.cboAPR.TabIndex = 20;
+			this.cboAPR.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged);
+			// 
+			// label9
+			// 
+			this.label9.Location = new System.Drawing.Point(808, 127);
+			this.label9.Name = "label9";
+			this.label9.Size = new System.Drawing.Size(169, 21);
+			this.label9.TabIndex = 21;
+			this.label9.Text = "Installement options";
+			// 
+			// lblPerMonth
+			// 
+			this.lblPerMonth.Location = new System.Drawing.Point(808, 185);
+			this.lblPerMonth.Name = "lblPerMonth";
+			this.lblPerMonth.Size = new System.Drawing.Size(145, 23);
+			this.lblPerMonth.TabIndex = 22;
+			this.lblPerMonth.Text = "Cost Per month";
+			this.lblPerMonth.Visible = false;
+			// 
+			// lblCostPerMonth
+			// 
+			this.lblCostPerMonth.Location = new System.Drawing.Point(808, 208);
+			this.lblCostPerMonth.Name = "lblCostPerMonth";
+			this.lblCostPerMonth.Size = new System.Drawing.Size(118, 14);
+			this.lblCostPerMonth.TabIndex = 23;
+			this.lblCostPerMonth.Text = "label10";
+			this.lblCostPerMonth.Visible = false;
+			// 
+			// button2
+			// 
+			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.button2.Location = new System.Drawing.Point(549, 301);
+			this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+			this.button2.Name = "button2";
+			this.button2.Size = new System.Drawing.Size(166, 79);
+			this.button2.TabIndex = 24;
+			this.button2.Text = "Save Configuration locally";
+			this.button2.UseVisualStyleBackColor = true;
+			this.button2.Click += new System.EventHandler(this.button2_Click);
+			// 
 			// UserConfirmCarChoice
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(905, 524);
+			this.ClientSize = new System.Drawing.Size(1264, 681);
+			this.Controls.Add(this.button2);
+			this.Controls.Add(this.lblCostPerMonth);
+			this.Controls.Add(this.lblPerMonth);
+			this.Controls.Add(this.label9);
+			this.Controls.Add(this.cboAPR);
+			this.Controls.Add(this.button1);
+			this.Controls.Add(this.lblTotalCost);
+			this.Controls.Add(this.label8);
+			this.Controls.Add(this.lblComment);
+			this.Controls.Add(this.label7);
 			this.Controls.Add(this.btnPurchaseCar);
 			this.Controls.Add(this.label6);
 			this.Controls.Add(this.lblCarPrice);
@@ -198,6 +308,23 @@ namespace GroupProject.Forms.User
 			this.Load += new System.EventHandler(this.UserConfirmCarChoice_Load);
 			this.ResumeLayout(false);
 		}
+
+		private System.Windows.Forms.Button button2;
+
+		private System.Windows.Forms.Label lblCostPerMonth;
+		private System.Windows.Forms.Label lblPerMonth;
+
+		private System.Windows.Forms.Label label9;
+
+		private System.Windows.Forms.ComboBox cboAPR;
+
+		private System.Windows.Forms.Button button1;
+
+		private System.Windows.Forms.Label label8;
+		private System.Windows.Forms.Label lblTotalCost;
+
+		private System.Windows.Forms.Label label7;
+		private System.Windows.Forms.Label lblComment;
 
 		private System.Windows.Forms.Button btnPurchaseCar;
 
