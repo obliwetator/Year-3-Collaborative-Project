@@ -21,7 +21,7 @@ namespace GroupProject
         private void Form1_Load(object sender, EventArgs e)
         {
             this.Hide();
-            AdminDashbord f2 = new AdminDashbord();
+            AdminDashboard f2 = new AdminDashboard();
             f2.Show();
 
         }

@@ -141,8 +141,8 @@
     <Compile Include="Form1.cs" />
     <Compile Include="Forms\Admin\AddingCar.cs" />
     <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
-    <Compile Include="Forms\Admin\AdminDashbord.cs" />
-    <Compile Include="Forms\Admin\AdminDashbord.Designer.cs" />
+    <Compile Include="Forms\Admin\AdminDashboard.cs" />
+    <Compile Include="Forms\Admin\AdminDashboard.Designer.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs" />
     <Compile Include="Forms\Admin\APRAdd.cs" />
@@ -185,7 +185,8 @@
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx" />
-    <EmbeddedResource Include="Forms\Admin\AdminDashbord.resx" />
+    <EmbeddedResource Include="Forms\Admin\AddingCar.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx" />
     <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
     <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
     <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
@@ -199,6 +200,7 @@
     <EmbeddedResource Include="Forms\User\UserLoadConfiguration.resx">
       <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\User\ViewAndCustomiseCar.resx" />
     <EmbeddedResource Include="Login.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
