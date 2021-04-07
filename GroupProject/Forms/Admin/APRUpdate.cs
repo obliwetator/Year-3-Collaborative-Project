@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MySql.Data;
 using GroupProject.Classes;
 
 namespace GroupProject.Forms.Admin
@@ -18,10 +16,8 @@ namespace GroupProject.Forms.Admin
 		private void APRUpdate_Load(object sender, EventArgs e)
 		{
 			dataGridAPR.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-			Database database = new Database();
 
-			var APR = database.GetAPRs();
-			
+			var APR = ClsDatabase.GetAPRs();
 			// TODO: Format them in a nicer way?
 
 			for (int i = 0; i < APR.Count; i++)
@@ -38,37 +34,5 @@ namespace GroupProject.Forms.Admin
 		{
 			throw new System.NotImplementedException();
 		}
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-			MySqlConnection myCom  = new MySqlConnection(conString);
-
-			//string sCommand = "UPDATE `t_APR` SET `APR`= '"+txtAPRUpdate.Text+'",`Time`= '"+ txtTimeUpdate.text+"' WHERE `ID` = ;
-			//MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
-
-			MySqlCommand myCommand = new MySqlCommand("UpdateAPR");
-			//myCommand.CommandType = CommandType.StoredProcedure;
-			myCommand.Connection = myCom;
-
-			try
-			{
-				myCom.Open();
-
-				myCommand.Parameters.AddWithValue("@id", txtUpdateID.Text);
-				myCommand.Parameters.AddWithValue("@apr", txtAPRUpdate.Text);
-				myCommand.Parameters.AddWithValue("@time", txtTimeUpdate.Text);
-				myCommand.Prepare();
-
-				myCommand.ExecuteNonQuery();
-
-				myCom.Close();
-			}
-			catch (Exception ex)
-			{
-
-			}
-
-
-		}
-    }
+	}
 }
