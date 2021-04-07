@@ -532,5 +532,16 @@ namespace GroupProject.Classes
 			conn.Close();
 			return cars;
 		}
+
+		public static void DeleteUserConfiguration(int configId)
+		{
+			string sql = $"DELETE FROM `t_User_configuration` WHERE `t_User_configuration`.`ID` = {configId}";
+			var conn = GetConnection();
+
+			MySqlCommand command = new MySqlCommand(sql, conn);
+			conn.Open();
+			
+			conn.Close();
+		}
 	}
 }
