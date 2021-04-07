@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data;
+
 using MySql.Data.MySqlClient;
 using GroupProject.Classes;
+using GroupProject.Forms.Admin;
+using GroupProject.Forms.Salesman;
 
 namespace GroupProject
 {
@@ -67,50 +62,31 @@ namespace GroupProject
             }
 
 
-            if (String.Equals(clsUser.SUser_type, "Customer"))
-            {
-                var CustomerDashboardform = new CustomerDashboardform();
+        	if (String.Equals(clsUser.SUser_type, "Customer"))
+        	{
+        	    var CustomerDashboardform = new CustomerDashboardform();
+        	    this.Hide();
+        	    CustomerDashboardform.Show();                       
+        	}
+        	else if (String.Equals(clsUser.SUser_type, "Admin"))
+        	{
+        	        var admin = new AdminDashboard();
+        	        this.Hide();
+        	        admin.Show();
+	
+			}
+        	else if  (String.Equals(clsUser.SUser_type, "Sales"))
+        	{
+        	     var salesman = new SalesmanDashboard();
+        	     this.Hide();
+        	     salesman.Show();
+        	}
+        	else
+			{
+        		MessageBox.Show("Invalid Username or Password !");
+        	}
 
-                this.Hide();
-
-                CustomerDashboardform.Show();
-                          
-
-            }
-
-           else if (String.Equals(clsUser.SUser_type, "Admin"))
-             {
-                 var AdminDashboardform = new AdminDashboardform();
-
-                 this.Hide();
-
-                 AdminDashboardform.Show();
-
-           else if  (String.Equals(clsUser.SUser_type, "Sales"))
-             {
-
-                 var SalesDashboardform = new SalesDashboardform();
-
-                 this.Hide();
-
-                 SalesDashboardfrom.Show();
-             }
-             
-                 var SalesDashboard = new SalesDashboard();
-
-                 this.Hide();
-
-                 SalesDashboard.Show();
-            }
-
-           else
-            {
-                MessageBox.Show("Invalid Username or Password !");
-            }
-
-
-
-            }
+        }
     
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {

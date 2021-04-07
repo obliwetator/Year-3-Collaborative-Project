@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace GroupProject.Forms.Admin
 {
-    public partial class AdminDashbord : Form
+    public partial class AdminDashboard : Form
     {
-        public AdminDashbord()
+        public AdminDashboard()
         {
             InitializeComponent();
         }
