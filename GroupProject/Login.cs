@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
-
+using MySql.Data;
 using MySql.Data.MySqlClient;
 using GroupProject.Classes;
 using GroupProject.Forms.Admin;
@@ -26,10 +26,10 @@ namespace GroupProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";
+            const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";//get connection
             MySqlConnection cnn = new MySqlConnection(conString);
 
-            string sCom = "SELECT `user_type`, `id` FROM `t_User` WHERE `username` = @username AND `password` = @password";
+            string sCom = "SELECT `user_type`, `id` FROM `t_User` WHERE `username` = @username AND `password` = @password";//SQL getting usertype & ID from data table
 
             MySqlCommand comm = new MySqlCommand(sCom, cnn);
 
