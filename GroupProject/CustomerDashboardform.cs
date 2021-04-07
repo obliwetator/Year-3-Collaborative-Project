@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
+using MySql.Data.MySqlClient;
+using GroupProject.Classes;
 
 namespace GroupProject
 {
@@ -37,6 +40,20 @@ namespace GroupProject
             {
                 System.Windows.Forms.Application.Exit();
             }
+        }
+
+        private void btnLoadConfig_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            var BrowseVehicles = new BrowseVehicles();
+
+            this.Hide();
+
+            BrowseVehicles.Show();
         }
     }
 }
