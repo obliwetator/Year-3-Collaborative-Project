@@ -36,7 +36,8 @@ namespace GroupProject
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.btnLoadLocalConfig = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnExit
@@ -51,11 +52,11 @@ namespace GroupProject
             // 
             // btnLoadConfig
             // 
-            this.btnLoadConfig.Location = new System.Drawing.Point(341, 334);
+            this.btnLoadConfig.Location = new System.Drawing.Point(270, 334);
             this.btnLoadConfig.Name = "btnLoadConfig";
             this.btnLoadConfig.Size = new System.Drawing.Size(96, 43);
             this.btnLoadConfig.TabIndex = 1;
-            this.btnLoadConfig.Text = "Load Configuration";
+            this.btnLoadConfig.Text = "Load Online Configuration";
             this.btnLoadConfig.UseVisualStyleBackColor = true;
             this.btnLoadConfig.Click += new System.EventHandler(this.btnLoadConfig_Click);
             // 
@@ -71,7 +72,7 @@ namespace GroupProject
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = ((System.Drawing.Image) (resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(129, 89);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(533, 206);
@@ -98,11 +99,22 @@ namespace GroupProject
             this.label1.TabIndex = 5;
             this.label1.Text = "Shearing Automobiles";
             // 
+            // btnLoadLocalConfig
+            // 
+            this.btnLoadLocalConfig.Location = new System.Drawing.Point(403, 334);
+            this.btnLoadLocalConfig.Name = "btnLoadLocalConfig";
+            this.btnLoadLocalConfig.Size = new System.Drawing.Size(96, 43);
+            this.btnLoadLocalConfig.TabIndex = 6;
+            this.btnLoadLocalConfig.Text = "Load Local Configuration";
+            this.btnLoadLocalConfig.UseVisualStyleBackColor = true;
+            this.btnLoadLocalConfig.Click += new System.EventHandler(this.btnLoadLocalConfig_Click);
+            // 
             // CustomerDashboardform
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnLoadLocalConfig);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pictureBox1);
@@ -112,11 +124,12 @@ namespace GroupProject
             this.Name = "CustomerDashboardform";
             this.Text = "User Dashboard";
             this.Load += new System.EventHandler(this.CustomerDashboardform_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Button btnLoadLocalConfig;
 
         #endregion
 
