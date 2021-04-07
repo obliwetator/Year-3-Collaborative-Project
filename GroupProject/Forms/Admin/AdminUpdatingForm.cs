@@ -16,7 +16,8 @@ namespace GroupProject.Forms.Admin
 {
     public partial class AdminUpdatingForm : Form
     {
-        private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";  //conect to plesk databse
+        const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";  //conect to plesk databse
+       
         public AdminUpdatingForm()
         {
             InitializeComponent();
@@ -26,7 +27,7 @@ namespace GroupProject.Forms.Admin
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            MySqlConnection myCom = new MySqlConnection();
+            MySqlConnection myCom = new MySqlConnection(conString);
             String sCommand = "(UPDATE `t_Cars` SET `model`=@model,`type`=@type,`year`=@year,`price`=@price WHERE @ID)";
             MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
 
