@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using GroupProject.Classes;
+using GroupProject.Forms;
 
 namespace GroupProject.Forms.Admin
 {

@@ -3,6 +3,8 @@ using System.Windows.Forms;
 using GroupProject.Classes;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using GroupProject.Forms;
+
 
 namespace GroupProject.Forms.Admin
 {
