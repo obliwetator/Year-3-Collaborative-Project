@@ -59,7 +59,7 @@ namespace GroupProject.Classes
 						Id = reader.GetInt32(0),
 						Description = reader.GetString(1),
 						UserId = reader.GetInt32(2),
-						CarId = reader.GetInt32(3)
+						CarId = reader.GetInt32(3),
 					});
 				}
 
@@ -540,6 +540,8 @@ namespace GroupProject.Classes
 
 			MySqlCommand command = new MySqlCommand(sql, conn);
 			conn.Open();
+
+			command.ExecuteNonQuery();
 			
 			conn.Close();
 		}

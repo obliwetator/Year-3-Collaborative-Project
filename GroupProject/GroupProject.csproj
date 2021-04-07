@@ -148,8 +148,6 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form.Designer.cs" />
-    <Compile Include="Form1.cs" />
     <Compile Include="Forms\Admin\AddingCar.cs" />
     <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
     <Compile Include="Forms\Admin\AdminDashboard.cs" />
@@ -213,7 +211,6 @@
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx" />
     <EmbeddedResource Include="Forms\Admin\AddingCar.resx" />
     <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx" />
     <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
