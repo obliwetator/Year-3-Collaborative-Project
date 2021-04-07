@@ -53,7 +53,6 @@ namespace GroupProject.Forms.User
 			this.label9 = new System.Windows.Forms.Label();
 			this.lblPerMonth = new System.Windows.Forms.Label();
 			this.lblCostPerMonth = new System.Windows.Forms.Label();
-			this.button2 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// btnSave
@@ -260,25 +259,12 @@ namespace GroupProject.Forms.User
 			this.lblCostPerMonth.Text = "label10";
 			this.lblCostPerMonth.Visible = false;
 			// 
-			// button2
-			// 
-			this.button2.Anchor = ((System.Windows.Forms.AnchorStyles) ((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.button2.Location = new System.Drawing.Point(549, 301);
-			this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(166, 79);
-			this.button2.TabIndex = 24;
-			this.button2.Text = "Save Configuration locally";
-			this.button2.UseVisualStyleBackColor = true;
-			this.button2.Click += new System.EventHandler(this.button2_Click);
-			// 
 			// UserConfirmCarChoice
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(1264, 681);
-			this.Controls.Add(this.button2);
 			this.Controls.Add(this.lblCostPerMonth);
 			this.Controls.Add(this.lblPerMonth);
 			this.Controls.Add(this.label9);
@@ -308,8 +294,6 @@ namespace GroupProject.Forms.User
 			this.Load += new System.EventHandler(this.UserConfirmCarChoice_Load);
 			this.ResumeLayout(false);
 		}
-
-		private System.Windows.Forms.Button button2;
 
 		private System.Windows.Forms.Label lblCostPerMonth;
 		private System.Windows.Forms.Label lblPerMonth;

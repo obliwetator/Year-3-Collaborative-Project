@@ -1,16 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 using System.Windows.Forms;
 using GroupProject.Classes;
+using GroupProject.Classes.SerialzationClasses;
 using GroupProject.Classes.User;
 
 namespace GroupProject.Forms.User
 {
 	// TODO: Load this form from the User dashboard
+	// TODO: 
 	public partial class UserLoadConfiguration : Form
 	{
 		private readonly int _userId;
+
+		private UserSaveLoadConfig _config;
 		// Temporary hardcoded value
 		public UserLoadConfiguration(int userId = 1)
 		{
@@ -39,7 +45,37 @@ namespace GroupProject.Forms.User
 			dataGridViewUserConfigs.Columns[3].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 			dataGridViewUserConfigs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
 			
-			// TODO: Do something with the selection. Definitely load. Maybe edit?
+			// We will display the current saves values and allowed the user to press "next" to finalize the edits
+		}
+
+		private void btnDelete_Click(object sender, EventArgs e)
+		{
+			ClsDatabase.DeleteUserConfiguration(0);
+
+			MessageBox.Show("Configuration successully deleted", "Success");
+		}
+
+		private void btnLoadLocal_Click(object sender, EventArgs e)
+		{
+			OpenFileDialog ofd = new OpenFileDialog()
+			{
+				Filter = "JSON File (*.json)|*.json",
+				Title = "Load your configuration",
+			};
+
+			if (ofd.ShowDialog() != DialogResult.OK) return;
+			if (ofd.FileName != "")
+			{
+				// Open the text file using a stream reader.
+				using (var sr = new StreamReader(ofd.FileName))
+				{
+					// Read the stream as a string, then decode that string as our object
+					var a = sr.ReadToEnd();
+					_config = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
+				}
+				
+				// TODO: Add the config to datagridview
+			}
 		}
 	}
 }

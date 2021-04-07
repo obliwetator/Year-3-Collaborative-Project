@@ -51,28 +51,7 @@ namespace GroupProject.Forms.User
 			this._carConfigurationsAvailable = ClsDatabase.GetCarConfigurationsAvailable(car.Id);
 			InitializeComponent();
 		}
-		// TODO: Move this after merging
-		private void button2_Click(object sender, EventArgs e)
-		{
-			OpenFileDialog ofd = new OpenFileDialog()
-			{
-				Filter = "JSON File (*.json)|*.json",
-				Title = "Load your configuration",
-			};
 
-			if (ofd.ShowDialog() != DialogResult.OK) return;
-			if (ofd.FileName != "")
-			{
-				// Open the text file using a stream reader.
-				using (var sr = new StreamReader(ofd.FileName))
-				{
-					// Read the stream as a string, and write the string to the console.
-					var a = sr.ReadToEnd();
-					// TODO: Something with the loaded config
-					var LoadedValues = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
-				}
-			}
-		}
 		private void btnSave_Click(object sender, EventArgs e)
 		{
 			// Displays a SaveFileDialog so the user can save the Configuration
@@ -318,7 +297,6 @@ namespace GroupProject.Forms.User
 			if (_submittedFormId != null)
 			{
 				// Save config in DB
-				// TODO: User might not be aware that saving locally also saves to the DB. Create a separate button for that
 				_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, false, false);
 			}
 		}

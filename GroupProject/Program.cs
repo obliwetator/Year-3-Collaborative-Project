@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using GroupProject.Forms.Salesman;
+using GroupProject.Forms.User;
 
 namespace GroupProject
 {
@@ -17,7 +18,7 @@ namespace GroupProject
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new EntryForm());
+      Application.Run(new UserLoadConfiguration());
     }
   }
 }
