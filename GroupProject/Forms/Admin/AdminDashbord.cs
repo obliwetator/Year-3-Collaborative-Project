@@ -29,7 +29,7 @@ namespace GroupProject.Forms.Admin
         private void btnDelete_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Delete f5 = new Delete();
+            DeleteForm f5 = new DeleteForm();
             f5.Show();
         }
 

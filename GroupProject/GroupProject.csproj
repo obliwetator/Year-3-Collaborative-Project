@@ -152,6 +152,12 @@
     <Compile Include="Forms\Admin\APRUpdate.Designer.cs" />
     <Compile Include="Forms\Admin\Delete.cs" />
     <Compile Include="Forms\Admin\Delete.Designer.cs" />
+    <Compile Include="Forms\Admin\DeleteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\DeleteForm.Designer.cs">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Salesman\SalesmanDashboard.cs" />
     <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs" />
     <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs" />
@@ -191,6 +197,9 @@
     <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
     <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
     <EmbeddedResource Include="Forms\Admin\Delete.resx" />
+    <EmbeddedResource Include="Forms\Admin\DeleteForm.resx">
+      <DependentUpon>DeleteForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx" />
     <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx" />
     <EmbeddedResource Include="Forms\Salesman\SalesmanViewReview.resx" />

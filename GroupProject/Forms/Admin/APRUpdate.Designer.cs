@@ -180,5 +180,7 @@ namespace GroupProject.Forms.Admin
         private System.Windows.Forms.Label lblTimeUpdate;
         private System.Windows.Forms.TextBox txtTimeUpdate;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.TextBox txtAPRDelete;
+        private System.Windows.Forms.Button BtnAprDelete;
     }
 }
