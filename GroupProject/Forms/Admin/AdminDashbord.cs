@@ -13,7 +13,7 @@ namespace GroupProject.Forms.Admin
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             this.Hide();
-            AdminUpdatingPage f3 = new AdminUpdatingPage();
+            AdminUpdatingForm f3 = new AdminUpdatingForm();
             f3.Show();
 
         }
@@ -36,9 +36,9 @@ namespace GroupProject.Forms.Admin
         private void btnInsert_Click(object sender, EventArgs e)
         {
             this.Hide();
-            // TODO: Create adding car form
-            //AddingCar f6 = new AddingCar();
-            //f6.Show();
+            
+            AddingCar f6 = new AddingCar();
+            f6.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
