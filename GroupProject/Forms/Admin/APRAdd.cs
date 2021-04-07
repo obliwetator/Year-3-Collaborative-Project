@@ -27,5 +27,10 @@ namespace GroupProject.Forms.Admin
             // TODO: Ability to delete APRs?
             
         }
+
+        private void APR_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

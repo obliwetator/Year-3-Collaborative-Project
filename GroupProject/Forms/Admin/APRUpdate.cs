@@ -6,6 +6,8 @@ namespace GroupProject.Forms.Admin
 {
 	public partial class APRUpdate : Form
 	{
+		private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";  //conect to plesk databse 
+
 		public APRUpdate()
 		{
 			InitializeComponent();

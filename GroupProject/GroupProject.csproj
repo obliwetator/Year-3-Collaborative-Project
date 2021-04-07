@@ -137,6 +137,10 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form.Designer.cs" />
+    <Compile Include="Form1.cs" />
+    <Compile Include="Forms\Admin\AddingCar.cs" />
+    <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
     <Compile Include="Forms\Admin\AdminDashbord.cs" />
     <Compile Include="Forms\Admin\AdminDashbord.Designer.cs" />
     <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
@@ -147,24 +151,12 @@
     <Compile Include="Forms\Admin\APRUpdate.Designer.cs" />
     <Compile Include="Forms\Admin\Delete.cs" />
     <Compile Include="Forms\Admin\Delete.Designer.cs" />
-    <Compile Include="Forms\Salesman\SalesmanDashboard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs">
-      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Salesman\SalesmanViewInvoice.Designer.cs">
-      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Salesman\SalesmanViewReview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Salesman\SalesmanViewReview.Designer.cs">
-      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Forms\Salesman\SalesmanDashboard.cs" />
+    <Compile Include="Forms\Salesman\SalesmanDashboard.Designer.cs" />
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.cs" />
+    <Compile Include="Forms\Salesman\SalesmanViewInvoice.Designer.cs" />
+    <Compile Include="Forms\Salesman\SalesmanViewReview.cs" />
+    <Compile Include="Forms\Salesman\SalesmanViewReview.Designer.cs" />
     <Compile Include="Forms\User\UserConfirmCarChoice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,15 +190,9 @@
     <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
     <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
     <EmbeddedResource Include="Forms\Admin\Delete.resx" />
-    <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
-      <DependentUpon>SalesmanDashboard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx">
-      <DependentUpon>SalesmanViewInvoice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Salesman\SalesmanViewReview.resx">
-      <DependentUpon>SalesmanViewReview.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx" />
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewInvoice.resx" />
+    <EmbeddedResource Include="Forms\Salesman\SalesmanViewReview.resx" />
     <EmbeddedResource Include="Forms\User\UserConfirmCarChoice.resx">
       <DependentUpon>UserConfirmCarChoice.cs</DependentUpon>
     </EmbeddedResource>
