@@ -22,7 +22,7 @@ namespace GroupProject.Forms.Admin
         private void btnSaveUpdate_Click(object sender, System.EventArgs e)
         {
            MySqlConnection myCom = new MySqlConnection();
-            String sCommand = "(UPDATE `t_Cars` SET `ID`=[value-1],`model`=@model,`type`=@type,`year`=@year,`price`=@price WHERE @ID)";
+            String sCommand = "(UPDATE `t_Cars` SET `model`=@model,`type`=@type,`year`=@year,`price`=@price WHERE @ID)";
            MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
 
             try
