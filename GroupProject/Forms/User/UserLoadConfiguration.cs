@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Windows.Forms;
 using GroupProject.Classes;
+using GroupProject.Classes.Car;
 using GroupProject.Classes.SerialzationClasses;
 using GroupProject.Classes.User;
 
@@ -16,6 +17,7 @@ namespace GroupProject.Forms.User
 	{
 		private readonly int _userId;
 		private Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> _configs;
+		private Dictionary<int, ClsCar> _cars;
 
 		private UserSaveLoadConfig _config;
 		// Temporary hardcoded value
@@ -31,14 +33,14 @@ namespace GroupProject.Forms.User
 			// Get all unique cars IDs so that we can get the corresponding cars
 			int[] uniqueCars = _configs.Item1.Select(x => x.CarId).Distinct().ToArray();
 			// Get car objects
-			var cars = ClsDatabase.GetCars(uniqueCars);
+			_cars = ClsDatabase.GetCars(uniqueCars);
 			// Insert the data into the data view
 			foreach (var t in _configs.Item1)
 			{
 				dataGridViewUserConfigs.Rows.Add(	
-					cars[t.CarId].Model,
-					cars[t.CarId].Type,
-					cars[t.CarId].Year,
+					_cars[t.CarId].Model,
+					_cars[t.CarId].Type,
+					_cars[t.CarId].Year,
 					t.Description
 				);
 			}
@@ -53,6 +55,7 @@ namespace GroupProject.Forms.User
 		{
 			var tableIndex = dataGridViewUserConfigs.SelectedRows[0].Index;
 			var configId = _configs.Item1[tableIndex].Id;
+			
 			// Always 0 only 1 row can be selected
 		 	ClsDatabase.DeleteUserConfiguration(configId);
 		    // Remove the row
@@ -66,6 +69,32 @@ namespace GroupProject.Forms.User
 		{
 			var tableIndex = dataGridViewUserConfigs.SelectedRows[0].Index;
 			var configId = _configs.Item1[tableIndex].Id;
+			var car = _cars[_configs.Item1[tableIndex].CarId];
+			string description = (string)dataGridViewUserConfigs.Rows[tableIndex].Cells[3].Value;
+			
+			AddModsToCar();
+			this.Hide();
+			Form userConfirmCarChoice = new UserConfirmCarChoice(car, _userId, description)
+			{
+				Location = this.Location,
+				Size = this.Size,
+				// Otherwise we can't put the form where we want
+				StartPosition = FormStartPosition.Manual
+			};
+			
+			userConfirmCarChoice.Show();
+
+			void AddModsToCar()
+			{
+				// Adds mods to cars class
+				foreach (var configuration in _configs.Item2)
+				{
+					if (configuration.ConfigurationId == configId)
+					{
+						car.CarConfigurationsChosen.Add(configuration.Modification.ToString(), true);
+					}
+				}
+			}
 		}
 	}
 }
