@@ -60,28 +60,12 @@ namespace GroupProject.Forms.User
 
 			MessageBox.Show("Configuration successully deleted", "Success");
 		}
+		
 
-		private void btnLoadLocal_Click(object sender, EventArgs e)
+		private void btnNext_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog ofd = new OpenFileDialog()
-			{
-				Filter = "JSON File (*.json)|*.json",
-				Title = "Load your configuration",
-			};
-
-			if (ofd.ShowDialog() != DialogResult.OK) return;
-			if (ofd.FileName != "")
-			{
-				// Open the text file using a stream reader.
-				using (var sr = new StreamReader(ofd.FileName))
-				{
-					// Read the stream as a string, then decode that string as our object
-					var a = sr.ReadToEnd();
-					_config = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
-				}
-				
-				// TODO: Add the config to datagridview
-			}
+			var tableIndex = dataGridViewUserConfigs.SelectedRows[0].Index;
+			var configId = _configs.Item1[tableIndex].Id;
 		}
 	}
 }
