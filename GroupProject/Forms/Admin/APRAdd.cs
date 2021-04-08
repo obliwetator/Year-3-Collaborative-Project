@@ -24,8 +24,8 @@ namespace GroupProject.Forms.Admin
            //  string comString = "INSERT INTO `t_APR`( `APR`, `Time`) VALUES ('" + txtAPR + "', '" + txtTime + "')";
             // Looks cleaner
             string sql = $"INSERT INTO `t_APR` (`ID`, `APR`, `Time`) VALUES (NULL, '${txtAPR.Text}', ${txtTime.Text})";
-            MySqlCommand sqlCom = new MySqlCommand(sql, cnn); 
-            
+            MySqlCommand sqlCom = new MySqlCommand(sql, cnn);
+            sqlCom.ExecuteNonQuery();
             // TODO: Execute the query
             // TODO: Ability to delete APRs?
             
