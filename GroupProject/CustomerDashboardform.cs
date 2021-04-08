@@ -49,8 +49,7 @@ namespace GroupProject
 
         private void btnLoadConfig_Click(object sender, EventArgs e)
         {
-            // TODO: Pass user id
-            UserLoadConfiguration userConfirmCarChoice = new UserLoadConfiguration()
+            UserLoadConfiguration userConfirmCarChoice = new UserLoadConfiguration(clsUser.ID1)
             {
                 Location = this.Location,
                 Size = new Size(1280, 720),

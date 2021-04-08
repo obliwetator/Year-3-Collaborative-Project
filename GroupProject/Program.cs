@@ -19,7 +19,7 @@ namespace GroupProject
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new AdminDashboard());
+      Application.Run(new UserLoadConfiguration());
     }
   }
 }

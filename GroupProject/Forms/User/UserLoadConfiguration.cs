@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text.Json;
 using System.Windows.Forms;
 using GroupProject.Classes;
+using GroupProject.Classes.Car;
 using GroupProject.Classes.SerialzationClasses;
 using GroupProject.Classes.User;
 
 namespace GroupProject.Forms.User
 {
-	// TODO: Load this form from the User dashboard
-	// TODO: 
 	public partial class UserLoadConfiguration : Form
 	{
 		private readonly int _userId;
 		private Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> _configs;
+		private Dictionary<int, ClsCar> _cars;
 
 		private UserSaveLoadConfig _config;
 		// Temporary hardcoded value
@@ -31,14 +31,14 @@ namespace GroupProject.Forms.User
 			// Get all unique cars IDs so that we can get the corresponding cars
 			int[] uniqueCars = _configs.Item1.Select(x => x.CarId).Distinct().ToArray();
 			// Get car objects
-			var cars = ClsDatabase.GetCars(uniqueCars);
+			_cars = ClsDatabase.GetCars(uniqueCars);
 			// Insert the data into the data view
 			foreach (var t in _configs.Item1)
 			{
 				dataGridViewUserConfigs.Rows.Add(	
-					cars[t.CarId].Model,
-					cars[t.CarId].Type,
-					cars[t.CarId].Year,
+					_cars[t.CarId].Model,
+					_cars[t.CarId].Type,
+					_cars[t.CarId].Year,
 					t.Description
 				);
 			}
@@ -53,6 +53,7 @@ namespace GroupProject.Forms.User
 		{
 			var tableIndex = dataGridViewUserConfigs.SelectedRows[0].Index;
 			var configId = _configs.Item1[tableIndex].Id;
+			
 			// Always 0 only 1 row can be selected
 		 	ClsDatabase.DeleteUserConfiguration(configId);
 		    // Remove the row
@@ -60,27 +61,37 @@ namespace GroupProject.Forms.User
 
 			MessageBox.Show("Configuration successully deleted", "Success");
 		}
+		
 
-		private void btnLoadLocal_Click(object sender, EventArgs e)
+		private void btnNext_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog ofd = new OpenFileDialog()
+			var tableIndex = dataGridViewUserConfigs.SelectedRows[0].Index;
+			var configId = _configs.Item1[tableIndex].Id;
+			var car = _cars[_configs.Item1[tableIndex].CarId];
+			string description = (string)dataGridViewUserConfigs.Rows[tableIndex].Cells[3].Value;
+			
+			AddModsToCar();
+			this.Hide();
+			Form userConfirmCarChoice = new UserConfirmCarChoice(car, _userId, description)
 			{
-				Filter = "JSON File (*.json)|*.json",
-				Title = "Load your configuration",
+				Location = this.Location,
+				Size = this.Size,
+				// Otherwise we can't put the form where we want
+				StartPosition = FormStartPosition.Manual
 			};
+			
+			userConfirmCarChoice.Show();
 
-			if (ofd.ShowDialog() != DialogResult.OK) return;
-			if (ofd.FileName != "")
+			void AddModsToCar()
 			{
-				// Open the text file using a stream reader.
-				using (var sr = new StreamReader(ofd.FileName))
+				// Adds mods to cars class
+				foreach (var configuration in _configs.Item2)
 				{
-					// Read the stream as a string, then decode that string as our object
-					var a = sr.ReadToEnd();
-					_config = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
+					if (configuration.ConfigurationId == configId)
+					{
+						car.CarConfigurationsChosen.Add(configuration.Modification.ToString(), true);
+					}
 				}
-				
-				// TODO: Add the config to datagridview
 			}
 		}
 	}

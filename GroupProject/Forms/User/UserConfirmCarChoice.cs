@@ -208,21 +208,13 @@ namespace GroupProject.Forms.User
 				}
 				default:
 				{
-					// NOTE: Payments will not be implemented in this iteration
-					UserConfirmPayment userConfirmCarChoice = new UserConfirmPayment()
-					{
-						Location = this.Location,
-						Size = new Size(500, 300),
-						// Otherwise we can't put the form where we want
-						StartPosition = FormStartPosition.Manual
-					};
-
-					userConfirmCarChoice.Show();
 					_submittedFromStatus = SubmittedFromStatus.Review;
 					// Store in db
 
 					_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, true ,false);
 					// TODO: After merging return the user to the car selection menu
+
+					MessageBox.Show("Configuration sent for a review", "Success", MessageBoxButtons.OK);
 					break;
 				}
 			}
@@ -294,10 +286,15 @@ namespace GroupProject.Forms.User
 		private void button1_Click(object sender, EventArgs e)
 		{
 			// if it's set we have already submitted the form
-			if (_submittedFormId != null)
+			if (_submittedFormId == null)
 			{
 				// Save config in DB
 				_submittedFormId = ClsDatabase.AddUserCarConfiguration(_car, _userId, _comment, _aprSelected, false, false);
+				MessageBox.Show("Configuration saves to the cloud", "Success", MessageBoxButtons.OK);
+			}
+			else
+			{
+				MessageBox.Show("Form already submitted", "Fail", MessageBoxButtons.OK);
 			}
 		}
 

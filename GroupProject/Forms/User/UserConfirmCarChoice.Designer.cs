@@ -75,9 +75,9 @@ namespace GroupProject.Forms.User
 			this.btnSubmitReview.Name = "btnSubmitReview";
 			this.btnSubmitReview.Size = new System.Drawing.Size(166, 79);
 			this.btnSubmitReview.TabIndex = 1;
-			this.btnSubmitReview.Text = "Submit for a review";
+			this.btnSubmitReview.Text = "Purchase";
 			this.btnSubmitReview.UseVisualStyleBackColor = true;
-			this.btnSubmitReview.Click += new System.EventHandler(this.btnSubmitReview_Click);
+			this.btnSubmitReview.Click += new System.EventHandler(this.btnPurchaseCar_Click);
 			// 
 			// label1
 			// 
@@ -177,9 +177,9 @@ namespace GroupProject.Forms.User
 			this.btnPurchaseCar.Name = "btnPurchaseCar";
 			this.btnPurchaseCar.Size = new System.Drawing.Size(166, 79);
 			this.btnPurchaseCar.TabIndex = 12;
-			this.btnPurchaseCar.Text = "Purchase car";
+			this.btnPurchaseCar.Text = "Submit For a Review";
 			this.btnPurchaseCar.UseVisualStyleBackColor = true;
-			this.btnPurchaseCar.Click += new System.EventHandler(this.btnPurchaseCar_Click);
+			this.btnPurchaseCar.Click += new System.EventHandler(this.btnSubmitReview_Click);
 			// 
 			// label7
 			// 

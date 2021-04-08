@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GroupProject.Classes.User
 {
-  class ClsUserCarConfiguration
+  public class ClsUserCarConfiguration
   {
     public int Id { get; set; }
     public int UserId { get; set; }

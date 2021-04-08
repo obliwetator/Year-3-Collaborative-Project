@@ -1,16 +1,16 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using GroupProject.Classes;
 
 namespace GroupProject.Forms.Salesman
 {
   public partial class SalesmanDashboard : Form
   {
-    // TODO: Pass salesman id
-    private int _salesmanId;
+    private readonly int _salesmanId;
     public SalesmanDashboard(int salesmanId = 4)
     {
-      this._salesmanId = salesmanId;
+      this._salesmanId = clsUser.ID1;
       InitializeComponent();
     }
     

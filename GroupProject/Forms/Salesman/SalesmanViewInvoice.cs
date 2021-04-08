@@ -27,7 +27,7 @@ namespace GroupProject.Forms.Salesman
 		};
 		//TODO: Caching
 		private List<int> _modifications;
-		private int _salesmanId;
+		private readonly int _salesmanId;
 		// Hardcoded id
 		public SalesmanViewInvoice(int salesmanId, SalesmanDashboard salesmanDashboard)
 		{
