@@ -53,7 +53,7 @@ namespace GroupProject.Forms.Admin
         private void gvCar_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             MySqlConnection myCon = new MySqlConnection(conString);
-            MySqlCommand myCom = new MySqlCommand("Select * from  `t_Car`");
+            MySqlCommand myCom = new MySqlCommand("Select * from  `t_Cars`");
             MySqlDataAdapter dt = new MySqlDataAdapter();
             try
             {
@@ -68,6 +68,7 @@ namespace GroupProject.Forms.Admin
  
                 gvCar.DataSource = dTable;
                 
+                
 
                 
             }
@@ -75,6 +76,8 @@ namespace GroupProject.Forms.Admin
             {
 
             }
+
+           
 
         }
     }
