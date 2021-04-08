@@ -22,7 +22,6 @@ namespace GroupProject.Forms.Admin
         {
             this.Hide();
               APR f4 = new APR();
-           // StatsSalemen f4 = new StatsSalemen();
             f4.Show();
 
         }
