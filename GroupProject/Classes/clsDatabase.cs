@@ -11,8 +11,8 @@ namespace GroupProject.Classes
 {
 	static class ClsDatabase
 	{
-		private const string ConnString =
-			"Server=plesk.remote.ac;database=ws330584_dealership;user=ws330584_dealership;password=Password123;CharSet=utf8;";
+		private const string ConnString = "Server=plesk.remote.ac;database=ws330584_dealership;user=ws330584_dealership;password=Password123;CharSet=utf8;";
+
 
 		private static MySqlConnection GetConnection()
 		{
