@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace GroupProject.Forms.Admin
@@ -46,6 +47,20 @@ namespace GroupProject.Forms.Admin
             this.Hide();
             var f7 = new APRUpdate();
             f7.Show();
+        }
+
+        private void btnMiscStats_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AdminMiscStats userConfirmCarChoice = new AdminMiscStats(this)
+            {
+                Location = this.Location,
+                Size = new Size(500, 400),
+                // Otherwise we can't put the form where we want
+                StartPosition = FormStartPosition.Manual
+            };
+
+            userConfirmCarChoice.Show();
         }
     }
 }

@@ -27,7 +27,7 @@ namespace GroupProject
       lblPrice.Text = _car.Price.ToString() + "£";
 
       // clsDb.GetUserCarConfigurations();
-      _carConfigurationsAvailable = ClsDatabase.CarConfigurationsAvailable(_carId);
+      _carConfigurationsAvailable = ClsDatabase.GetCarConfigurationsAvailable(_carId);
       var carConfigurationCheckBoxes = new List<CheckBox>();
       int i = 0;
       foreach (var car in _carConfigurationsAvailable)
@@ -46,6 +46,7 @@ namespace GroupProject
         carConfigurationCheckBoxes[i].CheckedChanged += DynamicCheckBoxCheckedChanged;
         // Add the checkboxes to the form
         this.Controls.Add(carConfigurationCheckBoxes[i]);
+        this.DisplayTotalCarCost();
         i++;
       }
     }
@@ -56,6 +57,8 @@ namespace GroupProject
       CheckBox cb = (CheckBox) sender;
       // Flip the bool
       _car.CarConfigurationsChosen[cb.Name] = !_car.CarConfigurationsChosen[cb.Name];
+
+      this.DisplayTotalCarCost();
     }
 
     // Temporary value
@@ -71,7 +74,7 @@ namespace GroupProject
     private void btnContinue_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId, _carConfigurationsAvailable)
+      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId, _carConfigurationsAvailable, txtComment.Text)
       {
         Location = this.Location,
         Size = this.Size,
@@ -81,5 +84,22 @@ namespace GroupProject
 
       userConfirmCarChoice.Show();
     }
+    
+    private void DisplayTotalCarCost()
+    {
+      float totalPrice = 0;
+      foreach (var car in _car.CarConfigurationsChosen)
+      {
+        if (car.Value == true)
+        {
+          totalPrice += _carConfigurationsAvailable[int.Parse(car.Key)].Price;
+        }
+      }
+
+      totalPrice += _car.Price;
+
+      lblTotalCost.Text ="£" + totalPrice.ToString();
+    }
+
   }
 }
