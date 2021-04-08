@@ -28,7 +28,7 @@ namespace GroupProject.Forms.Admin
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             MySqlConnection myCom = new MySqlConnection(conString);
-            String sCommand = "(UPDATE `t_Cars` SET `model`=@model,`type`=@type,`year`=@year,`price`=@price WHERE @ID)";
+            String sCommand = " UPDATE `t_Cars` SET `model`='@model',`type`='@type',`year`='@year',`price`='@price' WHERE `t_Cars`.`ID` = @ID";
             MySqlCommand myCommand = new MySqlCommand(sCommand, myCom);
 
             try
