@@ -35,6 +35,10 @@ namespace GroupProject
       this.lblYear = new System.Windows.Forms.Label();
       this.btnContinue = new System.Windows.Forms.Button();
       this.lblPrice = new System.Windows.Forms.Label();
+      this.txtComment = new System.Windows.Forms.TextBox();
+      this.label1 = new System.Windows.Forms.Label();
+      this.lblTotalCost = new System.Windows.Forms.Label();
+      this.label8 = new System.Windows.Forms.Label();
       this.SuspendLayout();
       // 
       // lblCarId
@@ -76,7 +80,7 @@ namespace GroupProject
       // 
       // btnContinue
       // 
-      this.btnContinue.Location = new System.Drawing.Point(672, 386);
+      this.btnContinue.Location = new System.Drawing.Point(1141, 619);
       this.btnContinue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
       this.btnContinue.Name = "btnContinue";
       this.btnContinue.Size = new System.Drawing.Size(110, 50);
@@ -94,11 +98,47 @@ namespace GroupProject
       this.lblPrice.TabIndex = 5;
       this.lblPrice.Text = "Price";
       // 
+      // txtComment
+      // 
+      this.txtComment.Location = new System.Drawing.Point(789, 456);
+      this.txtComment.Multiline = true;
+      this.txtComment.Name = "txtComment";
+      this.txtComment.Size = new System.Drawing.Size(462, 136);
+      this.txtComment.TabIndex = 6;
+      // 
+      // label1
+      // 
+      this.label1.Location = new System.Drawing.Point(789, 432);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(145, 21);
+      this.label1.TabIndex = 7;
+      this.label1.Text = "Comment";
+      // 
+      // lblTotalCost
+      // 
+      this.lblTotalCost.Location = new System.Drawing.Point(789, 83);
+      this.lblTotalCost.Name = "lblTotalCost";
+      this.lblTotalCost.Size = new System.Drawing.Size(77, 23);
+      this.lblTotalCost.TabIndex = 20;
+      this.lblTotalCost.Text = "Total Cost";
+      // 
+      // label8
+      // 
+      this.label8.Location = new System.Drawing.Point(789, 62);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(64, 21);
+      this.label8.TabIndex = 19;
+      this.label8.Text = "Total Cost";
+      // 
       // EntryForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(933, 485);
+      this.ClientSize = new System.Drawing.Size(1264, 681);
+      this.Controls.Add(this.lblTotalCost);
+      this.Controls.Add(this.label8);
+      this.Controls.Add(this.label1);
+      this.Controls.Add(this.txtComment);
       this.Controls.Add(this.lblPrice);
       this.Controls.Add(this.btnContinue);
       this.Controls.Add(this.lblYear);
@@ -111,7 +151,14 @@ namespace GroupProject
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.ResumeLayout(false);
+      this.PerformLayout();
     }
+
+    private System.Windows.Forms.Label label8;
+    private System.Windows.Forms.Label lblTotalCost;
+
+    private System.Windows.Forms.Label label1;
+    private System.Windows.Forms.TextBox txtComment;
 
     private System.Windows.Forms.Label lblPrice;
 
