@@ -144,7 +144,6 @@ namespace GroupProject.Forms.Admin
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // label1
             // 

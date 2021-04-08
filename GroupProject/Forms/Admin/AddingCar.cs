@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
 using GroupProject.Classes;
+using GroupProject.Forms;
 
 namespace GroupProject.Forms.Admin
 {
@@ -26,6 +27,8 @@ namespace GroupProject.Forms.Admin
             MySqlConnection myCom = new MySqlConnection(conString);
             string sql = $"INSERT INTO `t_Cars`(`model`, `type`, `year`, `price`) VALUES ({txtModel.Text},{txtType.Text},{txtYear.Text},{txtPrice.Text})";
             MySqlCommand sqlCom = new MySqlCommand(sql, myCom);
+            sqlCom.ExecuteNonQuery(); 
+            
         }
     }
 }
