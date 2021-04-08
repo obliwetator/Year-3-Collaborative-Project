@@ -124,8 +124,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowseVehicles.cs" />
-    <Compile Include="BrowseVehicles.Designer.cs" />
     <Compile Include="Classes\Admin\ClsAPR.cs" />
     <Compile Include="Classes\CarCustomizationAvailable.cs" />
     <Compile Include="Classes\Car\clsCar.cs" />
@@ -212,7 +210,12 @@
     <Compile Include="Login.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="BrowseVehicles.resx" />
+    <Compile Include="UserBrowseVehicles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserBrowseVehicles.Designer.cs">
+      <DependentUpon>UserBrowseVehicles.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CustomerDashboardform.resx" />
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
@@ -258,6 +261,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserBrowseVehicles.resx">
+      <DependentUpon>UserBrowseVehicles.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

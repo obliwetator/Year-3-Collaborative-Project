@@ -66,11 +66,11 @@ namespace GroupProject
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            var BrowseVehicles = new BrowseVehicles();
+            var UserBrowseVehicles = new UserBrowseVehicles();
 
             this.Hide();
 
-            BrowseVehicles.Show();
+            UserBrowseVehicles.Show();
         }
 
         private void btnLoadLocalConfig_Click(object sender, EventArgs e)
