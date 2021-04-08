@@ -11,8 +11,6 @@ using GroupProject.Classes.User;
 
 namespace GroupProject.Forms.User
 {
-	// TODO: Load this form from the User dashboard
-	// TODO: 
 	public partial class UserLoadConfiguration : Form
 	{
 		private readonly int _userId;
