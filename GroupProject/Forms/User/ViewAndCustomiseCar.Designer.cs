@@ -29,10 +29,18 @@ namespace GroupProject.Forms.User
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
-      this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(800, 450);
-      this.Text = "ViewAndCustomiseCar";
+            this.SuspendLayout();
+            // 
+            // ViewAndCustomiseCar
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "ViewAndCustomiseCar";
+            this.Text = "ViewAndCustomiseCar";
+            this.Load += new System.EventHandler(this.ViewAndCustomiseCar_Load);
+            this.ResumeLayout(false);
+
     }
 
     #endregion

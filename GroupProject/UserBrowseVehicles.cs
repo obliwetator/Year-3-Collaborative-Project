@@ -74,11 +74,10 @@ namespace GroupProject
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            ClsCar car = new ClsCar();
-          //  car.Id = cboVehicles.SelectedItem
-          //  var ConfirmCarChoice = new UserConfirmCarChoice();
+            // First argument car ID second argument user id ClsUser
+            var ConfirmCarChoice = new EntryForm();
             this.Hide();
-           // ConfirmCarChoice.Show();
+            ConfirmCarChoice.Show();
 
         }
     }

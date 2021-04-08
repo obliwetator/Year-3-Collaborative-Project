@@ -8,5 +8,10 @@ namespace GroupProject.Forms.User
     {
       InitializeComponent();
     }
-  }
+
+        private void ViewAndCustomiseCar_Load(object sender, System.EventArgs e)
+        {
+
+        }
+    }
 }

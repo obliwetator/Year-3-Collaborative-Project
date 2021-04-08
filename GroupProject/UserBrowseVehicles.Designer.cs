@@ -61,6 +61,7 @@ namespace GroupProject
             this.btnSelect.TabIndex = 2;
             this.btnSelect.Text = "Select Car";
             this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // btnReturn
             // 
