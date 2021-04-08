@@ -23,7 +23,7 @@ namespace GroupProject.Forms.Admin
             //                                                                  Needs .Text            and here
            //  string comString = "INSERT INTO `t_APR`( `APR`, `Time`) VALUES ('" + txtAPR + "', '" + txtTime + "')";
             // Looks cleaner
-            string sql = $"INSERT INTO `t_APR` (`ID`, `APR`, `Time`) VALUES (NULL, '${txtAPR.Text}', ${txtTime.Text})";
+            string sql = $"INSERT INTO `t_APR` ( `APR`, `Time`) VALUES (NULL, '${txtAPR.Text}', ${txtTime.Text})";
             MySqlCommand sqlCom = new MySqlCommand(sql, cnn);
             sqlCom.ExecuteNonQuery();
             // TODO: Execute the query
