@@ -33,7 +33,7 @@ namespace GroupProject
 
             string sComString = "SELECT `t_Cars`.`ID`, `t_Car_models`.`model` " +
                 "FROM `t_Cars` " +
-                "INNER JOIN `t_Car_models` ON `t_Cars`.`model`=`t_Car_models`.`ID`  ";
+                "INNER JOIN `t_Car_models` ON `t_Cars`.`model`=`t_Car_models`.`ID`  "; //Sql gets car model and car ID from different tables
               
             MySqlCommand com = new MySqlCommand(sComString, myCon);
 
@@ -46,7 +46,7 @@ namespace GroupProject
                 {
                     while (reader.Read())
                     {
-                        cboVehicles.Items.Add(reader.GetValue(0).ToString());
+                        cboVehicles.Items.Add(reader.GetValue(1).ToString());// displays car make in combobox
                     }
                 }
                 myCon.Close();
