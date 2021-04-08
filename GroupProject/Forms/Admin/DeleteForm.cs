@@ -33,8 +33,10 @@ namespace GroupProject.Forms.Admin
         private void btnDelete_Click(object sender, EventArgs e)
         {
             MySqlConnection myCon = new MySqlConnection(conString);
-            //String sCommand = "(DELETE FROM `t_Cars` WHERE `ID` = $"{txtDelete.Text }")";
-           // MySqlCommand myCom = new MySqlCommand(sCommand, myCon); 
+            // String sCommand = "DELETE FROM `t_Cars` WHERE `ID` = $"{txtDelete.Text }"";
+            string sCommand = $"DELETE FROM `t_Cars` WHERE `ID` = {txtDelete.Text} ";
+            MySqlCommand myCom = new MySqlCommand(sCommand, myCon);
+            
         }
     }
 }
