@@ -416,7 +416,7 @@ namespace GroupProject.Classes
 		public static void AddSalesmanConfigurationReview(string txtReviewText, HashSet<int> selectedMods, int configId, int salesmanId)
 		{
 			var conn = GetConnection();
-			string sql = $@"INSERT INTO `t_Salesman_configuration_review` (`ID`, `salesman_id`, `config_id`, `comment`) VALUES (NULL, '{configId}', {salesmanId} '{txtReviewText}'); SELECT last_insert_id();
+			string sql = $@"INSERT INTO `t_Salesman_configuration_review` (`ID`, `salesman_id`, `config_id`, `comment`) VALUES (NULL, '{salesmanId}', '{configId}', '{txtReviewText}'); SELECT last_insert_id();
 						UPDATE `t_User_configuration` SET `was_reviewed` = '1', `review` = 0 WHERE `t_User_configuration`.`ID` = {configId};		
 			";
 			
