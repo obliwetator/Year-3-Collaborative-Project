@@ -31,6 +31,7 @@ namespace GroupProject.Forms.Salesman
     {
       this.btnReview = new System.Windows.Forms.Button();
       this.btnInvoice = new System.Windows.Forms.Button();
+      this.btnBack = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // btnReview
@@ -53,21 +54,35 @@ namespace GroupProject.Forms.Salesman
       this.btnInvoice.UseVisualStyleBackColor = true;
       this.btnInvoice.Click += new System.EventHandler(this.btnInvoice_Click);
       // 
+      // btnBack
+      // 
+      this.btnBack.Location = new System.Drawing.Point(12, 386);
+      this.btnBack.Name = "btnBack";
+      this.btnBack.Size = new System.Drawing.Size(114, 52);
+      this.btnBack.TabIndex = 2;
+      this.btnBack.Text = "Back";
+      this.btnBack.UseVisualStyleBackColor = true;
+      this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+      // 
       // SalesmanDashboard
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(800, 450);
+      this.Controls.Add(this.btnBack);
       this.Controls.Add(this.btnInvoice);
       this.Controls.Add(this.btnReview);
       this.Name = "SalesmanDashboard";
       this.Text = "SalesemanDashboard";
       this.ResumeLayout(false);
+
     }
 
     private System.Windows.Forms.Button btnInvoice;
     private System.Windows.Forms.Button btnReview;
 
     #endregion
+
+    private System.Windows.Forms.Button btnBack;
   }
 }

@@ -49,7 +49,7 @@ namespace GroupProject
 
         private void btnLoadConfig_Click(object sender, EventArgs e)
         {
-            UserLoadConfiguration userConfirmCarChoice = new UserLoadConfiguration(clsUser.ID1)
+            UserLoadConfiguration userConfirmCarChoice = new UserLoadConfiguration(this, clsUser.ID1)
             {
                 Location = this.Location,
                 Size = new Size(1280, 720),
@@ -92,7 +92,7 @@ namespace GroupProject
                 _config = JsonSerializer.Deserialize<UserSaveLoadConfig>(a);
                 
                 // Load json
-                UserConfirmCarChoice userConfirmCarChoice = new UserConfirmCarChoice(_config.car, _config.userId, _config.comment)
+                UserConfirmCarChoice userConfirmCarChoice = new UserConfirmCarChoice(_config.car, _config.userId, _config.comment, this)
                 {
                     Location = this.Location,
                     Size = new Size(1280, 720),

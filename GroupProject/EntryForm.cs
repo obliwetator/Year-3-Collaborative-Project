@@ -13,6 +13,7 @@ namespace GroupProject
 
     private ClsCar _car;
     private Dictionary<int, CarCustomizationAvailable> _carConfigurationsAvailable;
+    private Form _formRef;
     
     // we will receive the CarId from the previous form
     private void Form1_Load(object sender, EventArgs e)
@@ -64,17 +65,18 @@ namespace GroupProject
     // Temporary value
     private readonly int _carId;
     private readonly int _userId;
-    public EntryForm(int carId = 1, int userId = 1)
+    public EntryForm(Form formRef, int carId = 1, int userId = 1)
     {
       InitializeComponent();
       this._carId = carId;
       this._userId = userId;
+      this._formRef = formRef;
     }
 
     private void btnContinue_Click(object sender, EventArgs e)
     {
       this.Hide();
-      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId, _carConfigurationsAvailable, txtComment.Text)
+      Form userConfirmCarChoice = new UserConfirmCarChoice(_car, _userId, _carConfigurationsAvailable, txtComment.Text, this)
       {
         Location = this.Location,
         Size = this.Size,

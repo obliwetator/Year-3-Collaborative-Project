@@ -62,6 +62,7 @@ namespace GroupProject
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
+            // memory leak
             var CustomerDashboardform = new CustomerDashboardform();
             this.Hide();
             CustomerDashboardform.Show();
@@ -75,7 +76,8 @@ namespace GroupProject
         private void btnSelect_Click(object sender, EventArgs e)
         {
             // First argument car ID second argument user id ClsUser
-            var ConfirmCarChoice = new EntryForm();
+            // TODO: add arguments
+            var ConfirmCarChoice = new EntryForm(this);
             this.Hide();
             ConfirmCarChoice.Show();
 
