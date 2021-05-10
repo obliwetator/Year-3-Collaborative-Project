@@ -27,5 +27,13 @@ namespace GroupProject.Forms.Admin
             string sql = $"INSERT INTO `t_Cars`(`model`, `type`, `year`, `price`) VALUES ({txtModel.Text},{txtType.Text},{txtYear.Text},{txtPrice.Text})";
             // MySqlCommand sqlCom = new MySqlCommand(sql, conString);
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminDashboard f3 = new AdminDashboard();
+            f3.Show();
+
+        }
     }
 }

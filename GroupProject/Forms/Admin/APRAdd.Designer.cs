@@ -35,6 +35,7 @@ namespace GroupProject.Forms.Admin
             this.txtAPR = new System.Windows.Forms.TextBox();
             this.txtTime = new System.Windows.Forms.TextBox();
             this.btnAPR = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDashbord
@@ -42,9 +43,10 @@ namespace GroupProject.Forms.Admin
             this.lblDashbord.AutoSize = true;
             this.lblDashbord.Font = new System.Drawing.Font("Arial", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDashbord.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblDashbord.Location = new System.Drawing.Point(200, 0);
+            this.lblDashbord.Location = new System.Drawing.Point(133, 0);
+            this.lblDashbord.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblDashbord.Name = "lblDashbord";
-            this.lblDashbord.Size = new System.Drawing.Size(398, 57);
+            this.lblDashbord.Size = new System.Drawing.Size(264, 39);
             this.lblDashbord.TabIndex = 8;
             this.lblDashbord.Text = "Admin Dashbord";
             // 
@@ -52,9 +54,10 @@ namespace GroupProject.Forms.Admin
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 138);
+            this.label1.Location = new System.Drawing.Point(33, 90);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(192, 25);
+            this.label1.Size = new System.Drawing.Size(138, 17);
             this.label1.TabIndex = 9;
             this.label1.Text = "Set the APR%  here:";
             // 
@@ -62,47 +65,63 @@ namespace GroupProject.Forms.Admin
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(500, 138);
+            this.label2.Location = new System.Drawing.Point(333, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(230, 25);
+            this.label2.Size = new System.Drawing.Size(165, 17);
             this.label2.TabIndex = 10;
             this.label2.Text = "Set Time Frame for APR:";
             // 
             // txtAPR
             // 
-            this.txtAPR.Location = new System.Drawing.Point(56, 178);
+            this.txtAPR.Location = new System.Drawing.Point(37, 116);
+            this.txtAPR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAPR.Name = "txtAPR";
-            this.txtAPR.Size = new System.Drawing.Size(187, 26);
+            this.txtAPR.Size = new System.Drawing.Size(126, 20);
             this.txtAPR.TabIndex = 11;
             // 
             // txtTime
             // 
-            this.txtTime.Location = new System.Drawing.Point(520, 178);
+            this.txtTime.Location = new System.Drawing.Point(347, 116);
+            this.txtTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(187, 26);
+            this.txtTime.Size = new System.Drawing.Size(126, 20);
             this.txtTime.TabIndex = 12;
             // 
             // btnAPR
             // 
-            this.btnAPR.Location = new System.Drawing.Point(326, 289);
+            this.btnAPR.Location = new System.Drawing.Point(217, 188);
+            this.btnAPR.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAPR.Name = "btnAPR";
-            this.btnAPR.Size = new System.Drawing.Size(134, 65);
+            this.btnAPR.Size = new System.Drawing.Size(89, 42);
             this.btnAPR.TabIndex = 13;
             this.btnAPR.Text = "APR%";
             this.btnAPR.UseVisualStyleBackColor = true;
             this.btnAPR.Click += new System.EventHandler(this.btnAPR_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 257);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 14;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // APR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 449);
+            this.ClientSize = new System.Drawing.Size(533, 292);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnAPR);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.txtAPR);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblDashbord);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "APR";
             this.Text = "APR";
             this.Load += new System.EventHandler(this.APR_Load);
@@ -119,5 +138,6 @@ namespace GroupProject.Forms.Admin
         private System.Windows.Forms.TextBox txtAPR;
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.Button btnAPR;
+        private System.Windows.Forms.Button btnBack;
     }
 }
