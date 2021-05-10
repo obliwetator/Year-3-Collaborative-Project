@@ -34,5 +34,13 @@ namespace GroupProject.Forms.Admin
 		{
 			throw new System.NotImplementedException();
 		}
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+			this.Close();
+			AdminDashboard f3 = new AdminDashboard();
+			f3.Show();
+
+		}
 	}
 }

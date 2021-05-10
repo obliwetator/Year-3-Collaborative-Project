@@ -25,5 +25,10 @@ namespace GroupProject.Forms.Admin
 			this.Hide();
 			_previousForm.Show();
 		}
-	}
+
+        private void AdminMiscStats_Load(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
