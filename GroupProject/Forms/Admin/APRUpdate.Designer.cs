@@ -42,6 +42,7 @@ namespace GroupProject.Forms.Admin
             this.lblTimeUpdate = new System.Windows.Forms.Label();
             this.txtTimeUpdate = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridAPR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,12 +55,11 @@ namespace GroupProject.Forms.Admin
             this.ID,
             this.APR,
             this.Time});
-            this.dataGridAPR.Location = new System.Drawing.Point(56, 45);
-            this.dataGridAPR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dataGridAPR.Location = new System.Drawing.Point(37, 29);
             this.dataGridAPR.Name = "dataGridAPR";
             this.dataGridAPR.RowHeadersWidth = 62;
             this.dataGridAPR.ShowCellToolTips = false;
-            this.dataGridAPR.Size = new System.Drawing.Size(514, 472);
+            this.dataGridAPR.Size = new System.Drawing.Size(343, 307);
             this.dataGridAPR.TabIndex = 0;
             this.dataGridAPR.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridAPR_CellContentClick);
             // 
@@ -88,65 +88,83 @@ namespace GroupProject.Forms.Admin
             // lblUpdate
             // 
             this.lblUpdate.AutoSize = true;
-            this.lblUpdate.Location = new System.Drawing.Point(698, 103);
+            this.lblUpdate.Location = new System.Drawing.Point(465, 67);
+            this.lblUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUpdate.Name = "lblUpdate";
-            this.lblUpdate.Size = new System.Drawing.Size(220, 20);
+            this.lblUpdate.Size = new System.Drawing.Size(149, 13);
             this.lblUpdate.TabIndex = 1;
             this.lblUpdate.Text = "ID of APR you want to update";
             // 
             // txtUpdateID
             // 
-            this.txtUpdateID.Location = new System.Drawing.Point(702, 138);
+            this.txtUpdateID.Location = new System.Drawing.Point(468, 90);
+            this.txtUpdateID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUpdateID.Name = "txtUpdateID";
-            this.txtUpdateID.Size = new System.Drawing.Size(100, 26);
+            this.txtUpdateID.Size = new System.Drawing.Size(68, 20);
             this.txtUpdateID.TabIndex = 2;
             // 
             // lblAPRUpdate
             // 
             this.lblAPRUpdate.AutoSize = true;
-            this.lblAPRUpdate.Location = new System.Drawing.Point(698, 214);
+            this.lblAPRUpdate.Location = new System.Drawing.Point(465, 139);
+            this.lblAPRUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAPRUpdate.Name = "lblAPRUpdate";
-            this.lblAPRUpdate.Size = new System.Drawing.Size(272, 20);
+            this.lblAPRUpdate.Size = new System.Drawing.Size(185, 13);
             this.lblAPRUpdate.TabIndex = 3;
             this.lblAPRUpdate.Text = "What do you want to update APR to?";
             // 
             // txtAPRUpdate
             // 
-            this.txtAPRUpdate.Location = new System.Drawing.Point(702, 257);
+            this.txtAPRUpdate.Location = new System.Drawing.Point(468, 167);
+            this.txtAPRUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAPRUpdate.Name = "txtAPRUpdate";
-            this.txtAPRUpdate.Size = new System.Drawing.Size(100, 26);
+            this.txtAPRUpdate.Size = new System.Drawing.Size(68, 20);
             this.txtAPRUpdate.TabIndex = 4;
             // 
             // lblTimeUpdate
             // 
             this.lblTimeUpdate.AutoSize = true;
-            this.lblTimeUpdate.Location = new System.Drawing.Point(698, 329);
+            this.lblTimeUpdate.Location = new System.Drawing.Point(465, 214);
+            this.lblTimeUpdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTimeUpdate.Name = "lblTimeUpdate";
-            this.lblTimeUpdate.Size = new System.Drawing.Size(341, 20);
+            this.lblTimeUpdate.Size = new System.Drawing.Size(229, 13);
             this.lblTimeUpdate.TabIndex = 5;
             this.lblTimeUpdate.Text = "What do you want to update the time frame to?";
             // 
             // txtTimeUpdate
             // 
-            this.txtTimeUpdate.Location = new System.Drawing.Point(702, 371);
+            this.txtTimeUpdate.Location = new System.Drawing.Point(468, 241);
+            this.txtTimeUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTimeUpdate.Name = "txtTimeUpdate";
-            this.txtTimeUpdate.Size = new System.Drawing.Size(100, 26);
+            this.txtTimeUpdate.Size = new System.Drawing.Size(68, 20);
             this.txtTimeUpdate.TabIndex = 6;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(692, 449);
+            this.btnUpdate.Location = new System.Drawing.Point(461, 292);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 55);
+            this.btnUpdate.Size = new System.Drawing.Size(67, 36);
             this.btnUpdate.TabIndex = 7;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(690, 390);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(90, 37);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // APRUpdate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.txtTimeUpdate);
             this.Controls.Add(this.lblTimeUpdate);
@@ -155,7 +173,6 @@ namespace GroupProject.Forms.Admin
             this.Controls.Add(this.txtUpdateID);
             this.Controls.Add(this.lblUpdate);
             this.Controls.Add(this.dataGridAPR);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "APRUpdate";
             this.Text = "APRUpdate";
             this.Load += new System.EventHandler(this.APRUpdate_Load);
@@ -180,5 +197,6 @@ namespace GroupProject.Forms.Admin
         private System.Windows.Forms.Label lblTimeUpdate;
         private System.Windows.Forms.TextBox txtTimeUpdate;
         private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnBack;
     }
 }

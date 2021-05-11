@@ -138,7 +138,9 @@
     <Compile Include="Classes\SerialzationClasses\UserSaveLoadConfig.cs" />
     <Compile Include="Classes\User\clsUserCarConfiguration.cs" />
     <Compile Include="Classes\User\clsUserConfiguration.cs" />
-    <Compile Include="CustomerDashboardform.cs" />
+    <Compile Include="CustomerDashboardform.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomerDashboardform.Designer.cs" />
     <Compile Include="EntryForm.cs">
       <SubType>Form</SubType>
@@ -146,24 +148,51 @@
     <Compile Include="EntryForm.Designer.cs">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\AddingCar.cs" />
-    <Compile Include="Forms\Admin\AddingCar.Designer.cs" />
-    <Compile Include="Forms\Admin\AdminDashboard.cs" />
-    <Compile Include="Forms\Admin\AdminDashboard.Designer.cs" />
+    <Compile Include="Forms\Admin\AddingCar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AddingCar.Designer.cs">
+      <DependentUpon>AddingCar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashboard.Designer.cs">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminDashboard.Designer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Admin\AdminMiscStats.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Admin\AdminMiscStats.Designer.cs">
       <DependentUpon>AdminMiscStats.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Admin\AdminUpdatingPage.cs" />
-    <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs" />
-    <Compile Include="Forms\Admin\APRAdd.cs" />
-    <Compile Include="Forms\Admin\APRAdd.Designer.cs" />
-    <Compile Include="Forms\Admin\APRUpdate.cs" />
-    <Compile Include="Forms\Admin\APRUpdate.Designer.cs" />
-    <Compile Include="Forms\Admin\Delete.cs" />
-    <Compile Include="Forms\Admin\Delete.Designer.cs" />
+    <Compile Include="Forms\Admin\AdminUpdatingPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\AdminUpdatingPage.Designer.cs">
+      <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\APRAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\APRAdd.Designer.cs">
+      <DependentUpon>APRAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\APRUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\APRUpdate.Designer.cs">
+      <DependentUpon>APRUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Admin\Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Admin\Delete.Designer.cs">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Salesman\SalesmanDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,7 +235,9 @@
     <Compile Include="Forms\User\UserLoadConfiguration.Designer.cs">
       <DependentUpon>UserLoadConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Login.Designer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -220,15 +251,27 @@
     <EmbeddedResource Include="EntryForm.resx">
       <DependentUpon>EntryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\AddingCar.resx" />
-    <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx" />
+    <EmbeddedResource Include="Forms\Admin\AddingCar.resx">
+      <DependentUpon>AddingCar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\AdminDashboard.resx">
+      <DependentUpon>AdminDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Admin\AdminMiscStats.resx">
       <DependentUpon>AdminMiscStats.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx" />
-    <EmbeddedResource Include="Forms\Admin\APRAdd.resx" />
-    <EmbeddedResource Include="Forms\Admin\APRUpdate.resx" />
-    <EmbeddedResource Include="Forms\Admin\Delete.resx" />
+    <EmbeddedResource Include="Forms\Admin\AdminUpdatingPage.resx">
+      <DependentUpon>AdminUpdatingPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\APRAdd.resx">
+      <DependentUpon>APRAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\APRUpdate.resx">
+      <DependentUpon>APRUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Admin\Delete.resx">
+      <DependentUpon>Delete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Salesman\SalesmanDashboard.resx">
       <DependentUpon>SalesmanDashboard.cs</DependentUpon>
     </EmbeddedResource>

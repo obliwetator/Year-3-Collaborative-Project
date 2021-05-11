@@ -72,6 +72,14 @@ namespace GroupProject.Forms.Admin
 
 
     }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminDashboard f3 = new AdminDashboard();
+            f3.Show();
+
+        }
     }
 }
 
