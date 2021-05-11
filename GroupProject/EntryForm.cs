@@ -103,5 +103,12 @@ namespace GroupProject
       lblTotalCost.Text ="£" + totalPrice.ToString();
     }
 
+    private void btnBack_Click(object sender, EventArgs e)
+    {
+      // Completely delete
+      this.Close();
+
+      _formRef.Show();
+    }
   }
 }
