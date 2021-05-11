@@ -38,8 +38,8 @@ namespace GroupProject.Forms.Admin
         {
             this.Hide();
             // TODO: Create adding car form
-            //AddingCar f6 = new AddingCar();
-            //f6.Show();
+            AddingCar f6 = new AddingCar();
+            f6.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -81,16 +81,23 @@ namespace GroupProject.Forms.Admin
 
         }
 
-       /* private void InitializeComponent()
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            this.SuspendLayout();
-            // 
-            // AdminDashboard
-            // 
-            this.ClientSize = new System.Drawing.Size(721, 388);
-            this.Name = "AdminDashboard";
-            this.ResumeLayout(false);
+            this.Close();
+            Login f1 = new Login();
+            f1.Show();
+        }
 
-        }*/
+        /* private void InitializeComponent()
+         {
+             this.SuspendLayout();
+             // 
+             // AdminDashboard
+             // 
+             this.ClientSize = new System.Drawing.Size(721, 388);
+             this.Name = "AdminDashboard";
+             this.ResumeLayout(false);
+
+         }*/
     }
 }
