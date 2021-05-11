@@ -21,5 +21,6 @@ namespace GroupProject
       Application.SetCompatibleTextRenderingDefault(false);
       Application.Run(new Login());
     }
+   }
   }
 }

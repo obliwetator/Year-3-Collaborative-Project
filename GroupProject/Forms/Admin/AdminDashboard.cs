@@ -62,5 +62,35 @@ namespace GroupProject.Forms.Admin
 
             userConfirmCarChoice.Show();
         }
+
+       /* private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AdminDashboard
+            // 
+            this.ClientSize = new System.Drawing.Size(1240, 517);
+            this.Name = "AdminDashboard";
+            this.Load += new System.EventHandler(this.AdminDashboard_Load);
+            this.ResumeLayout(false);
+
+        }*/
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+
+        }
+
+       /* private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // AdminDashboard
+            // 
+            this.ClientSize = new System.Drawing.Size(721, 388);
+            this.Name = "AdminDashboard";
+            this.ResumeLayout(false);
+
+        }*/
     }
 }
