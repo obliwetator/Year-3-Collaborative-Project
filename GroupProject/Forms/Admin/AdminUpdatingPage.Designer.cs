@@ -30,6 +30,7 @@ namespace GroupProject.Forms.Admin
         private void InitializeComponent()
         {
             this.lblDashbord = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblDashbord
@@ -43,11 +44,22 @@ namespace GroupProject.Forms.Admin
             this.lblDashbord.TabIndex = 7;
             this.lblDashbord.Text = "Admin Dashbord";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(12, 387);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(91, 51);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // AdminUpdatingPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.lblDashbord);
             this.Name = "AdminUpdatingPage";
             this.Text = "AdminUpdatingPage";
@@ -59,5 +71,6 @@ namespace GroupProject.Forms.Admin
         #endregion
 
         private System.Windows.Forms.Label lblDashbord;
+        private System.Windows.Forms.Button btnBack;
     }
 }

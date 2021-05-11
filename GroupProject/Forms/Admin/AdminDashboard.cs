@@ -38,8 +38,8 @@ namespace GroupProject.Forms.Admin
         {
             this.Hide();
             // TODO: Create adding car form
-            //AddingCar f6 = new AddingCar();
-            //f6.Show();
+            AddingCar f6 = new AddingCar();
+            f6.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

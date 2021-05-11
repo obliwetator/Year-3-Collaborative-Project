@@ -8,5 +8,12 @@ namespace GroupProject.Forms.Admin
         {
             InitializeComponent();
         }
+
+        private void btnBack_Click(object sender, System.EventArgs e)
+        {
+            this.Close();
+            AdminDashboard f3 = new AdminDashboard();
+            f3.Show();
+        }
     }
 }
