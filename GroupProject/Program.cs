@@ -22,5 +22,5 @@ namespace GroupProject
       Application.Run(new Login());
     }
    }
-  }
 }
+
