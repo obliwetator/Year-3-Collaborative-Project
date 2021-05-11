@@ -135,6 +135,7 @@ namespace GroupProject.Forms.Admin
             this.btnLogOut.TabIndex = 14;
             this.btnLogOut.Text = "Logout";
             this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
             // 
             // AdminDashboard
             // 

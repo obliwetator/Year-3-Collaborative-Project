@@ -1,9 +1,13 @@
 ﻿using System.Windows.Forms;
+using MySql.Data.Common;
+using MySql.Data;
+using GroupProject.Classes;
 
 namespace GroupProject.Forms.Admin
 {
     public partial class AdminUpdatingPage : Form
     {
+        private const string conString = "server=plesk.remote.ac;user=ws330584_dealership;database=ws330584_dealership;password=Password123;CharSet=UTF8;";
         public AdminUpdatingPage()
         {
             InitializeComponent();
