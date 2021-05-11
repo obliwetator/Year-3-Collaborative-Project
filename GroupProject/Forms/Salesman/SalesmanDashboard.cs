@@ -8,9 +8,11 @@ namespace GroupProject.Forms.Salesman
   public partial class SalesmanDashboard : Form
   {
     private readonly int _salesmanId;
-    public SalesmanDashboard(int salesmanId = 4)
+    Form _formRef;
+    public SalesmanDashboard(Form formRef, int salesmanId = 4)
     {
       this._salesmanId = clsUser.ID1;
+      this._formRef = formRef;
       InitializeComponent();
     }
     
@@ -40,6 +42,15 @@ namespace GroupProject.Forms.Salesman
       };
 
       userConfirmCarChoice.Show();
+    }
+
+    private void btnBack_Click(object sender, EventArgs e)
+    {
+      _formRef.Show();
+
+      this.Close();
+
+
     }
   }
 }

@@ -39,11 +39,12 @@ namespace GroupProject
       this.label1 = new System.Windows.Forms.Label();
       this.lblTotalCost = new System.Windows.Forms.Label();
       this.label8 = new System.Windows.Forms.Label();
+      this.btnBack = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // lblCarId
       // 
-      this.lblCarId.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+      this.lblCarId.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.lblCarId.Location = new System.Drawing.Point(70, 58);
       this.lblCarId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
       this.lblCarId.Name = "lblCarId";
@@ -130,11 +131,21 @@ namespace GroupProject
       this.label8.TabIndex = 19;
       this.label8.Text = "Total Cost";
       // 
+      // btnBack
+      // 
+      this.btnBack.Location = new System.Drawing.Point(13, 619);
+      this.btnBack.Name = "btnBack";
+      this.btnBack.Size = new System.Drawing.Size(103, 50);
+      this.btnBack.TabIndex = 21;
+      this.btnBack.Text = "Back";
+      this.btnBack.UseVisualStyleBackColor = true;
+      // 
       // EntryForm
       // 
-      this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+      this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1264, 681);
+      this.Controls.Add(this.btnBack);
       this.Controls.Add(this.lblTotalCost);
       this.Controls.Add(this.label8);
       this.Controls.Add(this.label1);
@@ -145,13 +156,14 @@ namespace GroupProject
       this.Controls.Add(this.lblType);
       this.Controls.Add(this.lblModel);
       this.Controls.Add(this.lblCarId);
-      this.Font = new System.Drawing.Font("JetBrains Mono", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+      this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
       this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
       this.Name = "EntryForm";
       this.Text = "Form1";
       this.Load += new System.EventHandler(this.Form1_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
+
     }
 
     private System.Windows.Forms.Label label8;
@@ -171,6 +183,8 @@ namespace GroupProject
     private System.Windows.Forms.Label lblCarId;
 
     #endregion
+
+    private System.Windows.Forms.Button btnBack;
   }
 }
 

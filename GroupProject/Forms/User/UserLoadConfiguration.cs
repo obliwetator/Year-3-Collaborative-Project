@@ -16,12 +16,13 @@ namespace GroupProject.Forms.User
 		private readonly int _userId;
 		private Tuple<List<ClsUserConfiguration>, List<ClsUserCarConfiguration>> _configs;
 		private Dictionary<int, ClsCar> _cars;
-
+		private Form _formRef;
 		private UserSaveLoadConfig _config;
 		// Temporary hardcoded value
-		public UserLoadConfiguration(int userId = 1)
+		public UserLoadConfiguration(Form formRef, int userId = 1)
 		{
 			this._userId = userId;
+			this._formRef = formRef;
 			InitializeComponent();
 		}
 
@@ -72,7 +73,7 @@ namespace GroupProject.Forms.User
 			
 			AddModsToCar();
 			this.Hide();
-			Form userConfirmCarChoice = new UserConfirmCarChoice(car, _userId, description)
+			Form userConfirmCarChoice = new UserConfirmCarChoice(car, _userId, description, this)
 			{
 				Location = this.Location,
 				Size = this.Size,
@@ -94,5 +95,12 @@ namespace GroupProject.Forms.User
 				}
 			}
 		}
-	}
+
+    private void btnBack_Click(object sender, EventArgs e)
+    {
+			this.Hide();
+
+			_formRef.Show();
+    }
+  }
 }

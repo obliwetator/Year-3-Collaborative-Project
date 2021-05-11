@@ -30,25 +30,28 @@ namespace GroupProject.Forms.User
 		private List<ClsApr> _apr;
 		private int _aprSelected;
 		private float _totalPrice;
+		private Form _formRef;
 
 		// Default flow
 		public  UserConfirmCarChoice(ClsCar car, int userId,
-			Dictionary<int, CarCustomizationAvailable> carConfigurationsAvailable, string txtCommentText)
+			Dictionary<int, CarCustomizationAvailable> carConfigurationsAvailable, string txtCommentText, Form formRef)
 		{
 			this._car = car;
 			this._userId = userId;
 			this._carConfigurationsAvailable = carConfigurationsAvailable;
 			this._comment = txtCommentText;
+			this._formRef = formRef;
 			InitializeComponent();
 		}
 		
 		// User tries to load a configuration
-		public  UserConfirmCarChoice(ClsCar car, int userId, string txtCommentText)
+		public  UserConfirmCarChoice(ClsCar car, int userId, string txtCommentText, Form formRef)
 		{
 			this._car = car;
 			this._userId = userId;
 			this._comment = txtCommentText;
 			this._carConfigurationsAvailable = ClsDatabase.GetCarConfigurationsAvailable(car.Id);
+			this._formRef = formRef;
 			InitializeComponent();
 		}
 
@@ -327,6 +330,11 @@ namespace GroupProject.Forms.User
 			}
 		}
 
+    private void btnBack_Click(object sender, EventArgs e)
+    {
+			this.Hide();
 
-	}
+			_formRef.Show();
+    }
+  }
 }

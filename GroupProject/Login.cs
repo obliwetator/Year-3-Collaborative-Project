@@ -77,7 +77,7 @@ namespace GroupProject
 			}
         	else if  (String.Equals(clsUser.SUser_type, "Sales"))
         	{
-        	     var salesman = new SalesmanDashboard();
+        	     var salesman = new SalesmanDashboard(this);
         	     this.Hide();
         	     salesman.Show();
         	}
